@@ -24,8 +24,12 @@
 
 ## 현재 구성
 
-- `llm/config.py`: Qwen API 키, base URL, 모델명을 환경 변수에서 읽습니다.
+- `llm/config.py`: Qwen API 키, base URL, 모델명, 이미지 크기 제한을 환경 변수에서 읽습니다.
 - `llm/qwen_client.py`: `openai` 라이브러리로 Qwen OpenAI-compatible API 클라이언트를 생성합니다.
+- `llm/media.py`: 이미지 파일을 검증하고 `util/image_processing.py`로 WebP 정규화한 뒤 Vision 요청용 base64 data URL로 변환합니다.
+- `llm/service.py`: JSON 응답을 기대하는 내부 LLM task를 실행하고 Pydantic 모델로 검증합니다.
+- `llm/schemas.py`: 시간표 추출 결과 스키마와 요일/시간 정규화 규칙을 정의합니다.
+- `llm/tasks/timetable.py`: 시간표 이미지에서 수업 정보를 추출하는 내부 task를 제공합니다.
 
 ## 사용 모델
 
@@ -37,13 +41,15 @@
 QWEN_API_KEY=replace-with-your-api-key
 QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 QWEN_MODEL=qwen3-vl-flash
+LLM_MAX_IMAGE_BYTES=10485760
 ```
 
 ## 현재 구현 범위
 
-현재 `llm` 디렉터리는 실제 이미지 분석 API 라우터를 아직 제공하지 않고, 모델 호출을 위한 설정과 클라이언트 생성을 담당합니다.
+현재 `llm` 디렉터리는 실제 이미지 분석 API 라우터를 제공하지 않습니다. 추천 API나 백엔드 내부 로직에서 import해서 사용하는 내부 모듈로만 관리합니다.
 
 - `get_qwen_client()`: `QWEN_API_KEY`, `QWEN_BASE_URL`을 사용해 OpenAI-compatible 클라이언트를 생성합니다.
 - `get_qwen_model_name()`: 현재 사용할 모델명을 반환합니다.
+- `extract_timetable_from_image_bytes()`: 이미지 bytes를 받아 시간표 JSON 추출 결과를 반환합니다.
 
-추후 시간표 또는 포스터 이미지 분석 기능은 이 클라이언트를 사용해 JSON 응답 스키마를 고정하는 방식으로 확장합니다.
+추후 비교과 프로그램 포스터 이미지 분석이나 크롤링 텍스트 정리 기능은 `llm/tasks/`에 task를 추가하고 `LLMService`를 재사용하는 방식으로 확장합니다.

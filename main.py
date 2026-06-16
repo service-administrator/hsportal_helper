@@ -10,6 +10,7 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.api.heartbeat import router as heartbeat_router
 from backend.api.hsportal import router as hsportal_router
+from backend.api.timetable import router as timetable_router
 from backend.config import get_backend_settings
 from backend.hsportal.crawler import CrawlCancelled, HsportalCrawler
 from util.logging_config import configure_logging
@@ -104,6 +105,7 @@ def create_app() -> FastAPI:
 
     app.include_router(heartbeat_router, prefix="/api")
     app.include_router(hsportal_router, prefix="/api")
+    app.include_router(timetable_router, prefix="/api")
 
     @app.middleware("http")
     async def log_http_requests(request: Request, call_next):

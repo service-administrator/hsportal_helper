@@ -4,7 +4,7 @@
     "schema_version": "hsportal_programs_v2",
     "base_url": "https://hsportal.hansung.ac.kr",
     "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
-    "crawled_at": "2026-06-16T21:35:20+09:00",
+    "crawled_at": "2026-06-17T01:50:25+09:00",
     "filter": {
       "status": "wait",
       "label": "접수(대기)중",
@@ -15,8 +15,8 @@
       ]
     },
     "counts": {
-      "listed": 29,
-      "saved": 29,
+      "listed": 28,
+      "saved": 28,
       "pages": 3
     },
     "cursor": {
@@ -74,7 +74,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 41
+        "hits": 61
       },
       "flags": {
         "is_talent_certified": false,
@@ -117,7 +117,7 @@
           "size_text": "198.20KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:35:20+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13915",
@@ -126,11 +126,11 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-12",
+        "badge": "D-11",
         "accepting": true
       },
-      "points": 12,
-      "type": "주제별 상이",
+      "points": 11,
+      "type": "개인",
       "application_period": {
         "start_at": "2026-06-15T09:00:00+09:00",
         "end_at": "2026-06-28T23:45:59+09:00"
@@ -159,13 +159,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85246/cover.jpg?ts=1781488965",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85551/1.png?ts=0",
-          "https://hsportal.hansung.ac.kr/attachment/view/85552/2.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 130
+        "hits": 159
       },
       "flags": {
         "is_talent_certified": true,
@@ -226,7 +223,7 @@
           "size_text": "1.03MB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:16+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13906",
@@ -239,7 +236,7 @@
         "accepting": true
       },
       "points": 13,
-      "type": "주제별 상이",
+      "type": "개인",
       "application_period": {
         "start_at": "2026-06-04T09:00:00+09:00",
         "end_at": "2026-06-30T15:00:59+09:00"
@@ -268,12 +265,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85104/cover.jpg?ts=1781584829",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85094/%EC%97%AC%EB%A6%84%EA%B8%80%EB%B0%A9+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 371
+        "hits": 391
       },
       "flags": {
         "is_talent_certified": false,
@@ -328,7 +323,7 @@
           "size_text": "72.19KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:17+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13922",
@@ -340,7 +335,7 @@
         "badge": "D-2",
         "accepting": true
       },
-      "points": 30,
+      "points": 2,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T09:30:00+09:00",
@@ -365,14 +360,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781228894",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85491/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88001.jpg?ts=0",
-          "https://hsportal.hansung.ac.kr/attachment/view/85498/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88002.jpg?ts=0",
-          "https://hsportal.hansung.ac.kr/attachment/view/85493/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EB%AA%A8%EC%A7%91%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 302
+        "hits": 326
       },
       "flags": {
         "is_talent_certified": false,
@@ -468,7 +459,7 @@
           "size_text": "467.79KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:18+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13790",
@@ -481,7 +472,7 @@
         "accepting": true
       },
       "points": 5,
-      "type": "주제별 상이",
+      "type": "개인",
       "application_period": {
         "start_at": "2026-05-18T09:00:00+09:00",
         "end_at": "2026-06-22T09:00:59+09:00"
@@ -525,12 +516,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/83751/cover.jpg?ts=1778810179",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/84433/1778117743917.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 839
+        "hits": 860
       },
       "flags": {
         "is_talent_certified": false,
@@ -539,8 +528,8 @@
       },
       "tags": [
         "태니지먼트검사",
-        "자기이해",
         "라이프디자인스쿨",
+        "자기이해",
         "강점",
         "적성 탐색"
       ],
@@ -585,7 +574,7 @@
           "size_text": "463.88KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:19+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13917",
@@ -597,7 +586,7 @@
         "badge": "D-9",
         "accepting": true
       },
-      "points": 45,
+      "points": 9,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-08T09:00:00+09:00",
@@ -622,12 +611,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85301/cover.jpg?ts=1780876448",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85307/26-%EC%97%AC%EB%A6%84+3D+%EC%BD%98%ED%85%90%EC%B8%A0+%EC%A0%9C%EC%9E%91_%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 295
+        "hits": 310
       },
       "flags": {
         "is_talent_certified": false,
@@ -674,7 +661,7 @@
           "size_text": "1.67MB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:19+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13921",
@@ -683,11 +670,11 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-12",
+        "badge": "D-11",
         "accepting": true
       },
-      "points": 12,
-      "type": "주제별 상이",
+      "points": 11,
+      "type": "개인",
       "application_period": {
         "start_at": "2026-06-15T09:00:00+09:00",
         "end_at": "2026-06-28T23:45:59+09:00"
@@ -709,19 +696,17 @@
         "department": "학생진로취업처 학생생활상담센터"
       },
       "participants": {
-        "current": 27,
+        "current": 28,
         "capacity": 50,
         "max_apply": null,
         "is_unlimited": false
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85278/cover.jpg?ts=1780633854",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85280/2026-%EC%9E%90%EA%B8%B0%EC%84%B1%EC%9E%A5-%EC%8B%AC%EB%A6%AC%EC%A6%9D%EC%A7%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B3%B5%EC%82%AC%EB%B3%B8-001.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 111
+        "hits": 131
       },
       "flags": {
         "is_talent_certified": false,
@@ -767,7 +752,7 @@
           "size_text": "440.75KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:20+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13926",
@@ -779,7 +764,7 @@
         "badge": "D-9",
         "accepting": true
       },
-      "points": 10,
+      "points": 9,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T09:00:00+09:00",
@@ -804,13 +789,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85464/cover.jpg?ts=1781226155",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85463/2026-1+%EC%9C%B5%ED%95%A9%ED%8A%9C%ED%84%B0%EB%A7%81+%EC%84%B1%EA%B3%BC%EA%B3%B5%EC%9C%A0%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
-          "https://hsportal.hansung.ac.kr/attachment/view/85474/1781224790706.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 91
+        "hits": 107
       },
       "flags": {
         "is_talent_certified": false,
@@ -865,7 +847,7 @@
           "size_text": "43.71KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:21+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13914",
@@ -877,7 +859,7 @@
         "badge": "D-4",
         "accepting": true
       },
-      "points": 60,
+      "points": 4,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-08T09:00:00+09:00",
@@ -902,12 +884,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85223/cover.jpg?ts=1780633506",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/68991/AI%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%8B%A4%EC%83%9D%ED%99%9C-%EC%82%AC%EB%A1%80-001.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 1173
+        "hits": 1215
       },
       "flags": {
         "is_talent_certified": false,
@@ -917,8 +897,8 @@
       "tags": [
         "AI",
         "여름방학",
-        "AI를이용한실생활사례",
         "실생활",
+        "AI를이용한실생활사례",
         "AI를이용한 실생활 사례"
       ],
       "target": {
@@ -956,7 +936,7 @@
           "size_text": "330.51KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:22+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13930",
@@ -968,7 +948,7 @@
         "badge": "D-3",
         "accepting": true
       },
-      "points": 10,
+      "points": 3,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-16T08:00:00+09:00",
@@ -996,7 +976,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 53
+        "hits": 75
       },
       "flags": {
         "is_talent_certified": false,
@@ -1032,19 +1012,19 @@
         "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 진행 시간: 2시간 예정 ○ 참여 대상 : 한성대학교 재학생 중 공연 관람자 ○ 개설 목적 : 타 전공 재학생들에게 26-1학기 재학기간 동안의 공연준비 과정을 거친 한국무용전공 재학생들의 한국무용공연 관람을 통해 우리나라 고유의 전통문화와 춤을 즐길 수 있는 예술향유의 기회를 제공하고자 함. ○ 비교과포인트 지급 : 10pt 지급(신청 후 관람자 명단 작성)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:22+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13929",
       "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13929/description",
       "title": "2026-1학기 예술학부 한국무용전공 쇼케이스",
       "status": {
-        "code": "scheduled",
-        "label": "접수예정",
-        "badge": null,
-        "accepting": false
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-3",
+        "accepting": true
       },
-      "points": 15,
+      "points": 3,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-17T00:00:00+09:00",
@@ -1072,7 +1052,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 28
+        "hits": 55
       },
       "flags": {
         "is_talent_certified": false,
@@ -1108,7 +1088,7 @@
         "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 참여 대상 : 한국무용전공트랙 재학생 중 희망자 ○ 개설 목적 : 26-1학기 재학 기간 동안 한국무용전공 재학생들이 전공수업을 통해 향상된 전공실기역량을 무대에서 선보이는 과정에서 무용관련 전문지식을 취득하고 자신의 진로를 탐색하게 하고자 함. ○ 프로그램 구성: 전공레파토리, 특강레파토리, 졸업예비작품이 포함된 총 9개의 작품으로 구성, 총 2시간 진행 예상. ○ 비교과포인트 지급 : 15pt"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:23+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13927",
@@ -1120,7 +1100,7 @@
         "badge": "D-2",
         "accepting": true
       },
-      "points": 10,
+      "points": 2,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T00:00:00+09:00",
@@ -1145,12 +1125,10 @@
       },
       "media": {
         "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85495/cover.jpg?ts=1781228881",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/85490/2026-1+%EC%A2%85%EA%B0%95%EC%B4%9D%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
-        ]
+        "content_images": []
       },
       "metrics": {
-        "hits": 25
+        "hits": 36
       },
       "flags": {
         "is_talent_certified": false,
@@ -1193,106 +1171,7 @@
           "size_text": "212.04KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:24+09:00"
-    },
-    {
-      "id": "13890",
-      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13890/description",
-      "title": "[대플] 26-1학기 기업탐색 특강",
-      "status": {
-        "code": "open",
-        "label": "접수중",
-        "badge": "임박",
-        "accepting": true
-      },
-      "points": 5,
-      "type": "개인",
-      "application_period": {
-        "start_at": "2026-05-25T00:00:00+09:00",
-        "end_at": "2026-06-16T23:45:00+09:00"
-      },
-      "schedules": [
-        {
-          "start_at": "2026-06-18T10:00:00+09:00",
-          "end_at": "2026-06-18T11:30:00+09:00",
-          "location": "상상관 206호"
-        }
-      ],
-      "organization": {
-        "name": "행정부서 학생진로취업처",
-        "department": "대학일자리플러스센터 지역청년고용팀"
-      },
-      "participants": {
-        "current": 56,
-        "capacity": 75,
-        "max_apply": null,
-        "is_unlimited": false
-      },
-      "media": {
-        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84816/cover.jpg?ts=1779842285",
-        "content_images": [
-          "https://hsportal.hansung.ac.kr/attachment/view/84990/0618.jpg?ts=0"
-        ]
-      },
-      "metrics": {
-        "hits": 1230
-      },
-      "flags": {
-        "is_talent_certified": false,
-        "is_recommended": false,
-        "is_excellent": false
-      },
-      "tags": [
-        "대학일자리플러스센터",
-        "재학생",
-        "졸업생특화",
-        "기업분석",
-        "취업전략",
-        "중소기업중앙회",
-        "강소기업"
-      ],
-      "target": {
-        "audiences": [
-          "재학생",
-          "휴학생",
-          "수료생",
-          "졸업생",
-          "졸업유예",
-          "대학원생",
-          "외부인"
-        ],
-        "grades": [
-          "전체 학년"
-        ],
-        "gender": "전체 성별",
-        "departments": [
-          "전체 학과"
-        ]
-      },
-      "category": {
-        "main": "진로·취업지원",
-        "sub": "특강·워크숍"
-      },
-      "contact": {
-        "email": "hswye@hansung.kr",
-        "phone": "02-760-5840",
-        "location": "상상관 206호"
-      },
-      "duration_hours": 1.5,
-      "session_count": 1,
-      "content": {
-        "summary": "[중소기업중앙회 X 한성대대플] 우수 중소기업 진로취업 치트키 설명회 나만 모르는 '숨은 보석' 같은 알짜 강소기업 을 단 90분 만에 골라내는 치트키를 전수합니다! 재미있는 게임과 퀴즈로 혜택도 챙기고, 졸업 전후 나만의 완벽한 취업 전략(CDP)까지 한 번에 가져가세요! ○ 대상 :",
-        "description_text": "[중소기업중앙회 X 한성대대플] 우수 중소기업 진로취업 치트키 설명회 나만 모르는 '숨은 보석' 같은 알짜 강소기업 을 단 90분 만에 골라내는 치트키를 전수합니다! 재미있는 게임과 퀴즈로 혜택도 챙기고, 졸업 전후 나만의 완벽한 취업 전략(CDP)까지 한 번에 가져가세요! ○ 대상 : 재학생, 졸업(예정)자 ,지역청년 *지역청년의 [ 한성대학교 회원가입 후][ 신청 가능] ○ 일시: : 2026.06.18.(목) 오전10시~ 오전11시 30분(90분) ○ 장소: 상상관 2층 206호 ○ 신청 기간: ~ 26.06.16.(화) 23:59 ○ 참여자 혜택 : 이수자 5pt 지급 ○ 프로그램 관련 문의: 대학일자리플러스센터 원영은T 02-760-5840 . hswye@hansung.kr ○ 주요 내용"
-      },
-      "attachments": [
-        {
-          "file_name": "0618.jpg",
-          "url": "https://hsportal.hansung.ac.kr/attachment/download/84990/0618.jpg?ts=0",
-          "extension": "jpg",
-          "size_text": "213.68KB"
-        }
-      ],
-      "last_seen_at": "2026-06-16T21:27:25+09:00"
+      "last_seen_at": "2026-06-17T01:50:25+09:00"
     },
     {
       "id": "13870",
@@ -1301,7 +1180,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-14",
+        "badge": "D-13",
         "accepting": true
       },
       "points": 20,
@@ -1334,7 +1213,7 @@
         ]
       },
       "metrics": {
-        "hits": 469
+        "hits": 486
       },
       "flags": {
         "is_talent_certified": true,
@@ -1404,7 +1283,7 @@
           "size_text": "1.19MB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:26+09:00"
+      "last_seen_at": "2026-06-17T01:49:48+09:00"
     },
     {
       "id": "13787",
@@ -1413,7 +1292,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-10",
+        "badge": "D-9",
         "accepting": true
       },
       "points": 20,
@@ -1446,7 +1325,7 @@
         ]
       },
       "metrics": {
-        "hits": 940
+        "hits": 957
       },
       "flags": {
         "is_talent_certified": true,
@@ -1457,11 +1336,11 @@
         "창의융합",
         "대회",
         "C&CFestival",
-        "성과경진대회",
         "Festival",
+        "성과경진대회",
         "경진대회",
-        "창의융합역량경진대회",
-        "창의융합역량"
+        "창의융합역량",
+        "창의융합역량경진대회"
       ],
       "target": {
         "audiences": [
@@ -1504,7 +1383,7 @@
           "size_text": "74.75KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:26+09:00"
+      "last_seen_at": "2026-06-17T01:49:48+09:00"
     },
     {
       "id": "13721",
@@ -1513,10 +1392,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-14",
+        "badge": "D-13",
         "accepting": true
       },
-      "points": 14,
+      "points": 13,
       "type": "주제별 상이",
       "application_period": {
         "start_at": "2026-06-01T00:00:00+09:00",
@@ -1551,7 +1430,7 @@
         ]
       },
       "metrics": {
-        "hits": 485
+        "hits": 499
       },
       "flags": {
         "is_talent_certified": true,
@@ -1633,7 +1512,7 @@
           "size_text": "1.15MB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:27+09:00"
+      "last_seen_at": "2026-06-17T01:49:48+09:00"
     },
     {
       "id": "13841",
@@ -1642,7 +1521,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-14",
+        "badge": "D-13",
         "accepting": true
       },
       "points": 3,
@@ -1663,7 +1542,7 @@
         "department": "학생진로취업처 학생생활상담센터"
       },
       "participants": {
-        "current": 950,
+        "current": 951,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -1675,7 +1554,7 @@
         ]
       },
       "metrics": {
-        "hits": 2917
+        "hits": 2933
       },
       "flags": {
         "is_talent_certified": false,
@@ -1721,7 +1600,7 @@
           "size_text": "383.29KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:28+09:00"
+      "last_seen_at": "2026-06-17T01:49:48+09:00"
     },
     {
       "id": "13879",
@@ -1730,7 +1609,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-198",
+        "badge": "D-197",
         "accepting": true
       },
       "points": 5,
@@ -1751,7 +1630,7 @@
         "department": "한성인권센터"
       },
       "participants": {
-        "current": 370,
+        "current": 371,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -1761,7 +1640,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 798
+        "hits": 813
       },
       "flags": {
         "is_talent_certified": false,
@@ -1769,11 +1648,11 @@
         "is_excellent": false
       },
       "tags": [
+        "예방교육",
+        "폭력예방",
         "예방",
         "폭력",
-        "폭력예방교육",
-        "예방교육",
-        "폭력예방"
+        "폭력예방교육"
       ],
       "target": {
         "audiences": [
@@ -1804,7 +1683,7 @@
         "description_text": "한성인권센터에서는 폭력예방교육을 통해 올바른 성 인식을 형성하여 건강하고 성평등한 분위기를 정착시키고, 피해 예방 및 대처능력을 함양하여 안전한 캠퍼스 문화를 구축하고자 본 교육을 진행합니다. ※ 본 교육은 한성 e-class 를 통한 온라인 강의 입니다. ------------------------------------------------------------------------------------------ 2026년 학부생 온라인 폭력예방교육 ○ 운영일시 : 2026년 5월 18일(월)~2026년 12월 31일(목) ○ 교육대상 : 재학생 (휴학생 및 학위취득 유예학생 제외) ○ 강의시간 : 2시간(1시간 분량의 동영상 2종, 모두 이수하여야 함) ○ 신청방법 1) 한성 e-class → 커뮤니티 → 나의 커뮤니티 「2026년 학부생 폭력예방교육」 수강 2) 스마트자기관리 시스템 → 신청 및 교육만족도 조사 또는 1) 스마트자기관리 시스템 → 신청 2) 한성 e-class → 커뮤니티 → 나의 커뮤니티 「2026년 대학생 폭력 예방교육」 수강 3) 스마트자기관리 시스템 → 교육만족도 조사 ○ 이수혜택 : 비교과포인트 최대 10P ( 교육 이수 후 만족도 조사 완료 시, 프로그램 종료 후 일괄 지급) - 1개 과정만 이수시 5포인트 지급, 2개 과정 모두 이수시 10포인트 지급 ※ 문의 : 한성인권센터(02-760-4483 / humanright@hansung.ac.kr )"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:29+09:00"
+      "last_seen_at": "2026-06-17T01:49:49+09:00"
     },
     {
       "id": "13821",
@@ -1813,7 +1692,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-10",
+        "badge": "D-9",
         "accepting": true
       },
       "points": 5,
@@ -1834,7 +1713,7 @@
         "department": "학생진로취업처 학생생활상담센터"
       },
       "participants": {
-        "current": 1099,
+        "current": 1102,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -1846,7 +1725,7 @@
         ]
       },
       "metrics": {
-        "hits": 2522
+        "hits": 2543
       },
       "flags": {
         "is_talent_certified": false,
@@ -1854,10 +1733,10 @@
         "is_excellent": false
       },
       "tags": [
-        "게이트키퍼",
-        "자살예방교육",
         "생명존중교육",
-        "학생생활상담센터"
+        "학생생활상담센터",
+        "게이트키퍼",
+        "자살예방교육"
       ],
       "target": {
         "audiences": [
@@ -1898,7 +1777,7 @@
           "size_text": "160.21KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:30+09:00"
+      "last_seen_at": "2026-06-17T01:49:49+09:00"
     },
     {
       "id": "13776",
@@ -1907,7 +1786,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-75",
+        "badge": "D-74",
         "accepting": true
       },
       "points": 15,
@@ -1938,7 +1817,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 727
+        "hits": 737
       },
       "flags": {
         "is_talent_certified": false,
@@ -1974,7 +1853,7 @@
         "description_text": "[공공행정트랙, 법&정책트랙 법학연구회] 1. 활동기간: 2026년도 1학기 2. 목적: 로스쿨을 희망하는 학생들을 위해 LEET 모의면접, PBL토론 등의 활동을 진행하여, 로스쿨 면접 및 필기를 대비하기 위함. 2. 활동내용 (1) LEET 필기 스터디 (2) 모의면접 스터디 - 지도교수가 면접관이 되어 실제 로스쿨 면접을 모의로 진행하여 면접 경험을 쌓음. (3) PBL 토론 - 실제 사회이슈 중 면접에 나올법한 주제를 지도교수가 선정 후 출제하여 이에 대한 토론을 진행함 (4) 법학 관련 공모전 지원 - 환경법, 국민아이디어 공모제 등 실제 진행되고 있는 공모전에 지원하여 관련 경험을 쌓음 (5) 학술대회 참여 - AI, 전기 산업 등의 현제 제도적 과도기에 있는 법학과 연관있는 산업 학술대회를 탐방하며 식견을 넓힘 3. 대면활동계획 1회차: OT(1H) 2회차: 로스쿨 모의면접(2H) 3회차: PBL 토론 진행(2H) 4회차:모의면접(2H) 4. 지도교수: 한명진 5. 비교과포인트: 기본 15pt + 대면 출석률에 따른 차등지급(주차별 활동마다 5pt 추가되며, 최대 30P까지 지급)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:30+09:00"
+      "last_seen_at": "2026-06-17T01:49:49+09:00"
     },
     {
       "id": "13767",
@@ -2016,7 +1895,7 @@
         ]
       },
       "metrics": {
-        "hits": 1208
+        "hits": 1219
       },
       "flags": {
         "is_talent_certified": false,
@@ -2024,8 +1903,8 @@
         "is_excellent": false
       },
       "tags": [
-        "전공설계",
-        "전공탐색"
+        "전공탐색",
+        "전공설계"
       ],
       "target": {
         "audiences": [
@@ -2062,7 +1941,7 @@
           "size_text": "252.39KB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:31+09:00"
+      "last_seen_at": "2026-06-17T01:49:49+09:00"
     },
     {
       "id": "13838",
@@ -2102,7 +1981,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 521
+        "hits": 533
       },
       "flags": {
         "is_talent_certified": false,
@@ -2138,7 +2017,7 @@
         "description_text": "1. 학생홍보대사 하랑 자체행사 진행 1) 학생홍보대사 선발, 워크숍 진행 2) 홍보동영상 촬영, 홍보사진 촬영 3) 신입생 오리엔테이션 지원, 신입생 새내기 배움터 지원, 대동제 지원 4) 재학생 대상 이벤트 기획 5) 지역사회 봉사활동 지원 등 2. 입학관리팀 업무 지원 1) 고교 방문 입시 설명회 참석 2) 수시·정시 박람회 상담, 교내 입시 행사 지원 등 3. 글로컬상생홍보팀 업무 지원 1) 지역사회 및 외부기관 주관 교외 행사 의전 2) 타 행정부서 주관 교내 행사 의전 3) 광고 홍보모델 활동 등"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:32+09:00"
+      "last_seen_at": "2026-06-17T01:49:49+09:00"
     },
     {
       "id": "13650",
@@ -2183,7 +2062,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1959
+        "hits": 1970
       },
       "flags": {
         "is_talent_certified": false,
@@ -2219,7 +2098,7 @@
         "description_text": "2026학년도 1학기 ESG 분야 관련 캠페인 활동 진행 1학기 예정 캠페인 활동 : 탄소중립 활동, 페트병 재활용 자판기 이용, 굿네이버스/밀알복지재단/휴먼인러브와 함께 진행하는 ESG 참여형 캠페인 등(추후 추가 및 수정 가능성 有) 모집 대상 ESG에 관심있는 한성대학교 재학생 신청 방법 1. 공지사항, 재학생 신청을 받아 진행 2. 스마트자기관리시스템 내의 프로그램 홍보게시판 또는 학교 홈페이지 공지사항을 통해 신청 경로 안내 참여 봉사활동 건 당 비교과포인트 5~20pt 지급 비교과 지급 방법 1. 1시간 이내의 프로그램: 5pt 지급 2. 2시간 이상의 프로그램: 10pt 지급 3. 3시간 이상의 프로그램: 15pt 지급 4. 4시간 이상의 프로그램: 20pt 지급 (최대 100pt까지 지급 가능)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:32+09:00"
+      "last_seen_at": "2026-06-17T01:49:50+09:00"
     },
     {
       "id": "13730",
@@ -2228,7 +2107,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-66",
+        "badge": "D-65",
         "accepting": true
       },
       "points": 10,
@@ -2259,7 +2138,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 924
+        "hits": 934
       },
       "flags": {
         "is_talent_certified": false,
@@ -2295,7 +2174,7 @@
         "description_text": "모든 외국인 유학생 대면 1 대 1 상담 ( 학과 유학생 담당 직원 ) <상담 내용> - 학과 외국인 유학생들의 학업, 생활, 진로, 심리 등 개별 맞춤형 상담 진행 ※2026년도 1학기 글로벌인재대학 신·편입생 필수 진행 ※상담 일정은 학생의 스케줄에 맞춰 개별적으로 진행 ※상담 장소는 학생과 1:1로 조율하며, 글로벌인재대학 교학팀 사무실(우촌관 306호 혹은 상상베이스 등) <설문조사> 외국인 유학생을 대상으로 제작된 FCPI 유학생 심리 건강 검사 실시 (교내 학생상담센터와 연계함) <진행 순서> 1. 학생과 일정 조율 2. 대면 상담 진행 3. 스마트자기관리 시스템에 상담 결과 입력 <비교과 포인트> 1회 상담 시, 10pt 지급 상담 전 FCPI 심리 건강 설문조사 참가 시, 5pt 추가 지급 (학기 최대 15Pt 지급)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:33+09:00"
+      "last_seen_at": "2026-06-17T01:49:50+09:00"
     },
     {
       "id": "13649",
@@ -2350,7 +2229,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1226
+        "hits": 1239
       },
       "flags": {
         "is_talent_certified": false,
@@ -2386,7 +2265,7 @@
         "description_text": "2026학년도 1학기 사회봉사 분야 관련 지역사회 봉사 진행 1학기 예정 봉사활동 : 거리청소 등(추후 추가 및 수정 가능성 有) ( 2025학년도 1학기에 진행했던 지역사회봉사 : 거리청소, 우체국공익재단 휠체어 농구대회 봉사활동 등) 모집 대상 지역사회봉사에 관심있는 한성대학교 재학생 신청 방법 1. 공지사항, 학생회 및 봉사단체의 홍보, 재학생 신청을 받아 진행 2. 스마트자기관리시스템 내의 프로그램 홍보게시판 또는 학교 홈페이지 공지사항을 통해 신청 경로 안내 참여 봉사활동 건 당 비교과포인트 5~20pt 지급 비교과 지급 방법 1시간 이내의 프로그램 : 5pt 지급 2시간 이상의 프로그램 : 10pt 지급 3시간 이상의 프로그램 : 15pt 지급 4시간 이상의 프로그램 : 20pt 지급 (최대 200pt까지 지급 가능)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:34+09:00"
+      "last_seen_at": "2026-06-17T01:49:50+09:00"
     },
     {
       "id": "13710",
@@ -2428,7 +2307,7 @@
         ]
       },
       "metrics": {
-        "hits": 1245
+        "hits": 1260
       },
       "flags": {
         "is_talent_certified": false,
@@ -2471,7 +2350,7 @@
           "size_text": "2.61MB"
         }
       ],
-      "last_seen_at": "2026-06-16T21:27:34+09:00"
+      "last_seen_at": "2026-06-17T01:49:50+09:00"
     },
     {
       "id": "13619",
@@ -2480,7 +2359,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-65",
+        "badge": "D-64",
         "accepting": true
       },
       "points": 100,
@@ -2511,7 +2390,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 675
+        "hits": 686
       },
       "flags": {
         "is_talent_certified": false,
@@ -2547,7 +2426,7 @@
         "description_text": "주차 내용 1주차 619호 신문 발행 및 배포 / 수습기자 • 수습국원 모집 2주차 620호 신문 아이템 회의 및 취재 / 유튜브 영상 콘텐츠 기획 3주차 620호 마감 및 보도 / 낙산가요제 준비 4주차 620호 신문 발행 및 배포 / 영상물 제작 및 편집 5주차 621호 신문 아이템 회의 및 취재 / 영상물 제작 및 편집 6주차 621호 마감 및 보도 / 영상물 제작 및 편집 7주차 중간고사 8주차 621호 신문 발행 및 배포 / 영상물 제작 및 편집 9주차 622호 신문 아이템 회의 및 취재 / 한성문학상 기획 및 홍보 10주차 622호 마감 및 보도 / 낙산가요제 진행 및 정산 11주차 622호 신문 발행 및 배포 / 영상물 제작 및 편집 12주차 623호 신문 아이템 회의 및 취재 / 조직별 방중 활동 계획 수립 13주차 623호 마감 및 보도 / 영상물 제작 및 편집 14주차 623호 신문 발행 및 배포 / 2026-1학기 평가회의 15주차 기말고사 ※ 영자신문사 주요 운영내용 - 영자신문 『Hansung Today』 2회 발행 (제161~162호) - 교내 영어수필대회 준비 및 진행 ※ 방송국 / 신문사 / 영자신문사 주요 공통 운영내용 - 교내 취재 및 보도 / 자체 수습기자 교육 실시 - 방중 외부 학생기자 교육 이수 : (사)민주언론운동시민연합 ※ 한성대신문사 주요 운영내용 - 한성대신문 5회 발행 (제619호~623호) - 교내 사진공모전 진행 ※ 한성대방송국 주요 운영내용 - 유튜브 방송 주 1회 업로드 및 그 외 SNS콘텐츠 제작 - 낙산가요제 진행 ※ 언론사 활동은 방중에는 1) 26학년도 2학기 활동 기획, 2) SNS콘텐츠 제작 및 게시, 3) 내(외)부 언론 및 미디어 교육활동이 진행됨."
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:35+09:00"
+      "last_seen_at": "2026-06-17T01:49:50+09:00"
     },
     {
       "id": "13651",
@@ -2556,7 +2435,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-72",
+        "badge": "D-71",
         "accepting": true
       },
       "points": 100,
@@ -2587,7 +2466,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 2101
+        "hits": 2112
       },
       "flags": {
         "is_talent_certified": true,
@@ -2623,7 +2502,7 @@
         "description_text": "사회봉사단 H.U.V 모집대상 : 1학기 휴학 계획이 없는 신⬝재학생 중 25명 선발 모집내용 : 1학기 개강 이후 면접을 통해 인원 선발. ㆍ1차 심사 (서류심사) : 메일 접수로 기간 내 제출한 학생 대상으로 서류 평가 진행 (제출 내용: 신청서, 봉사 활동 확인증(선택)) ㆍ2차 심사 (면접심사) : 1차심사 통과 학생 대상으로, 면접심사 진행 신청방법 : 공지사항, e-class 통해 모집 안내 -> 이메일로 서류 제출 활동내용 : ㆍ 매일 : 독거노인을 대상으로 한 도시락 배달 ㆍ 매주 : 지역 아동센터에 방문하여 일주일에 4시간 이상 교육봉사 진행 ㆍ 기타 : 학기당 2회 이상 기타봉사(김장봉사, 연탄봉사, 교내 청소 등) 비교과 지급기준 : 교육봉사시간 최소 40시간 이상, 도시락 봉사 참여, 기타봉사 참여 * 해당 프로그램으로 취득한 봉사활동으로는 개별적으로 교외 비교과활동 신청 불가"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:36+09:00"
+      "last_seen_at": "2026-06-17T01:49:51+09:00"
     },
     {
       "id": "13590",
@@ -2632,7 +2511,7 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-13",
+        "badge": "D-12",
         "accepting": true
       },
       "points": 100,
@@ -2663,7 +2542,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 254
+        "hits": 267
       },
       "flags": {
         "is_talent_certified": true,
@@ -2699,7 +2578,7 @@
         "description_text": "1. 선발 가 . 대상 : 본교 3~4 학년 재학생 나 . 인원 : 40 명 내외 다 . 방법 : 구글폼을 통한 신청서 제출 및 이력서 , 자기소개서 제출 2. 운영 내용 구분 프로그램 내용 실습 전 오리엔테이션 현장실습 참여학생의 태도 및 조직생활의 이해에 대한 교육을 실시하여 실습 이해도 및 참여의지 제고 최종합격자 사전교육 IPP 참여 학생들에게 실습전 직무에 대한 충분한 이해와 학사관련 안내사항 , 실습생으로서 갖추어야 할 직장예절 등을 교육함으로써 학생들의 기업 적응력 제고 및 성공적인 현장실습수행을 지원 실습 중 현장실습 실시 기업별 2개월 또는 4 개월 또는 6개월 현장실습 실시 매달 실습 후 출석부 작성, 실습 종료 달 종합보고서 작성 ( 학생이 IPP 포털사이트에 등록 ) 실습 후 실습종료 6/30까지 현장실습 후 종료 * 현장실습 4개월: 100포인트 지급 * 현장실습 6개월(4개월+2개월): 150포인트 지급"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-16T21:27:37+09:00"
+      "last_seen_at": "2026-06-17T01:49:51+09:00"
     }
   ]
 }
