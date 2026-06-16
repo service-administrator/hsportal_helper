@@ -21,3 +21,19 @@
 
 - `frontend`: 시간표 업로드 요청과 추천 결과 조회 요청을 처리합니다.
 - `llm`: 시간표 이미지 분석 결과를 받아 추천 알고리즘에 활용합니다.
+
+## 현재 구성
+
+- `backend/main.py`: FastAPI 애플리케이션 진입점입니다.
+- `backend/config.py`: 백엔드 실행 환경과 프론트엔드 정적 파일 경로를 관리합니다.
+- `backend/api/heartbeat.py`: 서버 상태 확인용 `/api/heartbeat` API를 제공합니다.
+
+## 실행
+
+루트 디렉터리에서 의존성을 설치한 뒤 아래 명령으로 실행합니다.
+
+```bash
+python -m uvicorn backend.main:app --reload
+```
+
+프론트엔드 정적 파일은 `frontend/public`에서 제공되며, API 경로는 `/api` prefix를 사용합니다.

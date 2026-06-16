@@ -20,3 +20,11 @@
 
 - `backend`: 시간표 분석 결과와 추천 비교과 프로그램 데이터를 요청합니다.
 - `llm`: 직접 호출하지 않고, 백엔드를 통해 정리된 시간표 분석 결과를 전달받는 구조를 기준으로 합니다.
+
+## 현재 구성
+
+- `frontend/public/index.html`: FastAPI가 직접 제공하는 기본 HTML 화면입니다.
+- `frontend/public/styles.css`: 기본 화면 스타일입니다.
+- `frontend/public/app.js`: `/api/heartbeat`를 호출해 백엔드 연결 상태를 확인합니다.
+
+FastAPI 서버는 `frontend/public` 디렉터리를 정적 파일 경로로 사용합니다. 따라서 프론트엔드 HTML, CSS, JS 파일은 이 디렉터리 안에서 관리합니다.
