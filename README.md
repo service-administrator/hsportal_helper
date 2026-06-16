@@ -66,3 +66,45 @@
 - 개인 시간표에 맞는 프로그램 추천으로 참여 가능성 향상
 - 비교과 프로그램 정보 접근성 개선
 - 학교 비교과 활동 참여 활성화
+
+## 실행 환경 설정
+
+이 프로젝트는 하나의 Python FastAPI 프로세스에서 프론트엔드 정적 파일, 백엔드 API, LLM API 연동을 함께 실행합니다.
+
+### 설치
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+macOS/Linux 환경에서는 가상환경 활성화 명령만 아래처럼 실행합니다.
+
+```bash
+source .venv/bin/activate
+```
+
+### 환경 변수
+
+```bash
+copy .env.example .env
+```
+
+`.env` 파일의 `QWEN_API_KEY` 값에 Alibaba Cloud Model Studio 또는 DashScope에서 발급받은 API 키를 입력합니다.
+
+### 실행
+
+```bash
+python -m uvicorn backend.main:app --reload
+```
+
+실행 후 브라우저에서 `http://127.0.0.1:8000`으로 접속합니다.
+
+### 기본 확인 API
+
+```text
+GET /api/heartbeat
+```
+
+서버 상태, 실행 환경, 사용 예정 LLM 모델 이름을 JSON으로 반환합니다.

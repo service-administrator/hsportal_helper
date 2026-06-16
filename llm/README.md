@@ -21,3 +21,20 @@
 
 - `backend`: 분석된 시간표 JSON과 크롤링된 비교과 프로그램 데이터를 전달합니다.
 - `frontend`: 직접 연동하지 않고, 백엔드를 통해 사용자 요청을 처리하는 구조를 기준으로 합니다.
+
+## 현재 구성
+
+- `llm/config.py`: Qwen API 키, base URL, 모델명을 환경 변수에서 읽습니다.
+- `llm/qwen_client.py`: `openai` 라이브러리로 Qwen OpenAI-compatible API 클라이언트를 생성합니다.
+
+## 사용 모델
+
+기본 모델은 `qwen3-vl-flash`입니다.
+
+환경 변수는 루트의 `.env` 파일에서 관리합니다.
+
+```text
+QWEN_API_KEY=replace-with-your-api-key
+QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+QWEN_MODEL=qwen3-vl-flash
+```
