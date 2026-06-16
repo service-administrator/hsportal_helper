@@ -28,3 +28,24 @@
 - `frontend/public/app.js`: `/api/heartbeat`를 호출해 백엔드 연결 상태를 확인합니다.
 
 FastAPI 서버는 `frontend/public` 디렉터리를 정적 파일 경로로 사용합니다. 따라서 프론트엔드 HTML, CSS, JS 파일은 이 디렉터리 안에서 관리합니다.
+
+## 실행 구조
+
+프론트엔드는 별도 개발 서버를 사용하지 않습니다. 루트 `main.py`가 `frontend/public`을 정적 파일로 mount하므로, FastAPI 서버를 실행하면 같은 주소에서 프론트엔드와 API를 함께 사용할 수 있습니다.
+
+```bash
+python -m uvicorn main:app --reload
+```
+
+브라우저 접속 주소는 `http://127.0.0.1:8000`입니다.
+
+## 현재 화면 동작
+
+기본 화면은 다음 흐름으로 동작합니다.
+
+1. `index.html`이 로드됩니다.
+2. `app.js`가 `/api/heartbeat`를 호출합니다.
+3. 응답이 정상이면 연결 상태를 초록색 점과 `qwen3-vl-flash` 모델명으로 표시합니다.
+4. API 호출에 실패하면 연결 실패 메시지를 표시합니다.
+
+추후 시간표 이미지 업로드, 비교과 프로그램 목록, 추천 결과 UI도 같은 `frontend/public` 디렉터리 안에서 확장합니다.
