@@ -18,4 +18,3 @@ def heartbeat() -> dict[str, str]:
         "llm_model": get_qwen_model_name(),
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
-

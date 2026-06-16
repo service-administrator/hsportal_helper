@@ -45,11 +45,11 @@
 
 ### `backend`
 
-시간표 데이터와 비교과 프로그램 데이터를 처리하고, 추천 알고리즘을 실행하는 백엔드 API를 구성합니다. 현재는 `/api/heartbeat`, `/api/hsportal/*` API와 한성대학교 비교과 프로그램 크롤러, 파서, JSON 저장 로직을 포함합니다.
+시간표 데이터와 비교과 프로그램 데이터를 처리하고, 추천 알고리즘을 실행하는 백엔드 API를 구성합니다. 현재는 `/api/heartbeat`, `/api/timetable/extract`, `/api/hsportal/*` API와 한성대학교 비교과 프로그램 크롤러, 파서, JSON 저장 로직을 포함합니다.
 
 ### `llm`
 
-시간표 이미지 또는 비교과 프로그램 포스터에서 요일, 시간, 강의명, 일정 등의 정보를 추출하기 위한 LLM API 연결부를 구성합니다. 현재는 OpenAI-compatible 방식으로 Qwen API 클라이언트 설정을 제공합니다.
+시간표 이미지 또는 비교과 프로그램 포스터에서 요일, 시간, 강의명, 일정 등의 정보를 추출하기 위한 LLM API 연결부를 구성합니다. 현재는 OpenAI-compatible 방식으로 Qwen API 클라이언트, 이미지 입력 변환, JSON 응답 검증, 시간표 추출 task를 제공합니다. 외부 API 라우터로 직접 노출하지 않고 `backend` 내부 코드에서 import해 사용하는 구조입니다.
 
 ### `util`
 
@@ -85,7 +85,7 @@
 
 ## 실행 환경 설정
 
-이 프로젝트는 루트의 `main.py`를 진입점으로 사용하며, 하나의 Python FastAPI 프로세스에서 프론트엔드 정적 파일, 백엔드 API, LLM API 연동을 함께 실행합니다.
+이 프로젝트는 루트의 `main.py`를 진입점으로 사용하며, 하나의 Python FastAPI 프로세스에서 프론트엔드 정적 파일, 백엔드 API, 내부 LLM API 연동을 함께 실행합니다.
 
 ### 설치
 
@@ -108,7 +108,9 @@ copy .env.example .env
 ```
 
 `.env` 파일의 `QWEN_API_KEY` 값에 Alibaba Cloud Model Studio 또는 DashScope에서 발급받은 API 키를 입력합니다.
+`.env` 파일의 `APP_ENV` 값은 개발 환경에서는 `dev`, 운영 환경에서는 `prod`로 설정합니다.
 실행 로그의 상세도는 `.env` 파일의 `LOG_LEVEL` 값으로 조정할 수 있습니다. 기본값은 `INFO`입니다.
+이미지 업로드 크기 제한은 `.env` 파일의 `LLM_MAX_IMAGE_BYTES` 값으로 조정할 수 있습니다.
 
 ### 실행
 
@@ -132,11 +134,29 @@ GET /api/heartbeat
 {
   "status": "ok",
   "service": "hsportal-helper",
-  "environment": "local",
+  "environment": "dev",
   "llm_model": "qwen3-vl-flash",
   "timestamp": "2026-06-16T12:00:00+00:00"
 }
 ```
+
+### 시간표 이미지 JSON 변환 테스트
+
+시간표 이미지 분석은 `backend` API를 통해 호출할 수 있습니다. 이 API는 VLM 호출 결과를 JSON으로 변환해 반환하며, 추천 기능 구현 시에도 같은 내부 `llm` 모듈을 사용합니다.
+
+```text
+POST /api/timetable/extract
+Content-Type: multipart/form-data
+file=<시간표 이미지>
+```
+
+테스트 화면은 FastAPI 서버 실행 후 아래 주소에서 확인할 수 있습니다.
+
+```text
+http://127.0.0.1:8000/test/
+```
+
+`APP_ENV=dev`일 때는 서버 콘솔 로그에 원본 이미지와 WebP 정규화 이미지의 MIME, 용량, 해상도, 최대 변 길이가 출력됩니다. API 응답 형식은 `dev`, `prod` 모두 동일합니다.
 
 ### 비교과 프로그램 데이터
 
@@ -152,6 +172,7 @@ GET /api/hsportal/programs/{program_id}
 수집 정책은 `backend/hsportal/constants.py`에서 조정합니다.
 
 - `PROGRAM_STATUS_FILTER`: 수집할 접수 상태입니다. 기본값은 `접수(대기)중`을 의미하는 `wait`입니다.
+- `DETAIL_FETCH_CONCURRENCY`: 상세 페이지를 동시에 크롤링할 개수입니다.
 
 저장 JSON의 `info`에는 수집 기준과 개수를 묶어서 기록합니다. `info.filter`에는 포털 필터 값과 포함 상태가 들어가고, `info.counts`에는 포털 목록에서 확인한 개수 `listed`, 실제 저장한 개수 `saved`, 페이지 수 `pages`가 들어갑니다. 다음 증분 수집 기준은 `info.cursor.last_checked_program_id`입니다.
 
@@ -163,4 +184,4 @@ GET /api/hsportal/programs/{program_id}
 python -m ruff check .
 ```
 
-현재 별도 테스트 파일은 없으며, 기본 동작은 `/api/heartbeat`, `/api/hsportal/crawl-status`, `/api/hsportal/programs` 응답으로 확인합니다.
+테스트는 `tests/` 디렉터리에서 관리합니다. 기본 동작은 `/api/heartbeat`, `/api/timetable/extract`, `/api/hsportal/crawl-status`, `/api/hsportal/programs` 응답으로도 확인합니다.

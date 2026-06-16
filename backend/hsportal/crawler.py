@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any
 
 import httpx
@@ -9,6 +10,7 @@ import httpx
 from backend.hsportal.constants import (
     ALL_PROGRAMS_LIST_URL,
     BASE_URL,
+    DETAIL_FETCH_CONCURRENCY,
     PROGRAM_DATA_SCHEMA_VERSION,
     PROGRAM_INCLUDED_STATUS_CODES,
     PROGRAM_STATUS_FILTER,
@@ -36,7 +38,13 @@ class CrawlCancelled(Exception):
 class HsportalCrawler:
     def __init__(self, stop_event: threading.Event | None = None) -> None:
         self.stop_event = stop_event or threading.Event()
-        self.client = httpx.Client(
+        self.client = self.create_client()
+        self._detail_client_local = threading.local()
+        self._detail_clients: list[httpx.Client] = []
+        self._detail_clients_lock = threading.Lock()
+
+    def create_client(self) -> httpx.Client:
+        return httpx.Client(
             timeout=REQUEST_TIMEOUT_SECONDS,
             headers={"User-Agent": USER_AGENT},
             follow_redirects=True,
@@ -51,6 +59,29 @@ class HsportalCrawler:
             self.client.close()
         except Exception:
             logger.debug("HS Portal crawler client was already closed.", exc_info=True)
+        self.close_detail_clients()
+
+    def close_detail_clients(self) -> None:
+        with self._detail_clients_lock:
+            clients = self._detail_clients
+            self._detail_clients = []
+
+        for client in clients:
+            try:
+                client.close()
+            except Exception:
+                logger.debug("HS Portal detail crawler client was already closed.", exc_info=True)
+
+    def get_detail_client(self) -> httpx.Client:
+        client = getattr(self._detail_client_local, "client", None)
+        if client is not None and not client.is_closed:
+            return client
+
+        client = self.create_client()
+        self._detail_client_local.client = client
+        with self._detail_clients_lock:
+            self._detail_clients.append(client)
+        return client
 
     def __enter__(self) -> HsportalCrawler:
         return self
@@ -64,17 +95,19 @@ class HsportalCrawler:
         force: bool = False,
         max_pages: int | None = None,
     ) -> dict[str, Any]:
+        logger.info("[HS Portal] 저장된 비교과 프로그램 데이터를 확인합니다.")
         dataset = load_dataset()
         if not dataset.get("programs"):
-            logger.info("No saved HS Portal data found. Starting full crawl.")
+            logger.info("[HS Portal] 저장된 데이터가 없어 전체 수집을 시작합니다.")
             return self.crawl_full(max_pages=max_pages)
         if self.should_recrawl_for_policy(dataset):
-            logger.info("Saved HS Portal data does not match current crawl policy.")
+            logger.info("[HS Portal] 저장된 데이터가 현재 수집 정책과 달라 전체 수집을 시작합니다.")
             return self.crawl_full(max_pages=max_pages)
         if force:
-            logger.info("Force refresh was requested. Starting incremental crawl.")
+            logger.info("[HS Portal] 강제 갱신 요청으로 증분 수집을 시작합니다.")
             return self.crawl_incremental(dataset, max_pages=max_pages)
 
+        logger.info("[HS Portal] 목록 첫 페이지를 확인해 cursor 변경 여부를 검사합니다.")
         first_page = self.fetch_list_page(1)
         return self.crawl_if_cursor_changed(dataset, first_page=first_page, max_pages=max_pages)
 
@@ -103,7 +136,7 @@ class HsportalCrawler:
 
         if latest_id and latest_id != cursor_id:
             logger.info(
-                "HS Portal cursor changed. latest=%s saved_cursor=%s",
+                "[HS Portal] cursor 변경 감지: latest=%s saved_cursor=%s",
                 latest_id,
                 cursor_id or "empty",
             )
@@ -114,7 +147,7 @@ class HsportalCrawler:
             )
 
         logger.info(
-            "HS Portal cursor is unchanged. Refreshing first-page list fields only. cursor=%s",
+            "[HS Portal] cursor 변경 없음: 첫 페이지 목록 정보만 갱신합니다. cursor=%s",
             cursor_id or "empty",
         )
         return self.refresh_from_listings(
@@ -129,27 +162,17 @@ class HsportalCrawler:
         dataset = empty_dataset()
         listings, site_total_count, page_total = self.fetch_all_listings(max_pages=max_pages)
         logger.info(
-            "Full crawl collected %s listings from %s total site programs across %s pages.",
+            "[HS Portal] 목록 수집 완료: collected=%s site_total=%s pages=%s",
             len(listings),
             site_total_count,
             page_total,
         )
-        programs = []
-        for index, listing in enumerate(listings, start=1):
-            self.check_cancelled()
-            logger.info(
-                "Fetching detail %s/%s: %s",
-                index,
-                len(listings),
-                listing.get("title") or listing.get("id"),
-            )
-            detail = self.fetch_detail(listing)
-            detail["last_seen_at"] = now_iso()
-            programs.append(detail)
+        programs = self.fetch_details(listings)
 
+        logger.info("[HS Portal] 수집한 비교과 프로그램 데이터를 저장합니다.")
         self.finish_dataset(dataset, programs, site_total_count, page_total)
         save_dataset(dataset)
-        logger.info("Full crawl saved %s HS Portal programs.", len(programs))
+        logger.info("[HS Portal] 전체 수집 완료: saved=%s", len(programs))
         return dataset
 
     def crawl_incremental(
@@ -169,12 +192,12 @@ class HsportalCrawler:
             first_page=first_page,
         )
         logger.info(
-            "Incremental crawl checked %s listings before cursor=%s.",
+            "[HS Portal] 증분 목록 확인 완료: checked=%s cursor=%s",
             len(listings),
             cursor_id or "empty",
         )
-        leading_programs: list[dict[str, Any]] = []
-        new_count = 0
+        leading_programs: list[dict[str, Any] | None] = []
+        new_listings: list[tuple[int, dict[str, Any]]] = []
 
         for listing in listings:
             self.check_cancelled()
@@ -184,14 +207,21 @@ class HsportalCrawler:
                 existing[program_id]["last_seen_at"] = now_iso()
                 leading_programs.append(existing[program_id])
                 continue
-            logger.info("Fetching new program detail: %s", listing.get("title") or program_id)
-            detail = self.fetch_detail(listing)
-            detail["last_seen_at"] = now_iso()
-            leading_programs.append(detail)
-            new_count += 1
+            logger.info(
+                "[HS Portal] 새 프로그램 상세 수집 대기열 추가: %s",
+                listing.get("title") or program_id,
+            )
+            leading_programs.append(None)
+            new_listings.append((len(leading_programs) - 1, listing))
 
-        leading_ids = {str(program["id"]) for program in leading_programs}
-        merged = leading_programs + [
+        if new_listings:
+            details = self.fetch_details([listing for _, listing in new_listings])
+            for (position, _), detail in zip(new_listings, details, strict=True):
+                leading_programs[position] = detail
+
+        resolved_leading = [program for program in leading_programs if program is not None]
+        leading_ids = {str(program["id"]) for program in resolved_leading}
+        merged = resolved_leading + [
             existing[str(program["id"])]
             for program in dataset.get("programs", [])
             if str(program.get("id")) not in leading_ids
@@ -199,10 +229,10 @@ class HsportalCrawler:
         self.finish_dataset(dataset, merged, site_total_count, page_total)
         save_dataset(dataset)
         logger.info(
-            "Incremental crawl saved %s programs. new=%s updated=%s",
+            "[HS Portal] 증분 수집 완료: saved=%s new=%s updated=%s",
             len(merged),
-            new_count,
-            max(len(listings) - new_count, 0),
+            len(new_listings),
+            max(len(listings) - len(new_listings), 0),
         )
         return dataset
 
@@ -243,7 +273,7 @@ class HsportalCrawler:
             update_cursor=False,
         )
         save_dataset(dataset)
-        logger.info("Refreshed %s existing HS Portal programs from list pages.", updated_count)
+        logger.info("[HS Portal] 목록 기반 갱신 완료: updated=%s", updated_count)
         return dataset
 
     def fetch_all_listings(
@@ -257,6 +287,12 @@ class HsportalCrawler:
         page_total = first_page["page_total"]
         limit = min(page_total, max_pages) if max_pages else page_total
         listings = list(first_page["programs"])
+        logger.info(
+            "[HS Portal] 목록 수집 진행: page=1/%s collected=%s site_total=%s",
+            limit,
+            len(listings),
+            total_count,
+        )
         if include_details:
             self.sleep()
 
@@ -264,6 +300,13 @@ class HsportalCrawler:
             self.check_cancelled()
             page_data = self.fetch_list_page(page)
             listings.extend(page_data["programs"])
+            logger.info(
+                "[HS Portal] 목록 수집 진행: page=%s/%s collected=%s site_total=%s",
+                page,
+                limit,
+                len(listings),
+                total_count,
+            )
             self.sleep()
 
         return listings, total_count, page_total
@@ -286,15 +329,29 @@ class HsportalCrawler:
             page_data = first_page if page == 1 else self.fetch_list_page(page)
             for listing in page_data["programs"]:
                 if cursor_id and str(listing["id"]) == cursor_id:
+                    logger.info(
+                        "[HS Portal] cursor 도달: page=%s/%s checked=%s cursor=%s",
+                        page,
+                        limit,
+                        len(listings),
+                        cursor_id,
+                    )
                     return listings, total_count, page_total
                 listings.append(listing)
+            logger.info(
+                "[HS Portal] 증분 목록 확인 진행: page=%s/%s checked=%s cursor=%s",
+                page,
+                limit,
+                len(listings),
+                cursor_id or "empty",
+            )
             self.sleep()
 
         return listings, total_count, page_total
 
     def fetch_list_page(self, page: int) -> dict[str, Any]:
         self.check_cancelled()
-        logger.info("Fetching HS Portal list page %s.", page)
+        logger.info("[HS Portal] 목록 페이지 요청: page=%s", page)
         response = self.client.get(list_url(page))
         response.raise_for_status()
         self.check_cancelled()
@@ -306,11 +363,55 @@ class HsportalCrawler:
             listing.get("url")
             or f"{BASE_URL}/ko/program/all/view/{listing['id']}/description"
         )
-        response = self.client.get(detail_url)
+        response = self.get_detail_client().get(detail_url)
         response.raise_for_status()
         self.check_cancelled()
         self.sleep()
         return parse_detail_page(response.text, listing)
+
+    def fetch_details(self, listings: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        if not listings:
+            return []
+
+        worker_count = min(DETAIL_FETCH_CONCURRENCY, len(listings))
+        logger.info(
+            "[HS Portal] 상세 페이지 동시 수집 시작: total=%s concurrency=%s",
+            len(listings),
+            worker_count,
+        )
+        results: list[dict[str, Any] | None] = [None] * len(listings)
+        completed_count = 0
+        futures = {}
+
+        try:
+            with ThreadPoolExecutor(max_workers=worker_count) as executor:
+                futures = {
+                    executor.submit(self.fetch_detail, listing): index
+                    for index, listing in enumerate(listings)
+                }
+                for future in as_completed(futures):
+                    self.check_cancelled()
+                    index = futures[future]
+                    detail = future.result()
+                    detail["last_seen_at"] = now_iso()
+                    results[index] = detail
+                    completed_count += 1
+                    logger.info(
+                        "[HS Portal] 상세 수집 진행: %s/%s title=%s",
+                        completed_count,
+                        len(listings),
+                        detail.get("title") or detail.get("id"),
+                    )
+        except Exception:
+            for future in futures:
+                future.cancel()
+            raise
+        finally:
+            self.close_detail_clients()
+
+        self.check_cancelled()
+        logger.info("[HS Portal] 상세 페이지 동시 수집 완료: total=%s", len(listings))
+        return [result for result in results if result is not None]
 
     def finish_dataset(
         self,

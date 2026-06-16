@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>시간표 JSON 변환 테스트</title>
+    <link rel="stylesheet" href="/test/styles.css" />
+  </head>
+  <body>
+    <main class="test-shell">
+      <header class="test-header">
+        <p class="eyebrow">VLM Test</p>
+        <h1>시간표 이미지 JSON 변환</h1>
+      </header>
+
+      <section class="workspace" aria-label="시간표 이미지 변환 테스트">
+        <form class="upload-panel" id="uploadForm">
+          <label class="file-drop" for="imageInput">
+            <span class="file-title">시간표 이미지 선택</span>
+            <span class="file-name" id="fileName">PNG, JPG, WEBP 파일을 업로드하세요.</span>
+          </label>
+          <input id="imageInput" name="file" type="file" accept="image/png,image/jpeg,image/webp" />
+
+          <div class="preview-frame">
+            <img id="previewImage" alt="업로드한 시간표 미리보기" hidden />
+            <span id="previewPlaceholder">미리보기</span>
+          </div>
+
+          <button class="submit-button" type="submit" id="submitButton">JSON 변환</button>
+          <p class="status-text" id="statusText">대기 중</p>
+        </form>
+
+        <section class="result-panel" aria-label="변환 결과">
+          <div class="result-toolbar">
+            <h2>결과 JSON</h2>
+            <button class="copy-button" type="button" id="copyButton">복사</button>
+          </div>
+          <pre id="resultOutput">{
+  "courses": [],
+  "warnings": []
+}</pre>
+        </section>
+      </section>
+    </main>
+
+    <script src="/test/app.js"></script>
+  </body>
+</html>

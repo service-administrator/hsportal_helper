@@ -26,6 +26,7 @@
 - `frontend/public/index.html`: FastAPI가 직접 제공하는 기본 HTML 화면입니다.
 - `frontend/public/styles.css`: 기본 화면 스타일입니다.
 - `frontend/public/app.js`: `/api/heartbeat`를 호출해 백엔드 연결 상태를 확인합니다.
+- `frontend/public/test/`: 시간표 이미지를 업로드하고 `/api/timetable/extract` 응답 JSON을 확인하는 테스트 화면입니다.
 
 FastAPI 서버는 `frontend/public` 디렉터리를 정적 파일 경로로 사용합니다. 따라서 프론트엔드 HTML, CSS, JS 파일은 이 디렉터리 안에서 관리합니다.
 
@@ -49,3 +50,5 @@ python -m uvicorn main:app --reload
 4. API 호출에 실패하면 연결 실패 메시지를 표시합니다.
 
 추후 시간표 이미지 업로드, 비교과 프로그램 목록, 추천 결과 UI도 같은 `frontend/public` 디렉터리 안에서 확장합니다.
+
+시간표 JSON 변환 테스트 화면은 `http://127.0.0.1:8000/test/`에서 확인합니다.

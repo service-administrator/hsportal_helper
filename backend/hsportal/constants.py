@@ -13,4 +13,5 @@ DATA_FILE = Path(__file__).resolve().parent / "programs.json"
 
 REQUEST_TIMEOUT_SECONDS = 20.0
 REQUEST_DELAY_SECONDS = 0.15
+DETAIL_FETCH_CONCURRENCY = 5
 USER_AGENT = "hsportal-helper/0.1 (+https://hsportal.hansung.ac.kr)"
