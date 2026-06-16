@@ -1,0 +1,2705 @@
+{
+  "info": {
+    "site": "hsportal",
+    "schema_version": "hsportal_programs_v2",
+    "base_url": "https://hsportal.hansung.ac.kr",
+    "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
+    "crawled_at": "2026-06-16T21:35:20+09:00",
+    "filter": {
+      "status": "wait",
+      "label": "접수(대기)중",
+      "included_statuses": [
+        "scheduled",
+        "open",
+        "waiting"
+      ]
+    },
+    "counts": {
+      "listed": 29,
+      "saved": 29,
+      "pages": 3
+    },
+    "cursor": {
+      "last_checked_program_id": "13920",
+      "last_checked_url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13920/description"
+    },
+    "parser_version": "hsportal_v1"
+  },
+  "programs": [
+    {
+      "id": "13920",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13920/description",
+      "title": "26학년도 1학기 AI 협업 마스터 (AID 아카데미)",
+      "status": {
+        "code": "scheduled",
+        "label": "접수예정",
+        "badge": null,
+        "accepting": false
+      },
+      "points": 15,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-22T00:00:00+09:00",
+        "end_at": "2026-07-19T23:45:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-07-22T13:00:00+09:00",
+          "end_at": "2026-07-22T16:00:59+09:00",
+          "location": "상상관 501호"
+        },
+        {
+          "start_at": "2026-07-23T13:00:00+09:00",
+          "end_at": "2026-07-23T16:00:59+09:00",
+          "location": "상상관 501호"
+        },
+        {
+          "start_at": "2026-07-24T13:00:00+09:00",
+          "end_at": "2026-07-24T16:00:59+09:00",
+          "location": "상상관 501호"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 교육혁신처",
+        "department": "교육혁신처 교수학습센터"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85494/cover.jpg?ts=1781227732",
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 41
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "hacctl@hansung.kr",
+        "phone": "02-760-5816",
+        "location": "상상관 501호"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": null,
+        "description_text": ""
+      },
+      "attachments": [
+        {
+          "file_name": "2026-1 AID아카데미(AI 협업마스터) (6).png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85299/2026-1+AID%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%28AI+%ED%98%91%EC%97%85%EB%A7%88%EC%8A%A4%ED%84%B0%29+%286%29.png?ts=0",
+          "extension": "png",
+          "size_text": "198.20KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:35:20+09:00"
+    },
+    {
+      "id": "13915",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13915/description",
+      "title": "2026-여름 집단상담 프로그램",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-12",
+        "accepting": true
+      },
+      "points": 12,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-06-15T09:00:00+09:00",
+        "end_at": "2026-06-28T23:45:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-07-08T10:00:00+09:00",
+          "end_at": "2026-07-29T13:00:59+09:00",
+          "location": ""
+        },
+        {
+          "start_at": "2026-07-09T10:00:00+09:00",
+          "end_at": "2026-07-30T13:00:59+09:00",
+          "location": ""
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "학생진로취업처 학생생활상담센터"
+      },
+      "participants": {
+        "current": 5,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85246/cover.jpg?ts=1781488965",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85551/1.png?ts=0",
+          "https://hsportal.hansung.ac.kr/attachment/view/85552/2.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 130
+      },
+      "flags": {
+        "is_talent_certified": true,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "상담·심리지원",
+        "sub": "상담·검사"
+      },
+      "contact": {
+        "email": "counseling@hansung.ac.kr",
+        "phone": "02-760-4171",
+        "location": ""
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "\"학기 끝!! 방학 시작~~\" 무더운 여름.. 외부 활동은 힘들고... 열심히 달려온 나를 위한 시간은 보내고 싶고... 그래서 준비했습니다!! 전문 심리상담사와 학생 들이 대면으로 함께 모여 이야기를 나누는 과정에서 나를 더 알게 되고 힐링 을 하게 되는 바로 그 프로그램 집단상담 여",
+        "description_text": "\"학기 끝!! 방학 시작~~\" 무더운 여름.. 외부 활동은 힘들고... 열심히 달려온 나를 위한 시간은 보내고 싶고... 그래서 준비했습니다!! 전문 심리상담사와 학생 들이 대면으로 함께 모여 이야기를 나누는 과정에서 나를 더 알게 되고 힐링 을 하게 되는 바로 그 프로그램 집단상담 여름방학 ver.이 찾아왔습니다~! 2026학년도 여름 집단상담 프로그램 1. 프로그램명: 집단상담 프로그램 2. 프로그램 대상: 전체 재학생 중 신청자에 한해 선발 3. 프로그램 모집: 6/15(월) - 6/28(일) 스마트자기관리시스템에서 신청 4. 프로그램 내용: 집단리더(전문상담사)와 집단원(참여학생)들이 상호작용을 통해 자기이해 및 역량 향상 5. 비교과 포인트: 최대 65point - 총 12시간(3시간*4회) 집단상담 참여와 사전사후검사 실시( 모두 이수시 65point ) - 일부 불참의 경우, 참여 시간에 비례하여 비교과 포인트 지급 - 단, 최소 9시간 이상 참여시 포인트 지급. 3시간 초과 결석시 비교과 포인트 지급 불가 (예. 8시간 참여시 지급되는 비교과포인트 0pt) - 졸업예정자(8월 졸업) 는 포인트 산정 기간을 미리 확인해주세요(집단상담 프로그램 비교과 포인트는 8월 중 일괄 지급 예정) 6. 프로그램 일정: 2026년 7월 8일~ 2026년 7월 30일 (주제별 일정 확인 필수!) 7. 집단상담 주제: (수10시) 정서조절 / (목10시) 대인관계 8. 인원: 10명 내외 9. 운영방식: 대면 10. 프로그램 신청 시 주의사항 - 선발된 후에 불참하는 경우, 다른 학생의 소중한 참여기회를 빼앗는 행위가 되오니 신중한 신청 부탁드립니다. 선발 후 불참하는 경우, 추후 학생생활상담센터의 다른 프로그램 참여가 제한될 수 있습니다. - 집단상담의 첫 시간 은 프로그램에 대한 설명과 진행방식에 대해 설명해드리는 시간으로 필참 해주시기 바랍니다. - 집단상담은 조용히 혼자 집중할 수 있는 곳에서 카메라를 켜고 참여할 수 있어야 합니다. - 집단상담에서 나눈 이야기는 비밀 입니다. 비밀을 꼭 지켜주시기 바랍니다."
+      },
+      "attachments": [
+        {
+          "file_name": "1.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85249/1.png?ts=0",
+          "extension": "png",
+          "size_text": "1.05MB"
+        },
+        {
+          "file_name": "2.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85250/2.png?ts=0",
+          "extension": "png",
+          "size_text": "1.03MB"
+        },
+        {
+          "file_name": "1.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85551/1.png?ts=0",
+          "extension": "png",
+          "size_text": "1.05MB"
+        },
+        {
+          "file_name": "2.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85552/2.png?ts=0",
+          "extension": "png",
+          "size_text": "1.03MB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:16+09:00"
+    },
+    {
+      "id": "13906",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13906/description",
+      "title": "2026학년도 여름방학 글방",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-13",
+        "accepting": true
+      },
+      "points": 13,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-06-04T09:00:00+09:00",
+        "end_at": "2026-06-30T15:00:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-07-07T13:00:00+09:00",
+          "end_at": "2026-07-09T16:00:59+09:00",
+          "location": "상상관 606호"
+        },
+        {
+          "start_at": "2026-07-08T16:00:00+09:00",
+          "end_at": "2026-07-10T19:00:59+09:00",
+          "location": "상상관 606호"
+        }
+      ],
+      "organization": {
+        "name": "상상력 교양대학",
+        "department": "상상력교양대학 사고와표현과정"
+      },
+      "participants": {
+        "current": 30,
+        "capacity": 30,
+        "max_apply": null,
+        "is_unlimited": false
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85104/cover.jpg?ts=1781584829",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85094/%EC%97%AC%EB%A6%84%EA%B8%80%EB%B0%A9+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 371
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "사고와표현",
+        "글쓰기",
+        "글방",
+        "방학"
+      ],
+      "target": {
+        "audiences": [
+          "재학생",
+          "수료생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "writing@hansung.ac.kr",
+        "phone": "02-760-4354",
+        "location": "상상관 606호"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "2026학년도 여름방학 소수정예 심화 글쓰기 '글방' 참가 신청자를 모집합니다. 참가자는 사전 신청-프로그램 진행-과제물 제출-이수의 과정을 거쳐야 합니다. 신청기간 : 2026. 06. 04(목) 09:00 ~ 06. 30(화) 15:00 각 반별 오프라인 수업을 이틀 모두 100% ",
+        "description_text": "2026학년도 여름방학 소수정예 심화 글쓰기 '글방' 참가 신청자를 모집합니다. 참가자는 사전 신청-프로그램 진행-과제물 제출-이수의 과정을 거쳐야 합니다. 신청기간 : 2026. 06. 04(목) 09:00 ~ 06. 30(화) 15:00 각 반별 오프라인 수업을 이틀 모두 100% 참석해야 이수 처리됩니다. 주제 중복 선택이 가능하며 두 개 분반 모두 이수 시 최대 60pt가 지급됩니다. 26 - 여름 글방 분반 1) 이해하며 글쓰기: 사진과 텍스트 이해를 통한 자기 언어 표현 연습 2) 비판적 사고를 위한 질문하기: 영상과 텍스트를 활용한 다각적 질문 형성 및 비판적 사고 토대 마련 각 반별 정원은 30명입니다. (선착순) 각 반별 프로그램 진행은 첨부된 글방 개요 자료를 확인해주시기 바랍니다. ※ 2026-1학기 비교과포인트 신청(획득) 기간은 다음과 같습니다. 일반 재학생: 2026.03.01. ~ 2026.08.31. 졸업예정자(2026년 8월 졸업): 2026.07.10.까지 해당 프로그램의 비교과포인트는 프로그램의 모든 일정이 종료된 후 설문조사가 마감되면 일괄 지급됩니다. 졸업예정자(2026년 8월 졸업)의 경우 비교과포인트 지급 시기에 따라 졸업요건 충족을 위한 비교과포인트에 반영되지 않을 수 있으므로, 신청 전 반드시 확인하시기 바랍니다. ■ 문의 : 사고와표현과정 연구실(02-760-4354) / 사고와표현과정 행정실(02-760-5677) ■ 운영시간 학기중 : 9:00 ~ 17:30 방중 : 10:00 ~ 16:00 (점심시간 12:00 ~ 13:00, 공휴일 제외)"
+      },
+      "attachments": [
+        {
+          "file_name": "여름글방 포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85094/%EC%97%AC%EB%A6%84%EA%B8%80%EB%B0%A9+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "161.16KB"
+        },
+        {
+          "file_name": "2026학년도 여름 글방 개요.hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85097/2026%ED%95%99%EB%85%84%EB%8F%84+%EC%97%AC%EB%A6%84+%EA%B8%80%EB%B0%A9+%EA%B0%9C%EC%9A%94.hwp",
+          "extension": "hwp",
+          "size_text": "72.19KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:17+09:00"
+    },
+    {
+      "id": "13922",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13922/description",
+      "title": "2026년 하계방학 글로벌 동행프로젝트",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-2",
+        "accepting": true
+      },
+      "points": 30,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-12T09:30:00+09:00",
+        "end_at": "2026-06-19T13:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-07-06T00:00:00+09:00",
+          "end_at": "2026-08-09T00:00:00+09:00",
+          "location": "국내"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 글로컬협력처",
+        "department": "글로컬협력처 글로벌원스톱센터"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781228894",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85491/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88001.jpg?ts=0",
+          "https://hsportal.hansung.ac.kr/attachment/view/85498/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88002.jpg?ts=0",
+          "https://hsportal.hansung.ac.kr/attachment/view/85493/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EB%AA%A8%EC%A7%91%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 302
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "비교과프로그램",
+        "글로벌동행",
+        "여름방학비교과프로그램"
+      ],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "현장체험활동"
+      },
+      "contact": {
+        "email": "yjdy9732@hansung.ac.kr",
+        "phone": "02-760-8091",
+        "location": "국내"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": null,
+        "description_text": ""
+      },
+      "attachments": [
+        {
+          "file_name": "2026년 하계 글로벌동행 프로젝트 운영 계획안001.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85291/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88001.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "922.33KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌동행 프로젝트 운영 계획안002.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85292/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88002.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "467.85KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌 동행 신청서.hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85295/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EC%8B%A0%EC%B2%AD%EC%84%9C.hwp",
+          "extension": "hwp",
+          "size_text": "114.69KB"
+        },
+        {
+          "file_name": "글로벌 동행 서약서 및 개인정보제공동의서.hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85296/%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EC%84%9C%EC%95%BD%EC%84%9C+%EB%B0%8F+%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EC%A0%9C%EA%B3%B5%EB%8F%99%EC%9D%98%EC%84%9C.hwp",
+          "extension": "hwp",
+          "size_text": "49.15KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌 동행 모집포스터.pdf",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85485/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EB%AA%A8%EC%A7%91%ED%8F%AC%EC%8A%A4%ED%84%B0.pdf",
+          "extension": "pdf",
+          "size_text": "108.10KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌 동행 모집포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85486/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EB%AA%A8%EC%A7%91%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "173.83KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌동행 프로젝트 운영 계획안001.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85491/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88001.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "922.33KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌 동행 모집포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85493/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C+%EB%8F%99%ED%96%89+%EB%AA%A8%EC%A7%91%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "173.83KB"
+        },
+        {
+          "file_name": "2026년 하계 글로벌동행 프로젝트 운영 계획안002.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85498/2026%EB%85%84+%ED%95%98%EA%B3%84+%EA%B8%80%EB%A1%9C%EB%B2%8C%EB%8F%99%ED%96%89+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EC%9A%B4%EC%98%81+%EA%B3%84%ED%9A%8D%EC%95%88002.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "467.79KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:18+09:00"
+    },
+    {
+      "id": "13790",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13790/description",
+      "title": "2026-하계 Life Design School",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-5",
+        "accepting": true
+      },
+      "points": 5,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-05-18T09:00:00+09:00",
+        "end_at": "2026-06-22T09:00:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-30T13:00:00+09:00",
+          "end_at": "2026-06-30T17:00:59+09:00",
+          "location": "블렌디드"
+        },
+        {
+          "start_at": "2026-07-01T13:00:00+09:00",
+          "end_at": "2026-07-01T17:00:59+09:00",
+          "location": "블렌디드"
+        },
+        {
+          "start_at": "2026-07-02T13:00:00+09:00",
+          "end_at": "2026-07-02T17:00:59+09:00",
+          "location": "블렌디드"
+        },
+        {
+          "start_at": "2026-07-03T13:00:00+09:00",
+          "end_at": "2026-07-03T17:00:59+09:00",
+          "location": "블렌디드"
+        },
+        {
+          "start_at": "2026-07-07T13:00:00+09:00",
+          "end_at": "2026-07-07T17:00:59+09:00",
+          "location": "블렌디드"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "대학일자리플러스센터 진로취업지원팀"
+      },
+      "participants": {
+        "current": 10,
+        "capacity": 8,
+        "max_apply": null,
+        "is_unlimited": false
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/83751/cover.jpg?ts=1778810179",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/84433/1778117743917.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 839
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "태니지먼트검사",
+        "자기이해",
+        "라이프디자인스쿨",
+        "강점",
+        "적성 탐색"
+      ],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "진로·취업지원",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "catchajob8715@hansung.ac.kr",
+        "phone": "02-760-4295",
+        "location": "블렌디드"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "1) 운영 개요 운영방법 1) 강점, 차별성, 재능 등 탐색을 위한 태니지먼트 검사 실시 (온라인으로 각자 진행) **대면 워크샵 참여 가능자만 검사 실시** 2) 검사 결과 해석을 위한 워크샵 진행 ** 참여 필수** ※ 장소 안내 · 상상관 지하2층(IB111) 3) 대학생활로드맵 ",
+        "description_text": "1) 운영 개요 운영방법 1) 강점, 차별성, 재능 등 탐색을 위한 태니지먼트 검사 실시 (온라인으로 각자 진행) **대면 워크샵 참여 가능자만 검사 실시** 2) 검사 결과 해석을 위한 워크샵 진행 ** 참여 필수** ※ 장소 안내 · 상상관 지하2층(IB111) 3) 대학생활로드맵 혹은 취업역량포트폴리오 작성 과제 부여 대상 재학생 예상 인원 40명(8명*5개반) 운영일정 1) 워크샵 운영 날짜 A반 : 6월30일 / B반 : 7월 1일 / C반 : 7월2일 / D반 : 7월 3일 / E반 : 7월 7일 2) 운영 시간 : 13:00~17:00 학생 수료혜택 1) 수행 단계마다 비교과 포인트 지급 - 태니지먼트 검사 실시 : 10포인트 - 워크샵 출석 : 20포인트 - 대학생활로드맵 혹은 취업역량포트폴리오 제출 : 20포인트 2) 우수 과제물로 선정 시 장학금 지급 1등(1명) 20만원, 2등(1명) 10만원, 3등(4명) 5만원 *장학금액 및 인원은 변동될 수 있음 *휴학생은 장학금 지급 대상이 아님 2) 프로그램 구성 태니지먼트 검사 실시 * 태니지먼트 검사는 신청 학생이 온라인으로 각자 진행 - 이메일로 태니지먼트 검사에 응할 수 있는 초대장 발송 예정 - 자기 분석(진단)을 통한 흥미, 적성, 성격, 가치, 대표 강점 탐색 (5 만원 상당의 태니지먼트 검사 비용은 학교에서 지원) 반별 워크샵 * 검사 결과 해석을 위한 워크샵 진행 ** 참여 필수** ※ 장소 안내 · 상상관 지하 2층(IB111) - 강점 분석을 통해 성과 창출, 역할 추천, 보완점 등 제시 - 강점을 바탕으로 커리어에서 어떻게 발휘될 수 있는지를 탐구하는 팀 빌딩 - 강점 기반으로 분석한 리더십 스타일 제안 - 리더십 개발을 위한 강점 활용법에 대한 강의 - 자기주도적인 대학 생활을 위한 동기부여와 방향제시 과제 부여 * 검사 해석을 바탕으로 한 대학 생활 로드맵 또는 취업역량포트폴리오 작성 과제 부여 (희망자만 과제 제출)"
+      },
+      "attachments": [
+        {
+          "file_name": "2026-하계 Life Design School 포스터.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/83757/2026-%ED%95%98%EA%B3%84+Life+Design+School+%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "252.66KB"
+        },
+        {
+          "file_name": "1778117743917.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84433/1778117743917.png?ts=0",
+          "extension": "png",
+          "size_text": "463.88KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:19+09:00"
+    },
+    {
+      "id": "13917",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13917/description",
+      "title": "2026-여름 AI리터러시와 미래역량 2차",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-9",
+        "accepting": true
+      },
+      "points": 45,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-08T09:00:00+09:00",
+        "end_at": "2026-06-26T15:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-29T10:00:00+09:00",
+          "end_at": "2026-07-01T13:00:00+09:00",
+          "location": "탐구관 204호"
+        }
+      ],
+      "organization": {
+        "name": "상상력 교양대학",
+        "department": "상상력교양대학 기초교양학부"
+      },
+      "participants": {
+        "current": 23,
+        "capacity": 40,
+        "max_apply": null,
+        "is_unlimited": false
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85301/cover.jpg?ts=1780876448",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85307/26-%EC%97%AC%EB%A6%84+3D+%EC%BD%98%ED%85%90%EC%B8%A0+%EC%A0%9C%EC%9E%91_%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 295
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "비교과",
+        "여름방학",
+        "창의적디지털 3D 콘텐츠 제작"
+      ],
+      "target": {
+        "audiences": [
+          "재학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "312929@hansung.ac.kr",
+        "phone": "02-760-5677",
+        "location": "탐구관 204호"
+      },
+      "duration_hours": 9.0,
+      "session_count": 3,
+      "content": {
+        "summary": "비교과프로그램명: 창의적 디지털 3D 콘텐츠 제작 모집 대상: 1,2,3,4학년 재학생 (휴학생 및 수료생 제외) 모집 일정: 6월 8일(월)-6월 26일(금) 15시까지(선착순 40명) 운영 일시: 6월 29일(월)-7월 1일(수) 10:00~13:00 (1일 3시간 총 9시간) 장소",
+        "description_text": "비교과프로그램명: 창의적 디지털 3D 콘텐츠 제작 모집 대상: 1,2,3,4학년 재학생 (휴학생 및 수료생 제외) 모집 일정: 6월 8일(월)-6월 26일(금) 15시까지(선착순 40명) 운영 일시: 6월 29일(월)-7월 1일(수) 10:00~13:00 (1일 3시간 총 9시간) 장소: 탐구관 204호 이수 혜택: 최대 지급 45pt 이수기준: 3일 모두 출석 및 개인별 작품 제출 일차 내용 1일차 - 코스페이시스 접속하기, 가입하기, 갤러리 체험하기 - 새로운 코스페이스 만들기, 편집화면 조작하기 - 배경 수정하기, 오브젝트 배치하기, 장면 추가하기, 자유롭게 꾸미기 - 봄, 여름, 가을, 겨울 -디저트 만들기 - 해상전투(오브젝트, 속성창, 오브젝트 애니메이션 바꾸기) - 동물원 꾸미기(자연스러운 동물추가, 동물 물그릇만들기, 배경 음악 넣기) - 자연재해 체험장(화재, 홍수, 지진, 가뭄 체험장 만들기) 2일차 - 3D 게임 만들기 - 방탈출 퀴즈 게임 - 보물찾기 - 숨은 그림찾기 - 운석피하기 자동차 게임등 3일차 -머지 큐브로 AR 체험하기 -머지큐브 보물섬 -머지 큐브 수수께끼 -머지 큐브 디펜스 게임 -VR 체험하기 문의: 상상력교양대학 기초교양학부 02-760-5677 / 진리관 404호 학기중 - 9:00~17:30 방중 - 10:00~16:00"
+      },
+      "attachments": [
+        {
+          "file_name": "26-여름 3D 콘텐츠 제작_포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85307/26-%EC%97%AC%EB%A6%84+3D+%EC%BD%98%ED%85%90%EC%B8%A0+%EC%A0%9C%EC%9E%91_%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "1.67MB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:19+09:00"
+    },
+    {
+      "id": "13921",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13921/description",
+      "title": "2026년 자기성장 심리증진 프로젝트 1차",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-12",
+        "accepting": true
+      },
+      "points": 12,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-06-15T09:00:00+09:00",
+        "end_at": "2026-06-28T23:45:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-29T09:00:00+09:00",
+          "end_at": "2026-07-14T12:00:59+09:00",
+          "location": ""
+        },
+        {
+          "start_at": "2026-06-29T09:00:00+09:00",
+          "end_at": "2026-07-13T23:45:59+09:00",
+          "location": ""
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "학생진로취업처 학생생활상담센터"
+      },
+      "participants": {
+        "current": 27,
+        "capacity": 50,
+        "max_apply": null,
+        "is_unlimited": false
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85278/cover.jpg?ts=1780633854",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85280/2026-%EC%9E%90%EA%B8%B0%EC%84%B1%EC%9E%A5-%EC%8B%AC%EB%A6%AC%EC%A6%9D%EC%A7%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B3%B5%EC%82%AC%EB%B3%B8-001.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 111
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생",
+          "제적생",
+          "졸업유예"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "상담·심리지원",
+        "sub": "상담·검사"
+      },
+      "contact": {
+        "email": "counseling@hansung.ac.kr",
+        "phone": "02-760-5813",
+        "location": ""
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "누구든 피할 수 없는 진로 고민 !!! 사실 이건 \"나의 삶\"을 이해하고 결정하는 데에 필수적인 고민이랍니다. 한성인들의 진로 고민을 응원하고 지원하고자 찾아왔습니다:D 전문적인 진로검사를 받아보고, 나의 검사 결과를 확인하고, 다양하게 활용해보세요~ [Point1] 심리검사 전문 업체",
+        "description_text": "누구든 피할 수 없는 진로 고민 !!! 사실 이건 \"나의 삶\"을 이해하고 결정하는 데에 필수적인 고민이랍니다. 한성인들의 진로 고민을 응원하고 지원하고자 찾아왔습니다:D 전문적인 진로검사를 받아보고, 나의 검사 결과를 확인하고, 다양하게 활용해보세요~ [Point1] 심리검사 전문 업체가 다루는 신뢰성 있는 진로검사 를 무료로 받아볼 수 있어요. 온라인으로 내가 편한 장소, 시간에 참여 가능! [Point2] 검사를 참여만 해도 검사 결과를 온라인으로 확인 이 가능해요. [Point3] 해석 특강 을 신청하면, 검사 결과에 대한 더욱 전문적인 설명, 활용하는 활동 에 참여할 수 있어요. 1. 프로그램 목적: 심리검사를 통해 자기이해와 타인이해 증진 2. 프로그램 대상: 전체 재학생 3. 프로그램 운영 일정 및 내용 프로그램명 일정 내용 비고 자기성장 심리증진 프로젝트 1차 (STRONG 직업흥미검사) 6/15(월) 9:00 -6/28(일) 23:45 신청 스마트자기관리시스템 6/29(월) - 7/13(월) 온라인 심리검사 실시 메일 또는 문자 7/14(화) 10:00 - 12:00 해석 특강 참여(2시간) *선착순 50명 (신청 후 온라인검사 완료 시에만 참여 가능) 비대면 특강 6/29(월) - 7/15(수) 만족도 설문 스마트자기관리시스템 4. 활동보상 활동내용 참여 가능 인원 지급 포인트 신청 + 온라인심리검사 완료 + 만족도 조사 70명 10point 신청 + 온라인심리검사 완료 + 해석 특강 참여 +만족도 조사 50명 20 point 5. 문의: 학생생활상담센터(미래관 B114호, 02-760-5813) ※ 프로그램 일정 및 온라인 심리검사는 학사운영상황에 따라 변동 가능함"
+      },
+      "attachments": [
+        {
+          "file_name": "2026-자기성장-심리증진-프로젝트_복사본-001.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85280/2026-%EC%9E%90%EA%B8%B0%EC%84%B1%EC%9E%A5-%EC%8B%AC%EB%A6%AC%EC%A6%9D%EC%A7%84-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EB%B3%B5%EC%82%AC%EB%B3%B8-001.png?ts=0",
+          "extension": "png",
+          "size_text": "440.75KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:20+09:00"
+    },
+    {
+      "id": "13926",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13926/description",
+      "title": "2026-1 한성 AX 융합 튜터링 성과공유회 참관",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-9",
+        "accepting": true
+      },
+      "points": 10,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-12T09:00:00+09:00",
+        "end_at": "2026-06-26T11:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-26T14:00:00+09:00",
+          "end_at": "2026-06-26T16:00:00+09:00",
+          "location": "한성대학교"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 교육혁신처",
+        "department": "교육혁신처 교수학습센터"
+      },
+      "participants": {
+        "current": 5,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85464/cover.jpg?ts=1781226155",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85463/2026-1+%EC%9C%B5%ED%95%A9%ED%8A%9C%ED%84%B0%EB%A7%81+%EC%84%B1%EA%B3%BC%EA%B3%B5%EC%9C%A0%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "https://hsportal.hansung.ac.kr/attachment/view/85474/1781224790706.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 91
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "hanctl@hansung.ac.kr",
+        "phone": "02-760-5816",
+        "location": "한성대학교"
+      },
+      "duration_hours": 2.0,
+      "session_count": 1,
+      "content": {
+        "summary": null,
+        "description_text": ""
+      },
+      "attachments": [
+        {
+          "file_name": "2026-1 융합튜터링 성과공유회 포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85463/2026-1+%EC%9C%B5%ED%95%A9%ED%8A%9C%ED%84%B0%EB%A7%81+%EC%84%B1%EA%B3%BC%EA%B3%B5%EC%9C%A0%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "185.72KB"
+        },
+        {
+          "file_name": "2026-1 융합튜터링 성과공유회 포스터 (1).png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85472/2026-1+%EC%9C%B5%ED%95%A9%ED%8A%9C%ED%84%B0%EB%A7%81+%EC%84%B1%EA%B3%BC%EA%B3%B5%EC%9C%A0%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0+%281%29.png?ts=0",
+          "extension": "png",
+          "size_text": "49.41KB"
+        },
+        {
+          "file_name": "1781224790706.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85474/1781224790706.png?ts=0",
+          "extension": "png",
+          "size_text": "43.71KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:21+09:00"
+    },
+    {
+      "id": "13914",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13914/description",
+      "title": "2026-여름 AI리터러시와 미래역량 1차",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-4",
+        "accepting": true
+      },
+      "points": 60,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-08T09:00:00+09:00",
+        "end_at": "2026-06-21T17:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-23T13:00:00+09:00",
+          "end_at": "2026-06-26T16:00:00+09:00",
+          "location": "상상관 306호"
+        }
+      ],
+      "organization": {
+        "name": "상상력 교양대학",
+        "department": "상상력교양대학 기초교양학부"
+      },
+      "participants": {
+        "current": 37,
+        "capacity": 50,
+        "max_apply": null,
+        "is_unlimited": false
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85223/cover.jpg?ts=1780633506",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/68991/AI%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%8B%A4%EC%83%9D%ED%99%9C-%EC%82%AC%EB%A1%80-001.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 1173
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "AI",
+        "여름방학",
+        "AI를이용한실생활사례",
+        "실생활",
+        "AI를이용한 실생활 사례"
+      ],
+      "target": {
+        "audiences": [
+          "재학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "312929@hansung.ac.kr",
+        "phone": "02-760-5677",
+        "location": "상상관 306호"
+      },
+      "duration_hours": 12.0,
+      "session_count": 4,
+      "content": {
+        "summary": "2026학년도 여름방학 'AI를 이용한 실생활 사례' 모집 대상: 1,2,3,4학년 재학생 (휴학생 및 수료생 X) 모집기간: 6월 8일(월)~6월 21일(일) 오후 5시 (선착순 50명) 운영기간: 6월 23일(화)~6월 26일(금) (4일 간) 이수 혜택: 비교과포인트 60Pt 지금",
+        "description_text": "2026학년도 여름방학 'AI를 이용한 실생활 사례' 모집 대상: 1,2,3,4학년 재학생 (휴학생 및 수료생 X) 모집기간: 6월 8일(월)~6월 21일(일) 오후 5시 (선착순 50명) 운영기간: 6월 23일(화)~6월 26일(금) (4일 간) 이수 혜택: 비교과포인트 60Pt 지금 이수 기준: 대면 수업 참석 85%이상(3일 참석) 및 실제 사례 기획한 보고서 제출 운영 방법: 100% 오프라인 대면 강의(1일 3시간 총 12시간) 비교과프로그램 운영 내용: * 강의 장소: 상상관 306호 * 강의 시간: 13:00 ~ 16:00 (1일 3시간) 일차 내용 1일차 OT, AI 개념 및 응용 사례 및 인공지능 체험하기 소개 2일차 비전 딥러닝 : 발레 코칭 사례 소개 및 회로 기반 분석 사례 소개 및 오염 번호판 변환 사례 3일차 비전 딥러닝 : 딥러닝 기반 헤어 변환 사례 및 가상 인간 사례 의료 딥러닝 : MRI 이미지를 이용한 진단 및 예측 사례 4일차 실제 AI 사례 기획해 보기 ※본 비교과 프로그램의 운영형태 및 이수 기준은 아래와 같음 운영형태: 100% 현장 강의 이수기준 : 대면 수업 참석 85%이상(3일 참석) 및 실제 사례 기획한 보고서 제출"
+      },
+      "attachments": [
+        {
+          "file_name": "AI를-이용한-실생활-사례-001.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85219/AI%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%8B%A4%EC%83%9D%ED%99%9C-%EC%82%AC%EB%A1%80-001.png?ts=0",
+          "extension": "png",
+          "size_text": "330.51KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:22+09:00"
+    },
+    {
+      "id": "13930",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13930/description",
+      "title": "2026-1학기 예술학부 한국무용전공 쇼케이스 관람",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-3",
+        "accepting": true
+      },
+      "points": 10,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-16T08:00:00+09:00",
+        "end_at": "2026-06-20T16:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-20T16:00:00+09:00",
+          "end_at": "2026-06-20T18:00:00+09:00",
+          "location": "한성대학교 낙산관 대극장"
+        }
+      ],
+      "organization": {
+        "name": "크리에이티브인문예술대학 예술학부",
+        "department": "한국무용전공"
+      },
+      "participants": {
+        "current": 4,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 53
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "전공역량강화",
+        "sub": "현장체험활동"
+      },
+      "contact": {
+        "email": "soohyun06@hansung.kr",
+        "phone": "02-760-4107",
+        "location": "한성대학교 낙산관 대극장"
+      },
+      "duration_hours": 2.0,
+      "session_count": 1,
+      "content": {
+        "summary": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 진행 시간: 2시간 예정 ○ 참여 대상 : 한성대학교 재학생 중 공연 관람자 ○ 개설 목적 : 타 전공 재학생들에게 26-1학기 재학기간 동안의 ",
+        "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 진행 시간: 2시간 예정 ○ 참여 대상 : 한성대학교 재학생 중 공연 관람자 ○ 개설 목적 : 타 전공 재학생들에게 26-1학기 재학기간 동안의 공연준비 과정을 거친 한국무용전공 재학생들의 한국무용공연 관람을 통해 우리나라 고유의 전통문화와 춤을 즐길 수 있는 예술향유의 기회를 제공하고자 함. ○ 비교과포인트 지급 : 10pt 지급(신청 후 관람자 명단 작성)"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:22+09:00"
+    },
+    {
+      "id": "13929",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13929/description",
+      "title": "2026-1학기 예술학부 한국무용전공 쇼케이스",
+      "status": {
+        "code": "scheduled",
+        "label": "접수예정",
+        "badge": null,
+        "accepting": false
+      },
+      "points": 15,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-17T00:00:00+09:00",
+        "end_at": "2026-06-20T22:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-20T16:00:00+09:00",
+          "end_at": "2026-06-20T22:00:00+09:00",
+          "location": "한성대학교 낙산관 대극장"
+        }
+      ],
+      "organization": {
+        "name": "크리에이티브인문예술대학 예술학부",
+        "department": "한국무용전공"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 28
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "전공역량강화",
+        "sub": "현장체험활동"
+      },
+      "contact": {
+        "email": "soohyun06@hansung.kr",
+        "phone": "02-760-4107",
+        "location": "한성대학교 낙산관 대극장"
+      },
+      "duration_hours": 2.0,
+      "session_count": 1,
+      "content": {
+        "summary": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 참여 대상 : 한국무용전공트랙 재학생 중 희망자 ○ 개설 목적 : 26-1학기 재학 기간 동안 한국무용전공 재학생들이 전공수업을 통해 향상된 전공",
+        "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 참여 대상 : 한국무용전공트랙 재학생 중 희망자 ○ 개설 목적 : 26-1학기 재학 기간 동안 한국무용전공 재학생들이 전공수업을 통해 향상된 전공실기역량을 무대에서 선보이는 과정에서 무용관련 전문지식을 취득하고 자신의 진로를 탐색하게 하고자 함. ○ 프로그램 구성: 전공레파토리, 특강레파토리, 졸업예비작품이 포함된 총 9개의 작품으로 구성, 총 2시간 진행 예상. ○ 비교과포인트 지급 : 15pt"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:23+09:00"
+    },
+    {
+      "id": "13927",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13927/description",
+      "title": "2026-1 외국인 유학생 종강총회",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-2",
+        "accepting": true
+      },
+      "points": 10,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-12T00:00:00+09:00",
+        "end_at": "2026-06-19T14:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-19T14:00:00+09:00",
+          "end_at": "2026-06-19T16:00:00+09:00",
+          "location": "상상관 206호"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 글로컬협력처",
+        "department": "글로컬협력처 국제학생입학지원센터"
+      },
+      "participants": {
+        "current": 1,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85495/cover.jpg?ts=1781228881",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85490/2026-1+%EC%A2%85%EA%B0%95%EC%B4%9D%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 25
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "intl@hansung.ac.kr",
+        "phone": "02-760-5595",
+        "location": "상상관 206호"
+      },
+      "duration_hours": 2.0,
+      "session_count": 1,
+      "content": {
+        "summary": "<2026-1학기 외국인 유학생 종강총회> -목적: 외국인 유학생 안정적인 대학 생활 지원, 방학 중 학사일정 안내 -대상: 학부 외국인 유학생 재학생 전원 -일시: 2026. 06. 19.(금) 14:00-16:00 -장소: 상상관 206호 -내용: 2026-2학기 주요 유학생 학사일",
+        "description_text": "<2026-1학기 외국인 유학생 종강총회> -목적: 외국인 유학생 안정적인 대학 생활 지원, 방학 중 학사일정 안내 -대상: 학부 외국인 유학생 재학생 전원 -일시: 2026. 06. 19.(금) 14:00-16:00 -장소: 상상관 206호 -내용: 2026-2학기 주요 유학생 학사일정, 행사 및 공지사항 안내, 유학생 범죄예방교육, 이벤트 등"
+      },
+      "attachments": [
+        {
+          "file_name": "2026-1 종강총회 포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85490/2026-1+%EC%A2%85%EA%B0%95%EC%B4%9D%ED%9A%8C+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "212.04KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:24+09:00"
+    },
+    {
+      "id": "13890",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13890/description",
+      "title": "[대플] 26-1학기 기업탐색 특강",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "임박",
+        "accepting": true
+      },
+      "points": 5,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-05-25T00:00:00+09:00",
+        "end_at": "2026-06-16T23:45:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-18T10:00:00+09:00",
+          "end_at": "2026-06-18T11:30:00+09:00",
+          "location": "상상관 206호"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "대학일자리플러스센터 지역청년고용팀"
+      },
+      "participants": {
+        "current": 56,
+        "capacity": 75,
+        "max_apply": null,
+        "is_unlimited": false
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84816/cover.jpg?ts=1779842285",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/84990/0618.jpg?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 1230
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "대학일자리플러스센터",
+        "재학생",
+        "졸업생특화",
+        "기업분석",
+        "취업전략",
+        "중소기업중앙회",
+        "강소기업"
+      ],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생",
+          "수료생",
+          "졸업생",
+          "졸업유예",
+          "대학원생",
+          "외부인"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "진로·취업지원",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "hswye@hansung.kr",
+        "phone": "02-760-5840",
+        "location": "상상관 206호"
+      },
+      "duration_hours": 1.5,
+      "session_count": 1,
+      "content": {
+        "summary": "[중소기업중앙회 X 한성대대플] 우수 중소기업 진로취업 치트키 설명회 나만 모르는 '숨은 보석' 같은 알짜 강소기업 을 단 90분 만에 골라내는 치트키를 전수합니다! 재미있는 게임과 퀴즈로 혜택도 챙기고, 졸업 전후 나만의 완벽한 취업 전략(CDP)까지 한 번에 가져가세요! ○ 대상 :",
+        "description_text": "[중소기업중앙회 X 한성대대플] 우수 중소기업 진로취업 치트키 설명회 나만 모르는 '숨은 보석' 같은 알짜 강소기업 을 단 90분 만에 골라내는 치트키를 전수합니다! 재미있는 게임과 퀴즈로 혜택도 챙기고, 졸업 전후 나만의 완벽한 취업 전략(CDP)까지 한 번에 가져가세요! ○ 대상 : 재학생, 졸업(예정)자 ,지역청년 *지역청년의 [ 한성대학교 회원가입 후][ 신청 가능] ○ 일시: : 2026.06.18.(목) 오전10시~ 오전11시 30분(90분) ○ 장소: 상상관 2층 206호 ○ 신청 기간: ~ 26.06.16.(화) 23:59 ○ 참여자 혜택 : 이수자 5pt 지급 ○ 프로그램 관련 문의: 대학일자리플러스센터 원영은T 02-760-5840 . hswye@hansung.kr ○ 주요 내용"
+      },
+      "attachments": [
+        {
+          "file_name": "0618.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84990/0618.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "213.68KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:25+09:00"
+    },
+    {
+      "id": "13870",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13870/description",
+      "title": "[인재인증] 2026학년도 HS 한성인의 도전이야기",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-14",
+        "accepting": true
+      },
+      "points": 20,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-06-01T00:00:00+09:00",
+        "end_at": "2026-06-30T23:59:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-01T00:00:00+09:00",
+          "end_at": "2026-12-31T23:59:00+09:00",
+          "location": "온라인"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 교육혁신처",
+        "department": "교육혁신처 학생성공센터"
+      },
+      "participants": {
+        "current": 6,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84509/cover.jpg?ts=1780364101",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85147/2026+%EB%8F%84%EC%A0%84%EC%9D%B4%EC%95%BC%EA%B8%B0.jpg?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 469
+      },
+      "flags": {
+        "is_talent_certified": true,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "도전",
+        "성공경험",
+        "학생성공",
+        "경험공유",
+        "도전경험",
+        "성취"
+      ],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생",
+          "수료생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "공모전·대회"
+      },
+      "contact": {
+        "email": "css@hansung.ac.kr",
+        "phone": "02-760-5579",
+        "location": "온라인"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "에세이 접수 기간: 2026년 6월 1일(월)~6월 30일(화) 23:59까지 2026학년도부터 한성인의 도전이야기 프로그램은 연 1회로 운영됩니다. 1. 운영목적: 한성대 학생의 도전과 성취경험 공유 및 확산 2. 프로그램 운영 - 내용 : (예선) '교내외 대학생활 전반에서 도전경험",
+        "description_text": "에세이 접수 기간: 2026년 6월 1일(월)~6월 30일(화) 23:59까지 2026학년도부터 한성인의 도전이야기 프로그램은 연 1회로 운영됩니다. 1. 운영목적: 한성대 학생의 도전과 성취경험 공유 및 확산 2. 프로그램 운영 - 내용 : (예선) '교내외 대학생활 전반에서 도전경험 및 실패를 통한 배움·성취경험과 관련된 이야기 '에 대한 에세이 작성 및 제출 (ex. 진로 및 전공 탐색 / 학습경험 / 나의 역경 극복기 / 교과 및 비교과 / 취업준비 등) (본선) 에세이 내용을 숏폼(1~3분이내)으로 제작하여 제출 - 참여 대상 : 한성대학교 학생이라면 누구나 ※ 재학생, 휴학생, 수료생 참여 가능 - 참여 방법 : 첨부되어있는 에세이 양식에 맞추어 작성 후 신청 접수 ※ 기제출작 재사용 시, 신청 취소 처리 - 일정: 1차 에세이 접수 → 심사 → 1차 발표 → 2차 영상 제작 및 제출 → 심사 → 최종 발표 → 시상 및 간담회 - 비교과 포인트 : 1차 에세이 제출 시 20포인트 2차 발표컨텐츠 제출(1차 평가 합격자에 한함)+학생성공 라운드 테이블 참여시 30포인트 추가 지급 ※ 비교과포인트는 학생성공 라운드 테이블 운영 종료 이후 지급 예정(26년 11월) ※ 비교과포인트는 성실 제출자에 한해 지급됩니다. - 시상금 : HS 인재상 최대 40만원(1명) HS 극복상 최대 30만원(3명) HS 도전상 최대 20만원(5명) ※ 시상인원은 제출작 편수에 따라 달라질 수 있음 - 상세일정 내용 일정 비고 공고 및 모집 6.1(월)~6.30(화) 스마트자기관리시스템 1차 에세이 심사 7.1(수)~7.19(일) 센터 내부 심사 1차 심사결과 발표 7.20~24 중 발표 심사 결과 개별 문자 안내 ※ 2차 심사 관련 일정은 1차 심사 합격자에게 별도 공지 ※ 상기 일정은 모집현황 및 학생 일정을 고려하여 조율될 수 있음. 3. 학생성공 라운드 테이블 참여 한성인의 도전이야기 수상자는 신설 프로그램 <학생성공 라운드 테이블>에서 멘토 역할을 필수로 수행하게 됩니다. - 내용: 총장 명의 상장 수여 및 수상자와 재학생 간 간담회 진행 - 목적: 수상자와의 오프라인 만남을 통해 재학생의 학생성공 동기 부여 감사합니다."
+      },
+      "attachments": [
+        {
+          "file_name": "2026 도전이야기.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84521/2026+%EB%8F%84%EC%A0%84%EC%9D%B4%EC%95%BC%EA%B8%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "354.29KB"
+        },
+        {
+          "file_name": "양식 1. 신청서 및 에세이 작성 양식(2026).hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84522/%EC%96%91%EC%8B%9D+1.+%EC%8B%A0%EC%B2%AD%EC%84%9C+%EB%B0%8F+%EC%97%90%EC%84%B8%EC%9D%B4+%EC%9E%91%EC%84%B1+%EC%96%91%EC%8B%9D%282026%29.hwp",
+          "extension": "hwp",
+          "size_text": "46.08KB"
+        },
+        {
+          "file_name": "양식 2 . 저작물 활용 동의서(2026).hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84523/%EC%96%91%EC%8B%9D+2+.+%EC%A0%80%EC%9E%91%EB%AC%BC+%ED%99%9C%EC%9A%A9+%EB%8F%99%EC%9D%98%EC%84%9C%282026%29.hwp",
+          "extension": "hwp",
+          "size_text": "114.69KB"
+        },
+        {
+          "file_name": "2026 도전이야기.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85147/2026+%EB%8F%84%EC%A0%84%EC%9D%B4%EC%95%BC%EA%B8%B0.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "1.19MB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:26+09:00"
+    },
+    {
+      "id": "13787",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13787/description",
+      "title": "2026학년도 제13회 창의융합역량 경진대회",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-10",
+        "accepting": true
+      },
+      "points": 20,
+      "type": "팀",
+      "application_period": {
+        "start_at": "2026-06-01T00:00:00+09:00",
+        "end_at": "2026-06-26T23:45:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-01T00:00:00+09:00",
+          "end_at": "2026-08-31T23:45:00+09:00",
+          "location": "상상파크 / 상상파크 플러스"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 교육혁신처",
+        "department": "교육혁신처 스마트융합교육센터"
+      },
+      "participants": {
+        "current": 2,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/83909/cover.jpg?ts=1776405424",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/83858/1776327858821.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 940
+      },
+      "flags": {
+        "is_talent_certified": true,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "창의융합",
+        "대회",
+        "C&CFestival",
+        "성과경진대회",
+        "Festival",
+        "경진대회",
+        "창의융합역량경진대회",
+        "창의융합역량"
+      ],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "공모전·대회"
+      },
+      "contact": {
+        "email": "lupin@hansung.kr",
+        "phone": "02-760-8042",
+        "location": "상상파크 / 상상파크 플러스"
+      },
+      "duration_hours": 4.0,
+      "session_count": 1,
+      "content": {
+        "summary": "<공지사항을 반드시 확인해주시기 바랍니다> ※ 모든 팀원은 반드시 스마트자기관리시스템에 프로그램 신청을 완료해야합니다!!※ 2026학년도 제13회 창의융합역량 경진대회 개최 안내 스마트융합교육센터에서 제13회 창의융합역량 경진대회를 개최합니다. 2026학년도에 개최되는 창의융합역량 경진",
+        "description_text": "<공지사항을 반드시 확인해주시기 바랍니다> ※ 모든 팀원은 반드시 스마트자기관리시스템에 프로그램 신청을 완료해야합니다!!※ 2026학년도 제13회 창의융합역량 경진대회 개최 안내 스마트융합교육센터에서 제13회 창의융합역량 경진대회를 개최합니다. 2026학년도에 개최되는 창의융합역량 경진대회는 재학생 누구나 참여 가능하며 교과과정을 통해 습득한 전공 지식과 융합적 사고를 바탕으로 다양한 결과물을 설계제작하고 성과를 공유하는 경진대회입니다. 많은 관심과 참여 부탁드립니다. 1. 대회 참가 부문 - 단일 부문으로 운영되며 아이디어 제안 및 결과물 제작 형태 모두 참여 가능 2. 대회 진행 방식 - 1차 서류 심사(40%) + 2차 대면 질의응답 (60%) - 1차 심사: 작품소개서 (첨부파일, 별도 양식) - 2차 심사: 작품 소개 동영상 제출 후, 대면 질의응답 (2차 심사 대상팀에 한함, 별도 양식) 3. 참가 자격 - 한성대학교 재학생 - 개인 또는 팀 단위 참여 가능(인원 제한 없음) - 1인 1팀 참여(중복참가 불가) - 졸업생, 휴학생, 졸업유예생, 초과학기생 참가 불가 4. 비교과 프로그램 - 작품소개서 제출 및 참가 요건을 충족한 참여팀 참여팀 전원 포인트 지급 - 지급 포인트: 20pt (팀장, 팀원 동일 지급) 5. 진행 일정 ※ 일정은 운영 상황에 따라 변경될 수 있습니다. - 신청 및 작품소개서 제출: 6. 1.(월) ~ 6. 26.(금) - 1차 심사: 6. 29.(월) ~ 7. 3.(금) - 1차 결과 발표: 7. 10.(금) - 2차 심사 및 최종 결과 발표: 8. 7.(금) - 수상작 전시: 8. 31.(월) ~ 2. 26.(금) 6. 참가 방법 1) 참가 신청 - 스마트자기관리시스템을 통해 신청 - 팀장이 팀을 개설한 후, 팀원은 해당 팀에 참여 신청 - 모든 팀원은 개별적으로 프로그램 신청 필수 2) 제출 사항 - 작품소개서 작성 및 제출 7. 작품소개서 작성요령 1) 작성 내용 - 작품명, 작품 주제, 작품 내용, 기대효과, 작품 사진 등 2) 분량 - 제한 없음 3) 파일 형식 - PDF파일 4) 제출 방법 - 한성e-class 내 경진대회 커뮤니티에 파일 업로드 ※ 본인의 전공 1트랙(학과) 외, 작품과 관련된 타전공(융합분야) 1개 이상 필수 기재 5) 제출 유의 사항 - 지정된 양식 사용성할 것 - 팀장이 대표로 1회 제출 - PDF 파일로 제출 8. 작품심사 평가 기준 ※1차 심사 : 작품소개서 기반 서류 평가 1) 창의성 및 체계성 (20점) - 아이디어의 창의성 및 차별성 - 과제 수행 과정의 체계성 2) 결과물 구체성 및 완성도 (10점) - 결과물의 구체성 및 완성도 수준 3) 기대효과 (6점) - 실현 가능성, 실용성, 확장성 등 4) 융합성 (4점) - 전공 간 융합 수준 총점 : 40점 ※2차 심사 - 1차 심사 통과팀 대상 진행 - 작품소개 영상 제출 및 대면 질의응답 평가 1) 제출 사항( 선정팀에 한함 ) - 작품소개 영상 제출(e-class 경진대회 커뮤니티) - 영상 길이: 5분 이내 - 파일 형식: MP4 - 발표자료(PT) 및 자막 포함 필수 2) 대면 평가 - 지정 일자에 심사위원 질의응답 진행 - 무단 미참석 시 수상 대상에서 제외 3) 2차 평가기준 가. 창의성 및 체계성 (20점) - 아이디어의 창의성 및 차별성 - 과제 수행 과정의 체계성 나. 결과물 기능성 및 완성도 (20점) - 결과물의 구체성 및 구현 수준 - 실제 작품 구현 및 시연 여부 - 기능성 및 완성도 다. 기대효과 (10점) - 실현 가능성, 실용성, 확장성 등 라. 발표 (10점) - 발표 내용 및 전달력 - 질의응답 대응 - 발표 태도 및 시간 준수 9. 수상팀 선정 및 발표 1) 1차(40점) + 2차(60점) 합산 점수로 최종 수상팀 선정 2) 대면 평가 당일 수상팀 발표 3) 시상 내역 ※ 상금은 팀 구성원 수에 따라 차등 지급 ※ 참가 현황 및 심사 결과에 따라 시상 규모는 변경될 수 있음 10. 수상작품 전시회 - 전시 기간: 8. 31.(월) ~ 2. 26. (금) - 전시 장소: 상상파크 1층 - 수상팀은 작품 소개 포스터 제출 필수 - 포스터 규격: A1 사이즈(패널 형식) ※ 포스터 미제출 시 수상이 취소될 수 있음 11. 문의: 스마트융합교육센터(02-760-8042)"
+      },
+      "attachments": [
+        {
+          "file_name": "1776327858821.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/83858/1776327858821.png?ts=0",
+          "extension": "png",
+          "size_text": "32.63KB"
+        },
+        {
+          "file_name": "제13회 창의융합역량 경진대회 작품소개서 (양식).hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/83907/%EC%A0%9C13%ED%9A%8C+%EC%B0%BD%EC%9D%98%EC%9C%B5%ED%95%A9%EC%97%AD%EB%9F%89+%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C+%EC%9E%91%ED%92%88%EC%86%8C%EA%B0%9C%EC%84%9C+%28%EC%96%91%EC%8B%9D%29.hwp",
+          "extension": "hwp",
+          "size_text": "74.75KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:26+09:00"
+    },
+    {
+      "id": "13721",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13721/description",
+      "title": "[인재인증] 2026학년도 1학기 HSP(High Success Project)",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-14",
+        "accepting": true
+      },
+      "points": 14,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-06-01T00:00:00+09:00",
+        "end_at": "2026-06-30T23:59:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-06-01T00:00:00+09:00",
+          "end_at": "2026-08-31T23:59:59+09:00",
+          "location": "한성대학교 e-class 커뮤니티"
+        },
+        {
+          "start_at": "2026-06-01T00:00:00+09:00",
+          "end_at": "2026-11-30T23:59:59+09:00",
+          "location": "한성대학교 e-class 커뮤니티"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 교육혁신처",
+        "department": "교육혁신처 학생성공센터"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84547/cover.jpg?ts=1781488000",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/85148/2026+HPS+%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 485
+      },
+      "flags": {
+        "is_talent_certified": true,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생",
+          "수료생",
+          "졸업유예"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "소모임·멘토링"
+      },
+      "contact": {
+        "email": "css@hansung.ac.kr",
+        "phone": "02-760-5579",
+        "location": "한성대학교 e-class 커뮤니티"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "0. 신청기간 2026.06.01(월)~06.30(일)까지 ※ 운영일자에 따라 변경될 수 있음 1. 활동내용 - 관심영역과 관련한 문제를 발굴하고, 창의적 해결방안을 마련하여, 유·무형의 결과물을 도출해내는 팀 기반 프로젝트 활동 2. 신청방법 - 2026년 6월 1일부터 HSP 시스템",
+        "description_text": "0. 신청기간 2026.06.01(월)~06.30(일)까지 ※ 운영일자에 따라 변경될 수 있음 1. 활동내용 - 관심영역과 관련한 문제를 발굴하고, 창의적 해결방안을 마련하여, 유·무형의 결과물을 도출해내는 팀 기반 프로젝트 활동 2. 신청방법 - 2026년 6월 1일부터 HSP 시스템( https://capstone.hansung.ac.kr ) 을 통해 신청 ※ 팀장에게만 신청 및 보고서 업로드 권한 부여 3. 지원조건 - 팀 구성 : 학생이 2인~5인으로 팀을 구성하여 팀 단위로 신청 ※ 졸업생 신청 불가 - 팀 지도멘토 : 학생이 본교 교수진을 팀 멘토로 섭외하여 신청 4. 모집유형 (아래의 3가지 유형 중 택 1) - 전공연계형 - 산업연계형 - 자율주제형 ※ 캡스톤디자인 작업물 연계 참여 가능 5. 활동기간 및 결과물 활동기간 결과 도출 요구 수준 1단계(3개월) - 아이디어 수준에서 문제해결방안 산출 - 예시, 샘플 등을 통해 결과물 도출 2단계(6개월) - 문제해결방안 가시화 - 프로토타입 제작 6. 진행절차 연번 활동 내용 담당 1 참가신청서 제출 팀장 2 참가신청서 승인 지도교수 3 참가신청서 최종 검토 및 승인 학생성공센터 4 필수 오리엔테이션 학생성공센터 5 지원금사용계획서 제출 팀장 6 지원금사용계획서 승인 학생성공센터 7 주차별 활동보고서 및 최종결과보고서 제출 팀장 8 정산내역서 제출 팀장 9 최종결과보고서 검토 지도교수 10 정산내역서 검토 및 활동비 지급 학생성공센터 11 스마트자기관리시스템 만족도 조사 참여 팀원 전체 7. 참여단계별 활동보고서 제출 관련 안내 - 참여단계별 활동보고서 제출 분량은 아래와 같으며, 참가 신청 승인이 되면 추후 안내할 예정임 ※ 1단계(3개월): 8주 분량의 활동보고서 제출 + 최종결과보고서 ※ 2단계(6개월): 16주 분량의 활동보고서 제출 + 최종결과보고서 8. HSP 참여 혜택 - 비교과포인트, 팀 활동지원금은 활동 수료시 지급됨 - 팀 활동지원금 사용 방법과 정산 방법에 대한 안내는 OT에서 실시 예정 참여 단계 참여 혜택 1단계(3개월) - 비교과포인트 : 100pt - 팀 활동지원금 : 1인 10만원 한도 2단계(6개월) - 비교과포인트 : 200pt - 팀 활동지원금 : 1인 15만원 한도 ※ 활동지원금은 학교 내규에 따라 실제 사용한 금액을 지급 9. 2026학년도 단계별 활동 스케줄 안내 참여 단계 활동기간 정산 및 포인트 지급 1단계(3개월) 2026.06.01~2026.08.31 프로젝트 종료 후 2개월 이내 2단계(6개월) 2026.06.01~2026.11.30 ※ 상기 프로젝트 진행시기 내 활동보고서, 정산내역서, 결과보고서를 모두 HSP 운영시스템에 업로드 해야함. 10. 주의사항 ※ 활동중단할 경우, 1) HSP 활동에 대한 모든 혜택 지급 불가(활동지원금, 비교과포인트 등) 2) 활동중단확인서 제출 필수 ※첨부파일(파일명: HSP 활동중단확인서) 작성 후, css@hansung.ac .kr 로 송부 및 전화 ※ 활동시작 후 팀원 변경 불가 ※ 팀원 전원 필수이수 조건 충족 시, 이수처리 및 비교과 포인트 지급 가능 11. 정산관련 적격증빙 안내 ※ 첨부파일(파일명: 2026 HSP 활동지원금 적격 증빙 안내) 참고 요망 12. 문의 02-760-5579/4216 css@hasung.ac .kr"
+      },
+      "attachments": [
+        {
+          "file_name": "2026 HPS.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84563/2026+HPS.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "1.15MB"
+        },
+        {
+          "file_name": "(붙임 1) HSP 시스템사용 학생매뉴얼.pdf",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84564/%28%EB%B6%99%EC%9E%84+1%29+HSP+%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%82%AC%EC%9A%A9+%ED%95%99%EC%83%9D%EB%A7%A4%EB%89%B4%EC%96%BC.pdf",
+          "extension": "pdf",
+          "size_text": "1.23MB"
+        },
+        {
+          "file_name": "(붙임 2) HSP 활동지원금 증빙 안내.pdf",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84565/%28%EB%B6%99%EC%9E%84+2%29+HSP+%ED%99%9C%EB%8F%99%EC%A7%80%EC%9B%90%EA%B8%88+%EC%A6%9D%EB%B9%99+%EC%95%88%EB%82%B4.pdf",
+          "extension": "pdf",
+          "size_text": "91.75KB"
+        },
+        {
+          "file_name": "(양식 1) 신청확인서 양식.hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84566/%28%EC%96%91%EC%8B%9D+1%29+%EC%8B%A0%EC%B2%AD%ED%99%95%EC%9D%B8%EC%84%9C+%EC%96%91%EC%8B%9D.hwp",
+          "extension": "hwp",
+          "size_text": "85.50KB"
+        },
+        {
+          "file_name": "(양식 2) 서약서 양식.hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84567/%28%EC%96%91%EC%8B%9D+2%29+%EC%84%9C%EC%95%BD%EC%84%9C+%EC%96%91%EC%8B%9D.hwp",
+          "extension": "hwp",
+          "size_text": "61.44KB"
+        },
+        {
+          "file_name": "(양식 3) 개인정보 수집·이용 동의서 양식.hwp",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84568/%28%EC%96%91%EC%8B%9D+3%29+%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4+%EC%88%98%EC%A7%91%C2%B7%EC%9D%B4%EC%9A%A9+%EB%8F%99%EC%9D%98%EC%84%9C+%EC%96%91%EC%8B%9D.hwp",
+          "extension": "hwp",
+          "size_text": "75.26KB"
+        },
+        {
+          "file_name": "2026 HPS 포스터.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/85148/2026+HPS+%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "1.15MB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:27+09:00"
+    },
+    {
+      "id": "13841",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13841/description",
+      "title": "2026 재학생 미디어 중독 예방 교육",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-14",
+        "accepting": true
+      },
+      "points": 3,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-05-20T00:00:00+09:00",
+        "end_at": "2026-06-30T23:45:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-05-20T00:00:00+09:00",
+          "end_at": "2026-06-30T23:45:00+09:00",
+          "location": "온라인"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "학생진로취업처 학생생활상담센터"
+      },
+      "participants": {
+        "current": 950,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84572/cover.jpg?ts=1778554221",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/84571/2026+%EB%AF%B8%EB%94%94%EC%96%B4%EC%A4%91%EB%8F%85+%EC%98%88%EB%B0%A9%EA%B5%90%EC%9C%A1+%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 2917
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생",
+          "수료생",
+          "졸업유예"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "상담·심리지원",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "counseling@hansung.ac.kr",
+        "phone": "02-760-5838",
+        "location": "온라인"
+      },
+      "duration_hours": 0.5,
+      "session_count": 1,
+      "content": {
+        "summary": "재학생 대상 미디어중독 예방교육을 실시합니다. -스마트폰 과의존과 뇌 피로 -끌려다니지 않고 주도하는 스마트폰 사용법 -도파민 고리 끊기 전체 소요시간은 25분 입니다. 6월 30일 화요일까지 자유롭게 수강 가능합니다.",
+        "description_text": "재학생 대상 미디어중독 예방교육을 실시합니다. -스마트폰 과의존과 뇌 피로 -끌려다니지 않고 주도하는 스마트폰 사용법 -도파민 고리 끊기 전체 소요시간은 25분 입니다. 6월 30일 화요일까지 자유롭게 수강 가능합니다."
+      },
+      "attachments": [
+        {
+          "file_name": "2026 미디어중독 예방교육 포스터.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84571/2026+%EB%AF%B8%EB%94%94%EC%96%B4%EC%A4%91%EB%8F%85+%EC%98%88%EB%B0%A9%EA%B5%90%EC%9C%A1+%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "383.29KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:28+09:00"
+    },
+    {
+      "id": "13879",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13879/description",
+      "title": "2026년 학부생 온라인 폭력예방교육",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-198",
+        "accepting": true
+      },
+      "points": 5,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-05-18T00:00:00+09:00",
+        "end_at": "2026-12-31T23:45:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-05-18T00:00:00+09:00",
+          "end_at": "2026-12-31T23:45:00+09:00",
+          "location": "온라인"
+        }
+      ],
+      "organization": {
+        "name": "대학본부 총장실",
+        "department": "한성인권센터"
+      },
+      "participants": {
+        "current": 370,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84675/cover.jpg?ts=1779149459",
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 798
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "예방",
+        "폭력",
+        "폭력예방교육",
+        "예방교육",
+        "폭력예방"
+      ],
+      "target": {
+        "audiences": [
+          "전체 학생",
+          "대학원생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "상담·심리지원",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "humanright@hansung.ac.kr",
+        "phone": "02-760-4483",
+        "location": "온라인"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "한성인권센터에서는 폭력예방교육을 통해 올바른 성 인식을 형성하여 건강하고 성평등한 분위기를 정착시키고, 피해 예방 및 대처능력을 함양하여 안전한 캠퍼스 문화를 구축하고자 본 교육을 진행합니다. ※ 본 교육은 한성 e-class 를 통한 온라인 강의 입니다. ----------------",
+        "description_text": "한성인권센터에서는 폭력예방교육을 통해 올바른 성 인식을 형성하여 건강하고 성평등한 분위기를 정착시키고, 피해 예방 및 대처능력을 함양하여 안전한 캠퍼스 문화를 구축하고자 본 교육을 진행합니다. ※ 본 교육은 한성 e-class 를 통한 온라인 강의 입니다. ------------------------------------------------------------------------------------------ 2026년 학부생 온라인 폭력예방교육 ○ 운영일시 : 2026년 5월 18일(월)~2026년 12월 31일(목) ○ 교육대상 : 재학생 (휴학생 및 학위취득 유예학생 제외) ○ 강의시간 : 2시간(1시간 분량의 동영상 2종, 모두 이수하여야 함) ○ 신청방법 1) 한성 e-class → 커뮤니티 → 나의 커뮤니티 「2026년 학부생 폭력예방교육」 수강 2) 스마트자기관리 시스템 → 신청 및 교육만족도 조사 또는 1) 스마트자기관리 시스템 → 신청 2) 한성 e-class → 커뮤니티 → 나의 커뮤니티 「2026년 대학생 폭력 예방교육」 수강 3) 스마트자기관리 시스템 → 교육만족도 조사 ○ 이수혜택 : 비교과포인트 최대 10P ( 교육 이수 후 만족도 조사 완료 시, 프로그램 종료 후 일괄 지급) - 1개 과정만 이수시 5포인트 지급, 2개 과정 모두 이수시 10포인트 지급 ※ 문의 : 한성인권센터(02-760-4483 / humanright@hansung.ac.kr )"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:29+09:00"
+    },
+    {
+      "id": "13821",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13821/description",
+      "title": "2026 생명존중교육",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-10",
+        "accepting": true
+      },
+      "points": 5,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-04-27T00:00:00+09:00",
+        "end_at": "2026-06-26T23:59:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-04-27T00:00:00+09:00",
+          "end_at": "2026-06-26T23:59:00+09:00",
+          "location": "온라인"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "학생진로취업처 학생생활상담센터"
+      },
+      "participants": {
+        "current": 1099,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/84102/cover.jpg?ts=1777251749",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/84101/%EC%83%9D%EB%AA%85%EC%A1%B4%EC%A4%91%EA%B5%90%EC%9C%A1+%ED%8F%AC%EC%8A%A4%ED%84%B0%282026+%EC%8A%A4%EC%9E%90%EA%B4%80%EC%9A%A9%29.jpg?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 2522
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "게이트키퍼",
+        "자살예방교육",
+        "생명존중교육",
+        "학생생활상담센터"
+      ],
+      "target": {
+        "audiences": [
+          "재학생",
+          "휴학생",
+          "수료생",
+          "졸업유예",
+          "대학원생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "상담·심리지원",
+        "sub": "특강·워크숍"
+      },
+      "contact": {
+        "email": "counseling@hansung.ac.kr",
+        "phone": "02-760-4171",
+        "location": "온라인"
+      },
+      "duration_hours": 1.0,
+      "session_count": 1,
+      "content": {
+        "summary": "게이트 키퍼, 생명을 지키는 당신의 또 다른 이름! 당신의 관심이 한 생명을 지킬 수 있습니다. > 게이트키퍼(gate keeper): 자살 위험 대상자를 조기에 발견해 전문기관의 상담 및 치료를 받을 수 있도록 연계하고, 위급상황에서 자살 위험 대상자의 자살 시도를 방지하기 위해 지속",
+        "description_text": "게이트 키퍼, 생명을 지키는 당신의 또 다른 이름! 당신의 관심이 한 생명을 지킬 수 있습니다. > 게이트키퍼(gate keeper): 자살 위험 대상자를 조기에 발견해 전문기관의 상담 및 치료를 받을 수 있도록 연계하고, 위급상황에서 자살 위험 대상자의 자살 시도를 방지하기 위해 지속적으로 관리·지원하는 사람을 가리킨다. <2026 생명존중교육> - 대상: 전체 학부 재적생 및 대학원 재학생 - 내용: 자살위기 예방에 대한 이해, 심리적 위기상황 발견 시 대처방법 - 운영기간: 26. 4. 27.(월) ~ 26. 6. 26.(금) - 신청방법: 스마트자기관리시스템 검색해서 신청하시고 '온라인 강의실 바로가기'를 누르면 바로 강의실 입장가능합니다. - 비교과 포인트: 5pt(운영기간 종료 후 일괄 지급)"
+      },
+      "attachments": [
+        {
+          "file_name": "생명존중교육 포스터(2026 스자관용).jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/84101/%EC%83%9D%EB%AA%85%EC%A1%B4%EC%A4%91%EA%B5%90%EC%9C%A1+%ED%8F%AC%EC%8A%A4%ED%84%B0%282026+%EC%8A%A4%EC%9E%90%EA%B4%80%EC%9A%A9%29.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "160.21KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:30+09:00"
+    },
+    {
+      "id": "13776",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13776/description",
+      "title": "2026-1학기 공공행정트랙, 법&정책트랙 법학연구회",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-75",
+        "accepting": true
+      },
+      "points": 15,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-04-09T00:00:00+09:00",
+        "end_at": "2026-08-31T00:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-04-13T00:00:00+09:00",
+          "end_at": "2026-08-31T00:00:00+09:00",
+          "location": "한성대 내외부"
+        }
+      ],
+      "organization": {
+        "name": "미래융합사회과학대학 사회과학부",
+        "department": ""
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 727
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "전공역량강화",
+        "sub": "소모임·멘토링"
+      },
+      "contact": {
+        "email": "yuntaehyun0225@hansung.kr",
+        "phone": "02-760-4077",
+        "location": "한성대 내외부"
+      },
+      "duration_hours": 7.0,
+      "session_count": 4,
+      "content": {
+        "summary": "[공공행정트랙, 법&정책트랙 법학연구회] 1. 활동기간: 2026년도 1학기 2. 목적: 로스쿨을 희망하는 학생들을 위해 LEET 모의면접, PBL토론 등의 활동을 진행하여, 로스쿨 면접 및 필기를 대비하기 위함. 2. 활동내용 (1) LEET 필기 스터디 (2) 모의면접 스터디 - 지",
+        "description_text": "[공공행정트랙, 법&정책트랙 법학연구회] 1. 활동기간: 2026년도 1학기 2. 목적: 로스쿨을 희망하는 학생들을 위해 LEET 모의면접, PBL토론 등의 활동을 진행하여, 로스쿨 면접 및 필기를 대비하기 위함. 2. 활동내용 (1) LEET 필기 스터디 (2) 모의면접 스터디 - 지도교수가 면접관이 되어 실제 로스쿨 면접을 모의로 진행하여 면접 경험을 쌓음. (3) PBL 토론 - 실제 사회이슈 중 면접에 나올법한 주제를 지도교수가 선정 후 출제하여 이에 대한 토론을 진행함 (4) 법학 관련 공모전 지원 - 환경법, 국민아이디어 공모제 등 실제 진행되고 있는 공모전에 지원하여 관련 경험을 쌓음 (5) 학술대회 참여 - AI, 전기 산업 등의 현제 제도적 과도기에 있는 법학과 연관있는 산업 학술대회를 탐방하며 식견을 넓힘 3. 대면활동계획 1회차: OT(1H) 2회차: 로스쿨 모의면접(2H) 3회차: PBL 토론 진행(2H) 4회차:모의면접(2H) 4. 지도교수: 한명진 5. 비교과포인트: 기본 15pt + 대면 출석률에 따른 차등지급(주차별 활동마다 5pt 추가되며, 최대 30P까지 지급)"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:30+09:00"
+    },
+    {
+      "id": "13767",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13767/description",
+      "title": "2026학년도 1학기 전공설계지도(AA) 상담",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-13",
+        "accepting": true
+      },
+      "points": 5,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-04-01T10:00:00+09:00",
+        "end_at": "2026-06-30T17:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-04-01T10:00:00+09:00",
+          "end_at": "2026-06-30T17:00:00+09:00",
+          "location": "상상관 BI205호"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 교육혁신처",
+        "department": "교육혁신처 자율전공설계지원센터"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/83281/cover.jpg?ts=1775547949",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/83276/AA%EC%83%81%EB%8B%B4+%ED%99%8D%EB%B3%B4+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 1208
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [
+        "전공설계",
+        "전공탐색"
+      ],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "상담·검사"
+      },
+      "contact": {
+        "email": "sejung.yoon@hansung.kr",
+        "phone": "02-760-5843",
+        "location": "상상관 BI205호"
+      },
+      "duration_hours": 1.0,
+      "session_count": 6,
+      "content": {
+        "summary": "자율전공설계지원센터에서 2026학년도 1학기 전공설계지도(AA) 상담 운영을 시작합니다. 전공 트랙 선택이 막막한 신입생부터, 트랙 변경이나 진로 방향을 고민하는 재학생까지 모두 참여할 수 있습니다. 관심 있는 학생들의 많은 참여 바랍니다. ■ 상담 내용 -1:1 맞춤 상담 제공 -나에",
+        "description_text": "자율전공설계지원센터에서 2026학년도 1학기 전공설계지도(AA) 상담 운영을 시작합니다. 전공 트랙 선택이 막막한 신입생부터, 트랙 변경이나 진로 방향을 고민하는 재학생까지 모두 참여할 수 있습니다. 관심 있는 학생들의 많은 참여 바랍니다. ■ 상담 내용 -1:1 맞춤 상담 제공 -나에게 맞는 전공 방향 탐색 -트랙 비교 및 선택 기준 정리 -진로까지 연결되는 전공 설계 ■ 대상 -트랙 선택을 고민하는 신입생 -트랙 변경을 고민하는 2, 3학년 -전교생 신청 가능 ■ 운영 기간 2026. 4. 1.(수) ~ 2026학년도 1학기 말 ■ 운영 방식 -대면 및 비대면 선택 가능 -비교과포인트 상담 건당 5pt 지급 (최대 6회, 총 30pt) ■ 신청: 아래 자체 시스템 링크에서 신청 https://hsu-aa.vercel.app/ ■ 주관 자율전공설계지원센터 02-760-4287"
+      },
+      "attachments": [
+        {
+          "file_name": "AA상담 홍보 포스터.png",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/83276/AA%EC%83%81%EB%8B%B4+%ED%99%8D%EB%B3%B4+%ED%8F%AC%EC%8A%A4%ED%84%B0.png?ts=0",
+          "extension": "png",
+          "size_text": "252.39KB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:31+09:00"
+    },
+    {
+      "id": "13838",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13838/description",
+      "title": "2026학년도 1학기 홍보대사 '하랑'",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-5",
+        "accepting": true
+      },
+      "points": 100,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-04-01T00:00:00+09:00",
+        "end_at": "2026-06-22T18:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-04-01T00:00:00+09:00",
+          "end_at": "2026-06-22T23:59:00+09:00",
+          "location": "유동적"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 글로컬협력처",
+        "department": "글로컬협력처 글로컬상생홍보팀"
+      },
+      "participants": {
+        "current": 12,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 521
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "봉사"
+      },
+      "contact": {
+        "email": "jeonce9933@hansung.kr",
+        "phone": "02-760-5650",
+        "location": "유동적"
+      },
+      "duration_hours": 200.0,
+      "session_count": 100,
+      "content": {
+        "summary": "1. 학생홍보대사 하랑 자체행사 진행 1) 학생홍보대사 선발, 워크숍 진행 2) 홍보동영상 촬영, 홍보사진 촬영 3) 신입생 오리엔테이션 지원, 신입생 새내기 배움터 지원, 대동제 지원 4) 재학생 대상 이벤트 기획 5) 지역사회 봉사활동 지원 등 2. 입학관리팀 업무 지원 1) 고교 ",
+        "description_text": "1. 학생홍보대사 하랑 자체행사 진행 1) 학생홍보대사 선발, 워크숍 진행 2) 홍보동영상 촬영, 홍보사진 촬영 3) 신입생 오리엔테이션 지원, 신입생 새내기 배움터 지원, 대동제 지원 4) 재학생 대상 이벤트 기획 5) 지역사회 봉사활동 지원 등 2. 입학관리팀 업무 지원 1) 고교 방문 입시 설명회 참석 2) 수시·정시 박람회 상담, 교내 입시 행사 지원 등 3. 글로컬상생홍보팀 업무 지원 1) 지역사회 및 외부기관 주관 교외 행사 의전 2) 타 행정부서 주관 교내 행사 의전 3) 광고 홍보모델 활동 등"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:32+09:00"
+    },
+    {
+      "id": "13650",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13650/description",
+      "title": "26-1 ESG 캠페인 활동",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-72",
+        "accepting": true
+      },
+      "points": 72,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-03-04T09:00:00+09:00",
+        "end_at": "2026-08-28T09:00:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-03-16T09:00:00+09:00",
+          "end_at": "2026-08-28T09:00:59+09:00",
+          "location": "한성대학교"
+        },
+        {
+          "start_at": "2026-06-01T09:00:00+09:00",
+          "end_at": "2026-06-05T17:00:59+09:00",
+          "location": "한성대학교"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 글로컬협력처",
+        "department": "글로컬협력처 ESG센터"
+      },
+      "participants": {
+        "current": 349,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 1959
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "봉사"
+      },
+      "contact": {
+        "email": "420561@hansung.kr",
+        "phone": "02-760-5850",
+        "location": "한성대학교"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "2026학년도 1학기 ESG 분야 관련 캠페인 활동 진행 1학기 예정 캠페인 활동 : 탄소중립 활동, 페트병 재활용 자판기 이용, 굿네이버스/밀알복지재단/휴먼인러브와 함께 진행하는 ESG 참여형 캠페인 등(추후 추가 및 수정 가능성 有) 모집 대상 ESG에 관심있는 한성대학교 재학생 신",
+        "description_text": "2026학년도 1학기 ESG 분야 관련 캠페인 활동 진행 1학기 예정 캠페인 활동 : 탄소중립 활동, 페트병 재활용 자판기 이용, 굿네이버스/밀알복지재단/휴먼인러브와 함께 진행하는 ESG 참여형 캠페인 등(추후 추가 및 수정 가능성 有) 모집 대상 ESG에 관심있는 한성대학교 재학생 신청 방법 1. 공지사항, 재학생 신청을 받아 진행 2. 스마트자기관리시스템 내의 프로그램 홍보게시판 또는 학교 홈페이지 공지사항을 통해 신청 경로 안내 참여 봉사활동 건 당 비교과포인트 5~20pt 지급 비교과 지급 방법 1. 1시간 이내의 프로그램: 5pt 지급 2. 2시간 이상의 프로그램: 10pt 지급 3. 3시간 이상의 프로그램: 15pt 지급 4. 4시간 이상의 프로그램: 20pt 지급 (최대 100pt까지 지급 가능)"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:32+09:00"
+    },
+    {
+      "id": "13730",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13730/description",
+      "title": "2026-1 외국인 유학생 상담",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-66",
+        "accepting": true
+      },
+      "points": 10,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-03-16T00:00:00+09:00",
+        "end_at": "2026-08-21T23:45:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-03-16T00:00:00+09:00",
+          "end_at": "2026-08-21T23:45:00+09:00",
+          "location": "글로벌인재대학 교학팀 사무실"
+        }
+      ],
+      "organization": {
+        "name": "글로벌인재대학",
+        "department": ""
+      },
+      "participants": {
+        "current": 47,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 924
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "전공역량강화",
+        "sub": "상담·검사"
+      },
+      "contact": {
+        "email": "dmswl@hansung.ac.kr",
+        "phone": "02-760-5798",
+        "location": "글로벌인재대학 교학팀 사무실"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "모든 외국인 유학생 대면 1 대 1 상담 ( 학과 유학생 담당 직원 ) <상담 내용> - 학과 외국인 유학생들의 학업, 생활, 진로, 심리 등 개별 맞춤형 상담 진행 ※2026년도 1학기 글로벌인재대학 신·편입생 필수 진행 ※상담 일정은 학생의 스케줄에 맞춰 개별적으로 진행 ※상담 장소",
+        "description_text": "모든 외국인 유학생 대면 1 대 1 상담 ( 학과 유학생 담당 직원 ) <상담 내용> - 학과 외국인 유학생들의 학업, 생활, 진로, 심리 등 개별 맞춤형 상담 진행 ※2026년도 1학기 글로벌인재대학 신·편입생 필수 진행 ※상담 일정은 학생의 스케줄에 맞춰 개별적으로 진행 ※상담 장소는 학생과 1:1로 조율하며, 글로벌인재대학 교학팀 사무실(우촌관 306호 혹은 상상베이스 등) <설문조사> 외국인 유학생을 대상으로 제작된 FCPI 유학생 심리 건강 검사 실시 (교내 학생상담센터와 연계함) <진행 순서> 1. 학생과 일정 조율 2. 대면 상담 진행 3. 스마트자기관리 시스템에 상담 결과 입력 <비교과 포인트> 1회 상담 시, 10pt 지급 상담 전 FCPI 심리 건강 설문조사 참가 시, 5pt 추가 지급 (학기 최대 15Pt 지급)"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:33+09:00"
+    },
+    {
+      "id": "13649",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13649/description",
+      "title": "26-1 지역사회봉사활동",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-72",
+        "accepting": true
+      },
+      "points": 72,
+      "type": "주제별 상이",
+      "application_period": {
+        "start_at": "2026-03-13T09:00:00+09:00",
+        "end_at": "2026-08-28T09:00:59+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-03-13T09:00:00+09:00",
+          "end_at": "2026-08-28T09:00:59+09:00",
+          "location": ""
+        },
+        {
+          "start_at": "2026-03-30T07:00:00+09:00",
+          "end_at": "2026-03-30T09:00:59+09:00",
+          "location": ""
+        },
+        {
+          "start_at": "2026-04-27T07:00:00+09:00",
+          "end_at": "2026-04-27T09:00:59+09:00",
+          "location": ""
+        },
+        {
+          "start_at": "2026-06-01T11:00:00+09:00",
+          "end_at": "2026-06-05T17:00:59+09:00",
+          "location": ""
+        }
+      ],
+      "organization": {
+        "name": "행정부서 글로컬협력처",
+        "department": "글로컬협력처 ESG센터"
+      },
+      "participants": {
+        "current": 32,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 1226
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "봉사"
+      },
+      "contact": {
+        "email": "420561@hansung.ac.kr",
+        "phone": "02-760-5850",
+        "location": ""
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "2026학년도 1학기 사회봉사 분야 관련 지역사회 봉사 진행 1학기 예정 봉사활동 : 거리청소 등(추후 추가 및 수정 가능성 有) ( 2025학년도 1학기에 진행했던 지역사회봉사 : 거리청소, 우체국공익재단 휠체어 농구대회 봉사활동 등) 모집 대상 지역사회봉사에 관심있는 한성대학교 재학",
+        "description_text": "2026학년도 1학기 사회봉사 분야 관련 지역사회 봉사 진행 1학기 예정 봉사활동 : 거리청소 등(추후 추가 및 수정 가능성 有) ( 2025학년도 1학기에 진행했던 지역사회봉사 : 거리청소, 우체국공익재단 휠체어 농구대회 봉사활동 등) 모집 대상 지역사회봉사에 관심있는 한성대학교 재학생 신청 방법 1. 공지사항, 학생회 및 봉사단체의 홍보, 재학생 신청을 받아 진행 2. 스마트자기관리시스템 내의 프로그램 홍보게시판 또는 학교 홈페이지 공지사항을 통해 신청 경로 안내 참여 봉사활동 건 당 비교과포인트 5~20pt 지급 비교과 지급 방법 1시간 이내의 프로그램 : 5pt 지급 2시간 이상의 프로그램 : 10pt 지급 3시간 이상의 프로그램 : 15pt 지급 4시간 이상의 프로그램 : 20pt 지급 (최대 200pt까지 지급 가능)"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:34+09:00"
+    },
+    {
+      "id": "13710",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13710/description",
+      "title": "2026학년도 1학기 내외국인 표현능력 상담",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-1",
+        "accepting": true
+      },
+      "points": 10,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-03-03T10:00:00+09:00",
+        "end_at": "2026-06-18T17:30:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-03-03T10:00:00+09:00",
+          "end_at": "2026-06-19T17:30:00+09:00",
+          "location": "사고와표현 연구실(진리관 104호)"
+        }
+      ],
+      "organization": {
+        "name": "상상력 교양대학",
+        "department": "상상력교양대학 기초교양학부"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/82180/cover.jpg?ts=1781508573",
+        "content_images": [
+          "https://hsportal.hansung.ac.kr/attachment/view/82177/%EC%83%81%EB%8B%B4+%ED%8F%AC%EC%8A%A4%ED%84%B0+%EC%B5%9C%EC%A2%85.jpg?ts=0"
+        ]
+      },
+      "metrics": {
+        "hits": 1245
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "상담·심리지원",
+        "sub": "상담·검사"
+      },
+      "contact": {
+        "email": "writing@hansung.ac.kr",
+        "phone": "02-760-4354",
+        "location": "사고와표현 연구실(진리관 104호)"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "표현 능력 상담 신청 및 상세 안내는 글쓰기 센터 홈페이지( https://writingcenter.hansung.ac.kr/ ) [상담] 탭에서 확인할 수 있습니다. ◆ 한성대학교 표현 능력 상담 '사고와표현과정'에서는 한성대학교 학생을 위해 <1:1 표현 능력 상담> 프로그램을 운영",
+        "description_text": "표현 능력 상담 신청 및 상세 안내는 글쓰기 센터 홈페이지( https://writingcenter.hansung.ac.kr/ ) [상담] 탭에서 확인할 수 있습니다. ◆ 한성대학교 표현 능력 상담 '사고와표현과정'에서는 한성대학교 학생을 위해 <1:1 표현 능력 상담> 프로그램을 운영하고 있습니다. 한성대학교 학생이라면 누구든지 원하는 시간에 상담을 신청할 수 있습니다. ①대면, ②온라인 서면, ③ZOOM, ④전화 상담 중 원하는 방법을 선택하여, 리포트, 서평, 칼럼, 프레젠테이션 문서 등 다양한 유형의 글에 대한 첨삭 및 피드백을 받을 수 있습니다. * 단, 졸업 논문 및 교내 공모전 제출용 프레젠테이션 문서나 글의 경우 상담 불가 ◆ 신청 방법 한성대학교 글쓰기센터 홈페이지 접속 및 로그인 ( https://writingcenter.hansung.ac.kr ) ⇒ 상단 메뉴 [상담] ⇒ [상담신청] ⇒ [재학생 상담 신청하기] / [외국인 상담 신청하기] ⇒ 신청서 작성 및 글쓰기 파일 업로드 ⇒ 날짜/시간 선택 ⇒ 신청완료 ◆ 신청 주의 사항 상담 희망 일시, 24시간 이전에 신청 (예를 들어, 3월 10일 오후 2시에 상담을 원한다면, 3월 9일 오후 2시 이전에 신청을 해야 합니다.) ◆ 신청 바로 가기: https://writingcenter.hansung.ac.kr/usr/cnsltRequestInfoView.do ■ 문의 : 사고와표현과정 연구실(02-760-4354) / 행정 사무실(02-760-5677) ■ 운영시간 학기중 09:00 ~ 17:30 방중 10:00 ~ 16:00 (점심시간 12:00 ~ 13:00, 공휴일 제외)"
+      },
+      "attachments": [
+        {
+          "file_name": "상담 포스터 최종.jpg",
+          "url": "https://hsportal.hansung.ac.kr/attachment/download/82177/%EC%83%81%EB%8B%B4+%ED%8F%AC%EC%8A%A4%ED%84%B0+%EC%B5%9C%EC%A2%85.jpg?ts=0",
+          "extension": "jpg",
+          "size_text": "2.61MB"
+        }
+      ],
+      "last_seen_at": "2026-06-16T21:27:34+09:00"
+    },
+    {
+      "id": "13619",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13619/description",
+      "title": "2026-1학기 언론사 활동(방송국,신문사,영자신문사)",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-65",
+        "accepting": true
+      },
+      "points": 100,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-03-03T00:00:00+09:00",
+        "end_at": "2026-08-21T00:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-03-03T00:00:00+09:00",
+          "end_at": "2026-08-21T00:00:00+09:00",
+          "location": "신문사,방송국,영자신문사"
+        }
+      ],
+      "organization": {
+        "name": "한성프레스센터",
+        "department": ""
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 675
+      },
+      "flags": {
+        "is_talent_certified": false,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "현장체험활동"
+      },
+      "contact": {
+        "email": "420576@hansung.ac.kr",
+        "phone": "02-760-5621",
+        "location": "신문사,방송국,영자신문사"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "주차 내용 1주차 619호 신문 발행 및 배포 / 수습기자 • 수습국원 모집 2주차 620호 신문 아이템 회의 및 취재 / 유튜브 영상 콘텐츠 기획 3주차 620호 마감 및 보도 / 낙산가요제 준비 4주차 620호 신문 발행 및 배포 / 영상물 제작 및 편집 5주차 621호 신문 아이템",
+        "description_text": "주차 내용 1주차 619호 신문 발행 및 배포 / 수습기자 • 수습국원 모집 2주차 620호 신문 아이템 회의 및 취재 / 유튜브 영상 콘텐츠 기획 3주차 620호 마감 및 보도 / 낙산가요제 준비 4주차 620호 신문 발행 및 배포 / 영상물 제작 및 편집 5주차 621호 신문 아이템 회의 및 취재 / 영상물 제작 및 편집 6주차 621호 마감 및 보도 / 영상물 제작 및 편집 7주차 중간고사 8주차 621호 신문 발행 및 배포 / 영상물 제작 및 편집 9주차 622호 신문 아이템 회의 및 취재 / 한성문학상 기획 및 홍보 10주차 622호 마감 및 보도 / 낙산가요제 진행 및 정산 11주차 622호 신문 발행 및 배포 / 영상물 제작 및 편집 12주차 623호 신문 아이템 회의 및 취재 / 조직별 방중 활동 계획 수립 13주차 623호 마감 및 보도 / 영상물 제작 및 편집 14주차 623호 신문 발행 및 배포 / 2026-1학기 평가회의 15주차 기말고사 ※ 영자신문사 주요 운영내용 - 영자신문 『Hansung Today』 2회 발행 (제161~162호) - 교내 영어수필대회 준비 및 진행 ※ 방송국 / 신문사 / 영자신문사 주요 공통 운영내용 - 교내 취재 및 보도 / 자체 수습기자 교육 실시 - 방중 외부 학생기자 교육 이수 : (사)민주언론운동시민연합 ※ 한성대신문사 주요 운영내용 - 한성대신문 5회 발행 (제619호~623호) - 교내 사진공모전 진행 ※ 한성대방송국 주요 운영내용 - 유튜브 방송 주 1회 업로드 및 그 외 SNS콘텐츠 제작 - 낙산가요제 진행 ※ 언론사 활동은 방중에는 1) 26학년도 2학기 활동 기획, 2) SNS콘텐츠 제작 및 게시, 3) 내(외)부 언론 및 미디어 교육활동이 진행됨."
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:35+09:00"
+    },
+    {
+      "id": "13651",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13651/description",
+      "title": "26-1 사회봉사단 H.U.V",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-72",
+        "accepting": true
+      },
+      "points": 100,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-03-02T00:00:00+09:00",
+        "end_at": "2026-08-28T00:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-03-02T00:00:00+09:00",
+          "end_at": "2026-08-28T00:00:00+09:00",
+          "location": "미정"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 글로컬협력처",
+        "department": "글로컬협력처 ESG센터"
+      },
+      "participants": {
+        "current": 26,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 2101
+      },
+      "flags": {
+        "is_talent_certified": true,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "학습역량강화",
+        "sub": "봉사"
+      },
+      "contact": {
+        "email": "420561@hansung.ac.kr",
+        "phone": "02-760-5850",
+        "location": "미정"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "사회봉사단 H.U.V 모집대상 : 1학기 휴학 계획이 없는 신⬝재학생 중 25명 선발 모집내용 : 1학기 개강 이후 면접을 통해 인원 선발. ㆍ1차 심사 (서류심사) : 메일 접수로 기간 내 제출한 학생 대상으로 서류 평가 진행 (제출 내용: 신청서, 봉사 활동 확인증(선택)) ㆍ2차 ",
+        "description_text": "사회봉사단 H.U.V 모집대상 : 1학기 휴학 계획이 없는 신⬝재학생 중 25명 선발 모집내용 : 1학기 개강 이후 면접을 통해 인원 선발. ㆍ1차 심사 (서류심사) : 메일 접수로 기간 내 제출한 학생 대상으로 서류 평가 진행 (제출 내용: 신청서, 봉사 활동 확인증(선택)) ㆍ2차 심사 (면접심사) : 1차심사 통과 학생 대상으로, 면접심사 진행 신청방법 : 공지사항, e-class 통해 모집 안내 -> 이메일로 서류 제출 활동내용 : ㆍ 매일 : 독거노인을 대상으로 한 도시락 배달 ㆍ 매주 : 지역 아동센터에 방문하여 일주일에 4시간 이상 교육봉사 진행 ㆍ 기타 : 학기당 2회 이상 기타봉사(김장봉사, 연탄봉사, 교내 청소 등) 비교과 지급기준 : 교육봉사시간 최소 40시간 이상, 도시락 봉사 참여, 기타봉사 참여 * 해당 프로그램으로 취득한 봉사활동으로는 개별적으로 교외 비교과활동 신청 불가"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:36+09:00"
+    },
+    {
+      "id": "13590",
+      "url": "https://hsportal.hansung.ac.kr/ko/program/all/view/13590/description",
+      "title": "2026-1 IPP현장실습",
+      "status": {
+        "code": "open",
+        "label": "접수중",
+        "badge": "D-13",
+        "accepting": true
+      },
+      "points": 100,
+      "type": "개인",
+      "application_period": {
+        "start_at": "2026-01-01T00:00:00+09:00",
+        "end_at": "2026-06-30T00:00:00+09:00"
+      },
+      "schedules": [
+        {
+          "start_at": "2026-01-01T00:00:00+09:00",
+          "end_at": "2026-06-30T00:00:00+09:00",
+          "location": "학생별 실습기업"
+        }
+      ],
+      "organization": {
+        "name": "행정부서 학생진로취업처",
+        "department": "학생진로취업처 IPP사업단"
+      },
+      "participants": {
+        "current": 0,
+        "capacity": null,
+        "max_apply": null,
+        "is_unlimited": true
+      },
+      "media": {
+        "cover_image_url": null,
+        "content_images": []
+      },
+      "metrics": {
+        "hits": 254
+      },
+      "flags": {
+        "is_talent_certified": true,
+        "is_recommended": false,
+        "is_excellent": false
+      },
+      "tags": [],
+      "target": {
+        "audiences": [
+          "전체 학생"
+        ],
+        "grades": [
+          "전체 학년"
+        ],
+        "gender": "전체 성별",
+        "departments": [
+          "전체 학과"
+        ]
+      },
+      "category": {
+        "main": "진로·취업지원",
+        "sub": "현장체험활동"
+      },
+      "contact": {
+        "email": "516202@hansung.kr",
+        "phone": "02-760-8056",
+        "location": "학생별 실습기업"
+      },
+      "duration_hours": null,
+      "session_count": null,
+      "content": {
+        "summary": "1. 선발 가 . 대상 : 본교 3~4 학년 재학생 나 . 인원 : 40 명 내외 다 . 방법 : 구글폼을 통한 신청서 제출 및 이력서 , 자기소개서 제출 2. 운영 내용 구분 프로그램 내용 실습 전 오리엔테이션 현장실습 참여학생의 태도 및 조직생활의 이해에 대한 교육을 실시하여 실습 ",
+        "description_text": "1. 선발 가 . 대상 : 본교 3~4 학년 재학생 나 . 인원 : 40 명 내외 다 . 방법 : 구글폼을 통한 신청서 제출 및 이력서 , 자기소개서 제출 2. 운영 내용 구분 프로그램 내용 실습 전 오리엔테이션 현장실습 참여학생의 태도 및 조직생활의 이해에 대한 교육을 실시하여 실습 이해도 및 참여의지 제고 최종합격자 사전교육 IPP 참여 학생들에게 실습전 직무에 대한 충분한 이해와 학사관련 안내사항 , 실습생으로서 갖추어야 할 직장예절 등을 교육함으로써 학생들의 기업 적응력 제고 및 성공적인 현장실습수행을 지원 실습 중 현장실습 실시 기업별 2개월 또는 4 개월 또는 6개월 현장실습 실시 매달 실습 후 출석부 작성, 실습 종료 달 종합보고서 작성 ( 학생이 IPP 포털사이트에 등록 ) 실습 후 실습종료 6/30까지 현장실습 후 종료 * 현장실습 4개월: 100포인트 지급 * 현장실습 6개월(4개월+2개월): 150포인트 지급"
+      },
+      "attachments": [],
+      "last_seen_at": "2026-06-16T21:27:37+09:00"
+    }
+  ]
+}
