@@ -10,18 +10,34 @@ from llm.schemas import CourseSlot, TimetableExtractionResult, Weekday
 
 
 class ScheduleKind(str, Enum):
-    FIXED_SESSION = "fixed_session"
-    MULTI_SESSION = "multi_session"
-    SELECTABLE_SESSION = "selectable_session"
-    FLEXIBLE = "flexible"
-    ASYNC_ONLINE = "async_online"
-    SUBMISSION = "submission"
-    LONG_TERM = "long_term"
-    UNCERTAIN = "uncertain"
+    SAME_DAY = "same_day"
+    SHORT_PERIOD = "short_period"
+    LONG_PERIOD = "long_period"
+    NO_SCHEDULE = "no_schedule"
+    INVALID_SCHEDULE = "invalid_schedule"
+
+    # Backward-compatible aliases for older callers importing enum names.
+    FIXED_SESSION = "same_day"
+    MULTI_SESSION = "same_day"
+    SELECTABLE_SESSION = "same_day"
+    ASYNC_ONLINE = "long_period"
+    LONG_TERM = "long_period"
+    SUBMISSION = "no_schedule"
+    FLEXIBLE = "no_schedule"
+    UNCERTAIN = "invalid_schedule"
 
 
 Availability = Literal["available", "needs_review", "unavailable"]
 Confidence = Literal["high", "medium", "low"]
+
+HS_PORTAL_SUB_CATEGORIES = {
+    "특강·워크숍",
+    "상담·검사",
+    "현장체험활동",
+    "공모전·대회",
+    "소모임·멘토링",
+    "봉사",
+}
 
 
 class RecommendationRequest(BaseModel):
@@ -107,6 +123,9 @@ def evaluate_program(program: dict[str, Any], courses: list[CourseSlot]) -> Prog
     schedule_kind = classify_schedule_kind(program)
     conflicts = find_schedule_conflicts(program, courses, schedule_kind)
     warnings: list[str] = []
+    sub_category = _sub_category(program)
+    if sub_category and sub_category not in HS_PORTAL_SUB_CATEGORIES:
+        warnings.append("HS Portal 상세검색의 알려진 세부 분류와 일치하지 않습니다.")
 
     availability: Availability
     confidence: Confidence
@@ -117,51 +136,37 @@ def evaluate_program(program: dict[str, Any], courses: list[CourseSlot]) -> Prog
         confidence = "high"
         reason = "정원이 마감되어 추천 대상에서 제외됩니다."
         warnings.append("현재 신청 인원이 정원 이상입니다.")
-    elif conflicts and schedule_kind in {
-        ScheduleKind.FIXED_SESSION,
-        ScheduleKind.MULTI_SESSION,
-    }:
+    elif schedule_kind == ScheduleKind.SAME_DAY and conflicts:
         availability = "unavailable"
         confidence = "high"
-        reason = "운영 시간이 수업 시간과 겹칩니다."
-    elif schedule_kind == ScheduleKind.SELECTABLE_SESSION and conflicts:
-        fixed_count = len(_fixed_schedule_items(program))
-        if fixed_count and len(conflicts) >= fixed_count:
-            availability = "unavailable"
-            confidence = "medium"
-            reason = "확인 가능한 모든 선택 일정이 수업 시간과 겹칩니다."
-        else:
-            availability = _available_if_accepting(program, warnings)
-            confidence = "medium"
-            reason = "일부 선택 일정은 수업 시간과 겹치지 않을 수 있습니다."
-            warnings.append("분반 또는 주제별 세부 일정을 확인해야 합니다.")
-    elif schedule_kind in {ScheduleKind.FIXED_SESSION, ScheduleKind.MULTI_SESSION}:
+        reason = "교육기간이 당일 종료 일정이며 수업 시간과 겹칩니다."
+    elif schedule_kind == ScheduleKind.SAME_DAY:
         availability = _available_if_accepting(program, warnings)
         confidence = "high"
-        reason = "운영 시간이 수업 시간과 겹치지 않습니다."
-    elif schedule_kind == ScheduleKind.ASYNC_ONLINE:
-        availability = _available_if_accepting(program, warnings)
-        confidence = "high"
-        reason = "온라인 비동기형으로 시간표와 직접 충돌하지 않습니다."
-    elif schedule_kind == ScheduleKind.SUBMISSION:
-        availability = _available_if_accepting(program, warnings)
-        confidence = "high"
-        reason = "제출형 프로그램으로 수업 시간과 직접 충돌하지 않습니다."
-    elif schedule_kind == ScheduleKind.FLEXIBLE:
+        reason = "교육기간이 당일 종료 일정이며 수업 시간과 겹치지 않습니다."
+    elif schedule_kind == ScheduleKind.SHORT_PERIOD:
         availability = "needs_review"
         confidence = "medium"
-        reason = "상담 또는 멘토링형 프로그램으로 개별 일정 조율이 필요합니다."
-        warnings.append("신청 후 실제 상담 가능 시간을 확인해야 합니다.")
-    elif schedule_kind == ScheduleKind.LONG_TERM:
+        reason = "교육기간이 여러 날짜에 걸쳐 있어 회차별 실제 참석 시간 확인이 필요합니다."
+        warnings.append("등록된 시작일과 종료일만으로 매일 참석 여부를 확정할 수 없습니다.")
+    elif schedule_kind == ScheduleKind.LONG_PERIOD:
         availability = "needs_review"
         confidence = "medium"
-        reason = "장기 참여형 프로그램이라 시간표만으로 가능 여부를 확정하기 어렵습니다."
-        warnings.append("운영기간 전체가 실제 참석 시간을 의미하지 않을 수 있습니다.")
+        reason = (
+            "교육기간이 장기 범위로 등록되어 있어 "
+            "시간표만으로 가능 여부를 확정하기 어렵습니다."
+        )
+        warnings.append("교육기간 전체가 실제 참석 시간을 의미하지 않을 수 있습니다.")
+    elif schedule_kind == ScheduleKind.NO_SCHEDULE:
+        availability = "needs_review"
+        confidence = "low"
+        reason = "비교할 교육기간 정보가 없어 상세 확인이 필요합니다."
+        warnings.append("프로그램 상세 페이지에서 실제 운영 일정을 확인해야 합니다.")
     else:
         availability = "needs_review"
         confidence = "low"
-        reason = "일정 정보가 불명확해 상세 확인이 필요합니다."
-        warnings.append("저장된 운영 일정만으로 실제 참석 시간을 확정할 수 없습니다.")
+        reason = "교육기간 데이터가 올바르지 않아 상세 확인이 필요합니다."
+        warnings.append("저장된 운영 일정의 시작/종료 값을 해석할 수 없습니다.")
 
     return ProgramRecommendation(
         program_id=str(program.get("id", "")),
@@ -180,33 +185,20 @@ def evaluate_program(program: dict[str, Any], courses: list[CourseSlot]) -> Prog
 
 
 def classify_schedule_kind(program: dict[str, Any]) -> ScheduleKind:
-    category = program.get("category") or {}
-    sub_category = str(category.get("sub") or "")
-    text = _program_text(program)
-
-    if _looks_like_submission(sub_category, text):
-        return ScheduleKind.SUBMISSION
-    if _looks_like_async_online(program, text):
-        return ScheduleKind.ASYNC_ONLINE
-    if _looks_like_flexible(sub_category, text):
-        return ScheduleKind.FLEXIBLE
-    if _looks_like_long_term(sub_category, text):
-        return ScheduleKind.LONG_TERM
-
-    fixed_items = _fixed_schedule_items(program)
     schedules = program.get("schedules") or []
-    if fixed_items and len(fixed_items) == len(schedules):
-        if _looks_like_selectable(program, text):
-            return ScheduleKind.SELECTABLE_SESSION
-        if len(fixed_items) > 1:
-            return ScheduleKind.MULTI_SESSION
-        return ScheduleKind.FIXED_SESSION
+    if not schedules:
+        return ScheduleKind.NO_SCHEDULE
 
-    if _looks_like_selectable(program, text):
-        return ScheduleKind.SELECTABLE_SESSION
-    if _has_long_range_schedule(program):
-        return ScheduleKind.LONG_TERM
-    return ScheduleKind.UNCERTAIN
+    periods = [_schedule_period(schedule) for schedule in schedules]
+    if any(period is None for period in periods):
+        return ScheduleKind.INVALID_SCHEDULE
+
+    valid_periods = [period for period in periods if period is not None]
+    if all(period["is_same_day"] for period in valid_periods):
+        return ScheduleKind.SAME_DAY
+    if any(period["duration_days"] >= 7 for period in valid_periods):
+        return ScheduleKind.LONG_PERIOD
+    return ScheduleKind.SHORT_PERIOD
 
 
 def find_schedule_conflicts(
@@ -214,11 +206,7 @@ def find_schedule_conflicts(
     courses: list[CourseSlot],
     schedule_kind: ScheduleKind,
 ) -> list[ScheduleConflict]:
-    if schedule_kind not in {
-        ScheduleKind.FIXED_SESSION,
-        ScheduleKind.MULTI_SESSION,
-        ScheduleKind.SELECTABLE_SESSION,
-    }:
+    if schedule_kind != ScheduleKind.SAME_DAY:
         return []
 
     conflicts: list[ScheduleConflict] = []
@@ -280,14 +268,11 @@ def _score_program(
         "low": 0.0,
     }[confidence]
     kind_score = {
-        ScheduleKind.FIXED_SESSION: 18.0,
-        ScheduleKind.MULTI_SESSION: 14.0,
-        ScheduleKind.SELECTABLE_SESSION: 10.0,
-        ScheduleKind.ASYNC_ONLINE: 12.0,
-        ScheduleKind.SUBMISSION: 12.0,
-        ScheduleKind.FLEXIBLE: 6.0,
-        ScheduleKind.LONG_TERM: 2.0,
-        ScheduleKind.UNCERTAIN: 0.0,
+        ScheduleKind.SAME_DAY: 18.0,
+        ScheduleKind.SHORT_PERIOD: 8.0,
+        ScheduleKind.LONG_PERIOD: 2.0,
+        ScheduleKind.NO_SCHEDULE: 0.0,
+        ScheduleKind.INVALID_SCHEDULE: 0.0,
     }[schedule_kind]
     points = program.get("points")
     point_score = min(float(points or 0), 30.0) / 3.0
@@ -310,107 +295,10 @@ def _recommendation_sort_key(item: ProgramRecommendation) -> tuple[int, float, s
 def _fixed_schedule_items(program: dict[str, Any]) -> list[dict[str, Any]]:
     fixed_items = []
     for schedule in program.get("schedules") or []:
-        start_at = _parse_datetime(schedule.get("start_at"))
-        end_at = _parse_datetime(schedule.get("end_at"))
-        if start_at is None or end_at is None:
-            continue
-        duration_seconds = (end_at - start_at).total_seconds()
-        if start_at.date() == end_at.date() and 0 < duration_seconds <= 12 * 3600:
+        period = _schedule_period(schedule)
+        if period and period["is_same_day"]:
             fixed_items.append(schedule)
     return fixed_items
-
-
-def _has_long_range_schedule(program: dict[str, Any]) -> bool:
-    for schedule in program.get("schedules") or []:
-        start_at = _parse_datetime(schedule.get("start_at"))
-        end_at = _parse_datetime(schedule.get("end_at"))
-        if start_at is None or end_at is None:
-            continue
-        if (end_at - start_at).total_seconds() >= 24 * 3600:
-            return True
-    return False
-
-
-def _looks_like_submission(sub_category: str, text: str) -> bool:
-    return sub_category == "공모전·대회" or any(
-        keyword in text
-        for keyword in (
-            "공모전",
-            "경진대회",
-            "제출",
-            "과제물",
-            "신청서 제출",
-        )
-    )
-
-
-def _looks_like_async_online(program: dict[str, Any], text: str) -> bool:
-    locations = " ".join(
-        str(schedule.get("location") or "") for schedule in program.get("schedules") or []
-    )
-    contact_location = str((program.get("contact") or {}).get("location") or "")
-    place_text = f"{locations} {contact_location}"
-    return "온라인" in place_text and any(
-        keyword in text
-        for keyword in (
-            "e-class",
-            "동영상",
-            "온라인 교육",
-            "온라인 폭력예방교육",
-            "비대면",
-            "상시",
-        )
-    )
-
-
-def _looks_like_flexible(sub_category: str, text: str) -> bool:
-    if sub_category != "상담·검사":
-        return False
-    return any(
-        keyword in text
-        for keyword in (
-            "1:1",
-            "개별",
-            "조율",
-            "희망 일시",
-            "원하는 시간",
-            "날짜/시간 선택",
-            "상담신청",
-        )
-    ) or "상담" in text
-
-
-def _looks_like_long_term(sub_category: str, text: str) -> bool:
-    if sub_category in {"봉사", "현장체험활동"} and any(
-        keyword in text
-        for keyword in (
-            "현장실습",
-            "봉사단",
-            "언론사",
-            "장기",
-            "매주",
-            "매일",
-            "학기",
-            "프로젝트",
-        )
-    ):
-        return True
-    return False
-
-
-def _looks_like_selectable(program: dict[str, Any], text: str) -> bool:
-    program_type = str(program.get("type") or "")
-    return program_type == "주제별 상이" or any(
-        keyword in text
-        for keyword in (
-            "분반",
-            "주제별",
-            "중복 선택",
-            "선택 가능",
-            "택1",
-            "희망 주제",
-        )
-    )
 
 
 def _is_full(program: dict[str, Any]) -> bool:
@@ -422,20 +310,21 @@ def _is_full(program: dict[str, Any]) -> bool:
     return isinstance(current, int) and isinstance(capacity, int) and current >= capacity
 
 
-def _program_text(program: dict[str, Any]) -> str:
-    content = program.get("content") or {}
-    tags = " ".join(str(tag) for tag in program.get("tags") or [])
-    return " ".join(
-        str(value or "")
-        for value in (
-            program.get("title"),
-            (program.get("category") or {}).get("main"),
-            (program.get("category") or {}).get("sub"),
-            tags,
-            content.get("summary"),
-            content.get("description_text"),
-        )
-    )
+def _sub_category(program: dict[str, Any]) -> str:
+    return str((program.get("category") or {}).get("sub") or "")
+
+
+def _schedule_period(schedule: dict[str, Any]) -> dict[str, Any] | None:
+    start_at = _parse_datetime(schedule.get("start_at"))
+    end_at = _parse_datetime(schedule.get("end_at"))
+    if start_at is None or end_at is None or end_at <= start_at:
+        return None
+
+    duration_seconds = (end_at - start_at).total_seconds()
+    return {
+        "is_same_day": start_at.date() == end_at.date(),
+        "duration_days": duration_seconds / (24 * 3600),
+    }
 
 
 def _parse_datetime(value: object) -> datetime | None:
