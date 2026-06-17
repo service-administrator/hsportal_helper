@@ -37,6 +37,7 @@ class LLMService:
                 extra_body=task.extra_body,
             )
         except APIError as exc:
+            print(exc)
             raise LLMRequestError(f"LLM request failed for task '{task.name}'.") from exc
 
         content = response.choices[0].message.content if response.choices else None

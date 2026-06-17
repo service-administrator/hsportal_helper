@@ -53,6 +53,38 @@ def test_marks_fixed_session_unavailable_when_it_conflicts() -> None:
     assert item.conflicts[0].course_name == "자료구조"
 
 
+def test_checks_timetable_when_multiple_schedules_each_end_on_same_day() -> None:
+    result = build_recommendations(
+        TimetableExtractionResult(courses=[_course("WED", "14:00", "15:30")]),
+        [
+            _program(
+                "multi-day-same-day-sessions",
+                schedules=[
+                    _schedule(
+                        "2026-07-22T13:00:00+09:00",
+                        "2026-07-22T16:00:00+09:00",
+                    ),
+                    _schedule(
+                        "2026-07-23T13:00:00+09:00",
+                        "2026-07-23T16:00:00+09:00",
+                    ),
+                    _schedule(
+                        "2026-07-24T13:00:00+09:00",
+                        "2026-07-24T16:00:00+09:00",
+                    ),
+                ],
+            )
+        ],
+        include_unavailable=True,
+    )
+
+    item = result.recommendations[0]
+
+    assert item.schedule_kind == ScheduleKind.SAME_DAY
+    assert item.availability == "unavailable"
+    assert item.conflicts[0].program_start_at == "2026-07-22T13:00:00+09:00"
+
+
 def test_classifies_online_submission_and_flexible_programs() -> None:
     online = _program(
         "online",
@@ -80,6 +112,40 @@ def test_classifies_online_submission_and_flexible_programs() -> None:
     assert classify_schedule_kind(online) == ScheduleKind.ASYNC_ONLINE
     assert classify_schedule_kind(submission) == ScheduleKind.SUBMISSION
     assert classify_schedule_kind(flexible) == ScheduleKind.FLEXIBLE
+
+
+def test_same_day_field_experience_is_not_classified_as_long_term() -> None:
+    program = _program(
+        "showcase",
+        category={"main": "전공역량강화", "sub": "현장체험활동"},
+        schedules=[
+            _schedule(
+                "2026-06-20T16:00:00+09:00",
+                "2026-06-20T18:00:00+09:00",
+                "낙산관 대극장",
+            )
+        ],
+        description="예술학부 프로젝트 쇼케이스 관람",
+    )
+
+    assert classify_schedule_kind(program) == ScheduleKind.FIXED_SESSION
+
+
+def test_long_range_field_experience_can_still_be_long_term() -> None:
+    program = _program(
+        "internship",
+        category={"main": "진로·취업지원", "sub": "현장체험활동"},
+        schedules=[
+            _schedule(
+                "2026-01-01T00:00:00+09:00",
+                "2026-06-30T00:00:00+09:00",
+                "학생별 실습기업",
+            )
+        ],
+        description="기업별 2개월 또는 4개월 현장실습 프로젝트",
+    )
+
+    assert classify_schedule_kind(program) == ScheduleKind.LONG_TERM
 
 
 def test_recommendations_api_uses_saved_programs(monkeypatch) -> None:
