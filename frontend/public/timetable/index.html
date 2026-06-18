@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>시간표 수정 | 비교과 프로그램 도우미</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="%230067b1"/><text x="32" y="39" text-anchor="middle" font-family="Arial" font-size="20" font-weight="800" fill="white">HSP</text></svg>' />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <span class="brand-mark">HSP</span>
+          <span>
+            <strong>비교과 프로그램 도우미</strong>
+            <small>hsportal ai helper</small>
+          </span>
+        </a>
+        <nav class="header-actions">
+          <a class="outline-button" href="/">다시 업로드</a>
+          <button class="primary-button" type="button" id="recommendButton">추천 받기</button>
+        </nav>
+      </header>
+
+      <section class="edit-intro">
+        <div>
+          <p class="eyebrow">Step 2</p>
+          <h1>시간표를 직접 수정할 수 있습니다.</h1>
+          <p>
+            수업 블록을 드래그해 요일과 시간을 수정할 수 있습니다. 빈 시간대를 드래그하면 새
+            수업이 추가되고, 블록을 클릭하면 수업명과 장소를 편집할 수 있습니다.
+          </p>
+        </div>
+        <aside class="edit-summary">
+          <div>
+            <span>분석 파일</span>
+            <strong id="sourceFile">업로드 기록 없음</strong>
+          </div>
+          <div>
+            <span>수업 수</span>
+            <strong id="courseCount">0개</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="timetable-workspace">
+        <div class="tool-strip">
+          <div>
+            <strong>수업 시간표</strong>
+            <span id="editorStatus">시간표 데이터를 불러오는 중입니다.</span>
+          </div>
+          <div class="tool-actions">
+            <button class="outline-button" type="button" id="addCourseButton">수업 추가</button>
+            <button class="outline-button" type="button" id="toggleJsonButton">JSON 보기</button>
+          </div>
+        </div>
+
+        <div class="schedule-board" id="scheduleBoard" aria-label="수업 시간표 편집 보드"></div>
+      </section>
+
+      <section class="json-drawer" id="jsonDrawer" hidden>
+        <div class="tool-strip">
+          <div>
+            <strong>최종 시간표 JSON</strong>
+            <span>추천 API로 전송될 데이터입니다.</span>
+          </div>
+          <button class="outline-button" type="button" id="copyJsonButton">복사</button>
+        </div>
+        <textarea id="jsonOutput" spellcheck="false"></textarea>
+      </section>
+    </main>
+
+    <div class="dialog-backdrop" id="courseDialog" hidden>
+      <form class="course-dialog" id="courseForm">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Course</p>
+            <h2 id="dialogTitle">수업 편집</h2>
+          </div>
+          <button class="icon-button" type="button" id="closeDialogButton" aria-label="닫기">×</button>
+        </div>
+
+        <label>
+          <span>수업명</span>
+          <input id="courseNameInput" required />
+        </label>
+
+        <div class="form-grid">
+          <label>
+            <span>요일</span>
+            <select id="dayInput"></select>
+          </label>
+          <label>
+            <span>시작 시간</span>
+            <input id="startInput" type="time" required />
+          </label>
+          <label>
+            <span>종료 시간</span>
+            <input id="endInput" type="time" required />
+          </label>
+        </div>
+
+        <div class="form-grid two">
+          <label>
+            <span>장소</span>
+            <input id="locationInput" />
+          </label>
+          <label>
+            <span>담당</span>
+            <input id="instructorInput" />
+          </label>
+        </div>
+
+        <div class="dialog-actions">
+          <button class="danger-button" type="button" id="deleteCourseButton">삭제</button>
+          <div>
+            <button class="outline-button" type="button" id="cancelDialogButton">취소</button>
+            <button class="primary-button" type="submit">저장</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="/timetable/app.js"></script>
+  </body>
+</html>

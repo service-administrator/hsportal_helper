@@ -4,7 +4,7 @@
     "schema_version": "hsportal_programs_v2",
     "base_url": "https://hsportal.hansung.ac.kr",
     "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
-    "crawled_at": "2026-06-18T11:46:42+09:00",
+    "crawled_at": "2026-06-18T15:06:24+09:00",
     "filter": {
       "status": "wait",
       "label": "접수(대기)중",
@@ -15,7 +15,7 @@
       ]
     },
     "counts": {
-      "listed": 28,
+      "listed": 30,
       "saved": 28,
       "pages": 3
     },
@@ -117,7 +117,7 @@
           "size_text": "198.20KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13915",
@@ -152,7 +152,7 @@
         "department": "학생진로취업처 학생생활상담센터"
       },
       "participants": {
-        "current": 9,
+        "current": 10,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -162,7 +162,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 212
+        "hits": 226
       },
       "flags": {
         "is_talent_certified": true,
@@ -223,7 +223,7 @@
           "size_text": "1.03MB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13906",
@@ -232,10 +232,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-12",
+        "badge": "D-11",
         "accepting": true
       },
-      "points": 12,
+      "points": 11,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-04T09:00:00+09:00",
@@ -268,7 +268,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 414
+        "hits": 420
       },
       "flags": {
         "is_talent_certified": false,
@@ -323,7 +323,7 @@
           "size_text": "72.19KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13922",
@@ -332,14 +332,14 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-1",
+        "badge": "D-4",
         "accepting": true
       },
-      "points": 1,
+      "points": 4,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T09:30:00+09:00",
-        "end_at": "2026-06-19T13:00:00+09:00"
+        "end_at": "2026-06-23T09:00:00+09:00"
       },
       "schedules": [
         {
@@ -359,11 +359,11 @@
         "is_unlimited": true
       },
       "media": {
-        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781228894",
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781760191",
         "content_images": []
       },
       "metrics": {
-        "hits": 398
+        "hits": 415
       },
       "flags": {
         "is_talent_certified": false,
@@ -459,7 +459,7 @@
           "size_text": "467.79KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13790",
@@ -519,7 +519,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 911
+        "hits": 920
       },
       "flags": {
         "is_talent_certified": false,
@@ -574,7 +574,7 @@
           "size_text": "463.88KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13917",
@@ -583,10 +583,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-8",
+        "badge": "D-7",
         "accepting": true
       },
-      "points": 8,
+      "points": 7,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-08T09:00:00+09:00",
@@ -604,7 +604,7 @@
         "department": "상상력교양대학 기초교양학부"
       },
       "participants": {
-        "current": 23,
+        "current": 25,
         "capacity": 40,
         "max_apply": null,
         "is_unlimited": false
@@ -614,7 +614,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 356
+        "hits": 365
       },
       "flags": {
         "is_talent_certified": false,
@@ -661,7 +661,7 @@
           "size_text": "1.67MB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13921",
@@ -706,7 +706,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 525
+        "hits": 540
       },
       "flags": {
         "is_talent_certified": false,
@@ -752,7 +752,7 @@
           "size_text": "440.75KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13926",
@@ -792,7 +792,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 136
+        "hits": 142
       },
       "flags": {
         "is_talent_certified": false,
@@ -847,7 +847,7 @@
           "size_text": "43.71KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13914",
@@ -887,7 +887,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1345
+        "hits": 1371
       },
       "flags": {
         "is_talent_certified": false,
@@ -936,7 +936,7 @@
           "size_text": "330.51KB"
         }
       ],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13930",
@@ -966,7 +966,7 @@
         "department": "한국무용전공"
       },
       "participants": {
-        "current": 4,
+        "current": 5,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -976,7 +976,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 161
+        "hits": 176
       },
       "flags": {
         "is_talent_certified": false,
@@ -1012,7 +1012,7 @@
         "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 진행 시간: 2시간 예정 ○ 참여 대상 : 한성대학교 재학생 중 공연 관람자 ○ 개설 목적 : 타 전공 재학생들에게 26-1학기 재학기간 동안의 공연준비 과정을 거친 한국무용전공 재학생들의 한국무용공연 관람을 통해 우리나라 고유의 전통문화와 춤을 즐길 수 있는 예술향유의 기회를 제공하고자 함. ○ 비교과포인트 지급 : 10pt 지급(신청 후 관람자 명단 작성)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-18T11:46:42+09:00"
+      "last_seen_at": "2026-06-18T15:06:24+09:00"
     },
     {
       "id": "13929",

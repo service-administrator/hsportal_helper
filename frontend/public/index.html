@@ -3,25 +3,125 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>비교과 프로그램 추천 서비스</title>
+    <title>비교과 프로그램 도우미</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="%230067b1"/><text x="32" y="39" text-anchor="middle" font-family="Arial" font-size="20" font-weight="800" fill="white">HSP</text></svg>' />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main class="shell">
-      <section class="panel">
-        <p class="eyebrow">HS Portal Helper</p>
-        <h1>비교과 프로그램 추천 서비스</h1>
-        <p class="description">
-          시간표 이미지와 비교과 프로그램 포스터를 분석해 참여 가능한 프로그램을 추천하는
-          기말과제 프로젝트입니다.
-        </p>
-
-        <div class="status-row">
-          <span class="status-dot" id="statusDot"></span>
-          <span id="heartbeatText">서버 상태 확인 중...</span>
+    <main class="app-screen home-screen">
+      <header class="app-header">
+        <a class="brand" href="/" aria-label="비교과 프로그램 도우미 홈">
+          <span class="brand-mark">HSP</span>
+          <span>
+            <strong>비교과 프로그램 도우미</strong>
+            <small>hsportal ai helper</small>
+          </span>
+        </a>
+        <div class="system-status" aria-label="서버 상태">
+          <span class="status-chip" id="crawlStatus">데이터 확인 중</span>
+          <span class="status-chip" id="heartbeatStatus">서버 확인 중</span>
         </div>
+      </header>
+
+      <section class="home-grid">
+        <section class="home-primary">
+          <p class="eyebrow">hsportal-helper</p>
+          <h1>비교과 프로그램을 더 쉽게 만나보세요.</h1>
+          <p class="hero-lead">
+            헤이영캠퍼스, 에브리타임 앱에서 시간표 화면을 캡쳐하여 올리면 공강에 참여할 수
+            있는 비교과 프로그램을 추천해 드립니다.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-button" type="button" id="startButton">시작하기</button>
+            <button class="outline-button" type="button" id="devJsonButton" hidden>
+              JSON 입력
+            </button>
+          </div>
+
+          <section class="workflow-card" aria-label="서비스 흐름">
+            <article>
+              <span>01</span>
+              <strong>시간표 입력</strong>
+              <p>시간표 사진을 업로드합니다.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>시간표 확인</strong>
+              <p>비전 모델로 추출한 시간표를 확인합니다.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>비교과 프로그램 추천</strong>
+              <p>공강 시간에 참여 가능한 비교과 프로그램을 제안해 드립니다.</p>
+            </article>
+          </section>
+        </section>
       </section>
     </main>
+
+    <div class="modal-backdrop" id="uploadModal" hidden>
+      <form class="app-modal upload-modal" id="uploadForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Timetable image</p>
+            <h2>시간표 이미지 입력</h2>
+          </div>
+          <button class="icon-button" type="button" id="closeUploadButton" aria-label="닫기">×</button>
+        </div>
+
+        <label class="upload-dropzone" for="imageInput" id="dropZone">
+          <span class="upload-title">이미지 선택</span>
+          <span class="upload-subtitle" id="fileName">PNG, JPG, WEBP 파일을 선택하세요.</span>
+        </label>
+        <input id="imageInput" name="file" type="file" accept="image/png,image/jpeg,image/webp" />
+
+        <div class="selected-image" id="selectedImage" hidden>
+          <img id="previewImage" alt="업로드한 시간표 이미지" />
+        </div>
+
+        <div class="loading-state" id="loadingState" hidden>
+          <span class="loading-spinner" aria-hidden="true"></span>
+          <strong>시간표를 분석하고 있습니다.</strong>
+          <p>이미지 전처리와 LLM 응답을 기다리는 중입니다.</p>
+        </div>
+
+        <div class="modal-footer">
+          <p class="status-text" id="uploadStatus">업로드 대기 중</p>
+          <button class="primary-button" type="submit" id="submitButton">분석 시작</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-backdrop" id="jsonModal" hidden>
+      <form class="app-modal json-modal" id="jsonForm">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Dev shortcut</p>
+            <h2>시간표 JSON 입력</h2>
+          </div>
+          <button class="icon-button" type="button" id="closeJsonButton" aria-label="닫기">×</button>
+        </div>
+        <textarea id="jsonInput" spellcheck="false">{
+  "courses": [
+    {
+      "course_name": "자료구조",
+      "day_of_week": "FRI",
+      "start_time": "09:00",
+      "end_time": "10:30",
+      "location": "탐구관",
+      "instructor": null,
+      "confidence": 1
+    }
+  ],
+  "warnings": []
+}</textarea>
+        <div class="modal-footer">
+          <p class="status-text" id="jsonStatus">dev 환경에서 API 호출 없이 시간표 수정으로 이동합니다.</p>
+          <button class="primary-button" type="submit">JSON으로 시작</button>
+        </div>
+      </form>
+    </div>
 
     <script src="/app.js"></script>
   </body>
