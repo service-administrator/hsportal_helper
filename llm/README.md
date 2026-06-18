@@ -44,6 +44,12 @@ QWEN_MODEL=qwen3-vl-flash
 LLM_MAX_IMAGE_BYTES=10485760
 ```
 
+환경 파일은 루트의 `.env.example`을 복사해 만듭니다.
+
+```bash
+copy .env.example .env
+```
+
 ## 현재 구현 범위
 
 현재 `llm` 디렉터리는 실제 이미지 분석 API 라우터를 제공하지 않습니다. 추천 API나 백엔드 내부 로직에서 import해서 사용하는 내부 모듈로만 관리합니다.
@@ -51,5 +57,9 @@ LLM_MAX_IMAGE_BYTES=10485760
 - `get_qwen_client()`: `QWEN_API_KEY`, `QWEN_BASE_URL`을 사용해 OpenAI-compatible 클라이언트를 생성합니다.
 - `get_qwen_model_name()`: 현재 사용할 모델명을 반환합니다.
 - `extract_timetable_from_image_bytes()`: 이미지 bytes를 받아 시간표 JSON 추출 결과를 반환합니다.
+
+시간표 추출 task는 `response_format={"type": "json_object"}`를 사용하고, Qwen extra body에 `enable_thinking=False`, `vl_high_resolution_images=True`를 전달합니다. 모델 응답은 JSON 파싱 후 `TimetableExtractionResult` Pydantic 모델로 검증합니다.
+
+이미지 입력은 JPEG, PNG, WEBP만 허용합니다. 업로드 크기는 `LLM_MAX_IMAGE_BYTES`로 제한하고, 실제 Vision 요청 전에는 WebP로 정규화합니다.
 
 추후 비교과 프로그램 포스터 이미지 분석이나 크롤링 텍스트 정리 기능은 `llm/tasks/`에 task를 추가하고 `LLMService`를 재사용하는 방식으로 확장합니다.

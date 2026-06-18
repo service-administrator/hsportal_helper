@@ -28,24 +28,28 @@
 │       └── HTML, CSS, JS 정적 프론트엔드 파일
 ├── backend/
 │   ├── api/
-│   │   └── 서버 상태, 비교과 프로그램 조회 API
+│   │   └── 서버 상태, 시간표 분석, 추천, 비교과 프로그램 조회 API
+│   ├── recommendation.py
+│   │   └── 시간표와 비교과 일정 충돌 검사 및 추천 점수 계산
 │   └── hsportal/
 │       └── 비교과 프로그램 크롤링, 파싱, JSON 저장 로직
 ├── llm/
 │   └── LLM API 연결 및 시간표 인식 로직 구성
-└── util/
-    └── 프로그램 전역 공통 유틸리티 구성
+├── util/
+│   └── 프로그램 전역 공통 유틸리티 구성
+└── tests/
+    └── API, 추천 알고리즘, LLM 내부 처리 테스트
 ```
 
 ## 디렉터리 역할
 
 ### `frontend`
 
-사용자가 시간표 이미지를 업로드하고 추천 결과를 확인할 수 있는 화면을 구성합니다. 현재는 `frontend/public`의 정적 HTML, CSS, JS 파일을 루트 `main.py`에서 제공하며, 기본 화면에서 `/api/heartbeat`를 호출해 서버 연결 상태를 확인합니다.
+사용자가 시간표 이미지를 업로드하고 추천 결과를 확인할 수 있는 화면을 구성합니다. 현재는 `frontend/public`의 정적 HTML, CSS, JS 파일을 루트 `main.py`에서 제공합니다. 기본 화면은 `/api/heartbeat`를 호출해 서버 연결 상태를 확인하고, `/test/` 화면은 시간표 이미지 JSON 변환과 비교과 추천 API를 함께 확인합니다.
 
 ### `backend`
 
-시간표 데이터와 비교과 프로그램 데이터를 처리하고, 추천 알고리즘을 실행하는 백엔드 API를 구성합니다. 현재는 `/api/heartbeat`, `/api/timetable/extract`, `/api/hsportal/*` API와 한성대학교 비교과 프로그램 크롤러, 파서, JSON 저장 로직을 포함합니다.
+시간표 데이터와 비교과 프로그램 데이터를 처리하고, 추천 알고리즘을 실행하는 백엔드 API를 구성합니다. 현재는 `/api/heartbeat`, `/api/timetable/extract`, `/api/recommendations`, `/api/hsportal/*` API와 한성대학교 비교과 프로그램 크롤러, 파서, JSON 저장 로직을 포함합니다.
 
 ### `llm`
 
@@ -54,6 +58,10 @@
 ### `util`
 
 특정 도메인에 속하지 않는 공통 유틸리티를 관리합니다. 현재는 프로그램 실행 시 콘솔 로그 형식과 로그 레벨을 설정하는 로거 설정을 담당합니다.
+
+### `tests`
+
+시간표 이미지 API, 추천 API, LLM 내부 JSON 파싱/검증/이미지 정규화 동작을 검증하는 pytest 테스트를 관리합니다. 외부 Qwen API는 테스트에서 직접 호출하지 않고 fake service 또는 monkeypatch로 대체합니다.
 
 ## 역할 분담
 
@@ -72,9 +80,9 @@
 5. 기존 프로그램은 목록 페이지에서 확인 가능한 상태, 신청자 수, 조회 수 중심으로 갱신하고, 새 프로그램만 상세 페이지를 열어 세부 정보를 수집합니다.
 6. 사용자가 자신의 시간표 이미지를 업로드합니다.
 7. LLM Vision 모델이 시간표 이미지에서 수업 정보를 추출합니다.
-8. 추출된 시간표 정보를 JSON 데이터로 변환합니다.
-9. 백엔드에서 학생의 수업 시간과 비교과 프로그램 일정을 비교합니다.
-10. 참여 가능한 비교과 프로그램을 추천 결과로 제공합니다.
+8. 추출된 시간표 정보를 `courses`, `warnings` 형태의 JSON 데이터로 검증합니다.
+9. `/api/recommendations`가 학생의 수업 시간과 저장된 비교과 프로그램 일정을 비교합니다.
+10. 추천 결과를 `available`, `needs_review`, `unavailable`로 분류하고 점수순으로 제공합니다.
 
 ## 기대 효과
 
@@ -158,9 +166,40 @@ http://127.0.0.1:8000/test/
 
 `APP_ENV=dev`일 때는 서버 콘솔 로그에 원본 이미지와 WebP 정규화 이미지의 MIME, 용량, 해상도, 최대 변 길이가 출력됩니다. API 응답 형식은 `dev`, `prod` 모두 동일합니다.
 
+### 비교과 추천 API
+
+저장된 `backend/hsportal/programs.json` 데이터와 시간표 JSON을 비교해 추천 결과를 반환합니다.
+
+```text
+POST /api/recommendations
+Content-Type: application/json
+```
+
+요청 예시는 다음과 같습니다.
+
+```json
+{
+  "courses": [
+    {
+      "course_name": "자료구조",
+      "day_of_week": "FRI",
+      "start_time": "09:00",
+      "end_time": "10:30"
+    }
+  ],
+  "include_needs_review": true,
+  "include_unavailable": false,
+  "limit": 30
+}
+```
+
+추천 결과는 일정 충돌이 없는 `available`, 장기/불명확 일정이라 상세 확인이 필요한 `needs_review`, 수업과 겹치거나 정원이 마감된 `unavailable`로 분류됩니다.
+
 ### 비교과 프로그램 데이터
 
 비교과 프로그램 크롤링은 외부 API로 실행하지 않습니다. 서버가 먼저 시작된 뒤 백그라운드 작업으로 내부 크롤러가 `backend/hsportal/programs.json` 존재 여부를 확인합니다. 저장 데이터가 있으면 매 시작마다 목록 첫 페이지를 한 번만 확인해 `info.cursor.last_checked_program_id`와 비교하고, cursor가 바뀐 경우에만 새 프로그램을 증분 수집합니다. 이 필터에는 접수예정 프로그램도 포함될 수 있습니다. 서버 종료 시에는 백그라운드 크롤러에 중단 신호를 보내 진행 중인 요청 이후 작업을 멈춥니다.
+
+`backend/hsportal/programs.json`은 실행 중 생성되는 크롤링 결과 파일이며 Git 추적 대상에서 제외합니다. 교수님 채점 환경에서는 서버 첫 실행 시 백그라운드 크롤링으로 다시 생성됩니다.
 
 ```text
 GET /api/hsportal/info
@@ -182,6 +221,7 @@ GET /api/hsportal/programs/{program_id}
 
 ```bash
 python -m ruff check .
+python -m pytest
 ```
 
 테스트는 `tests/` 디렉터리에서 관리합니다. 기본 동작은 `/api/heartbeat`, `/api/timetable/extract`, `/api/hsportal/crawl-status`, `/api/hsportal/programs` 응답으로도 확인합니다.
