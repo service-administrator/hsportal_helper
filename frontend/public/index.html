@@ -93,6 +93,46 @@
       </form>
     </div>
 
+    <div class="modal-backdrop crop-backdrop" id="cropModal" hidden>
+      <section class="app-modal crop-modal" role="dialog" aria-modal="true" aria-labelledby="cropTitle">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Crop timetable</p>
+            <h2 id="cropTitle">시간표 영역 선택</h2>
+            <p class="modal-note">시간표 영역만 선택하면 인식률이 높아집니다.</p>
+          </div>
+          <button class="icon-button" type="button" id="closeCropButton" aria-label="닫기">×</button>
+        </div>
+
+        <div class="crop-stage" id="cropStage">
+          <div class="crop-scroll" id="cropScroll">
+            <div class="crop-canvas" id="cropCanvas">
+              <img id="cropImage" alt="선택한 시간표 이미지" />
+            </div>
+          </div>
+          <div class="crop-selection" id="cropSelection" tabindex="0" aria-label="크롭 영역">
+            <span class="crop-handle nw" data-crop-handle="nw"></span>
+            <span class="crop-handle ne" data-crop-handle="ne"></span>
+            <span class="crop-handle sw" data-crop-handle="sw"></span>
+            <span class="crop-handle se" data-crop-handle="se"></span>
+          </div>
+        </div>
+
+        <p class="status-text" id="cropStatus">드래그해서 시간표만 남기세요.</p>
+
+        <div class="modal-footer crop-footer">
+          <div class="crop-secondary-actions">
+            <button class="outline-button" type="button" id="useOriginalButton">원본 사용</button>
+            <button class="outline-button" type="button" id="resetCropButton">초기화</button>
+          </div>
+          <div class="crop-primary-actions">
+            <button class="outline-button" type="button" id="cancelCropButton">취소</button>
+            <button class="primary-button" type="button" id="applyCropButton">적용</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <div class="modal-backdrop" id="jsonModal" hidden>
       <form class="app-modal json-modal" id="jsonForm">
         <div class="modal-head">
@@ -120,6 +160,7 @@
       </form>
     </div>
 
+    <script src="/image-cropper.js"></script>
     <script src="/app.js"></script>
   </body>
 </html>
