@@ -26,4 +26,12 @@ LOG_LEVEL=INFO
 
 ## 이미지 변환
 
-시간표 이미지처럼 VLM에 전달되는 파일은 `util/image_processing.py`에서 WebP 형식으로 통일합니다. 긴 변은 `NORMALIZED_IMAGE_MAX_EDGE` 값인 2000px을 넘지 않도록 축소하고, EXIF 회전 보정과 RGB 변환을 함께 수행합니다.
+시간표 이미지처럼 VLM에 전달되는 파일은 `util/image_processing.py`에서 WebP 형식으로 통일합니다. 입력은 JPEG, PNG, WEBP를 지원합니다. 긴 변은 `NORMALIZED_IMAGE_MAX_EDGE` 값인 2000px을 넘지 않도록 축소하고, EXIF 회전 보정과 RGB 변환을 함께 수행합니다.
+
+정규화 설정은 현재 코드 상수로 관리합니다.
+
+```text
+NORMALIZED_IMAGE_MAX_EDGE=2000
+NORMALIZED_IMAGE_FORMAT=WEBP
+WEBP_QUALITY=92
+```

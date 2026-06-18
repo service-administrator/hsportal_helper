@@ -26,7 +26,7 @@
 - `frontend/public/index.html`: FastAPI가 직접 제공하는 기본 HTML 화면입니다.
 - `frontend/public/styles.css`: 기본 화면 스타일입니다.
 - `frontend/public/app.js`: `/api/heartbeat`를 호출해 백엔드 연결 상태를 확인합니다.
-- `frontend/public/test/`: 시간표 이미지를 업로드하고 `/api/timetable/extract` 응답 JSON을 확인하는 테스트 화면입니다.
+- `frontend/public/test/`: 시간표 이미지를 업로드해 `/api/timetable/extract` 응답 JSON을 확인하고, 해당 JSON으로 `/api/recommendations` 추천 결과를 확인하는 테스트 화면입니다.
 
 FastAPI 서버는 `frontend/public` 디렉터리를 정적 파일 경로로 사용합니다. 따라서 프론트엔드 HTML, CSS, JS 파일은 이 디렉터리 안에서 관리합니다.
 
@@ -49,6 +49,12 @@ python -m uvicorn main:app --reload
 3. 응답이 정상이면 연결 상태를 초록색 점과 `qwen3-vl-flash` 모델명으로 표시합니다.
 4. API 호출에 실패하면 연결 실패 메시지를 표시합니다.
 
-추후 시간표 이미지 업로드, 비교과 프로그램 목록, 추천 결과 UI도 같은 `frontend/public` 디렉터리 안에서 확장합니다.
+시간표 JSON 변환 및 비교과 추천 테스트 화면은 `http://127.0.0.1:8000/test/`에서 확인합니다.
 
-시간표 JSON 변환 테스트 화면은 `http://127.0.0.1:8000/test/`에서 확인합니다.
+테스트 화면의 동작은 다음과 같습니다.
+
+1. PNG, JPG, WEBP 시간표 이미지를 선택하고 미리보기를 표시합니다.
+2. `JSON 변환` 버튼으로 `/api/timetable/extract`를 호출합니다.
+3. 모델 응답 JSON을 textarea에 표시하고 복사할 수 있습니다.
+4. `샘플` 버튼으로 API 키 없이 추천 API만 확인할 수 있는 샘플 시간표를 입력합니다.
+5. `추천 실행` 버튼으로 `/api/recommendations`를 호출하고 추천 카드 목록을 표시합니다.
