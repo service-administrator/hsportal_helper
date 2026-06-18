@@ -16,7 +16,7 @@ const DAYS = [
 const BOARD_START = 8 * 60;
 const BOARD_END = 22 * 60;
 const SNAP_MINUTES = 30;
-const HOUR_HEIGHT = 34;
+const HOUR_HEIGHT = 60;
 const MINUTE_HEIGHT = HOUR_HEIGHT / 60;
 
 const scheduleBoard = document.querySelector("#scheduleBoard");
@@ -44,12 +44,20 @@ const endInput = document.querySelector("#endInput");
 let timetable = loadTimetable();
 let editingIndex = null;
 let creatingCourse = false;
+let boardPanState = null;
 
 initDayOptions();
 renderSourceFile();
 renderBoard();
 renderJson();
 setInitialStatus();
+
+scheduleBoard.addEventListener("pointerdown", handleBoardPanPointerDown);
+scheduleBoard.addEventListener("auxclick", (event) => {
+  if (event.button === 1) {
+    event.preventDefault();
+  }
+});
 
 addCourseButton.addEventListener("click", () => {
   const slot = findFirstFreeSlot(60);
@@ -299,6 +307,9 @@ function renderCourseBlock(course, index) {
 }
 
 function handleLanePointerDown(event) {
+  if (event.button !== 0) {
+    return;
+  }
   if (event.target.closest(".course-block")) {
     return;
   }
@@ -342,6 +353,9 @@ function handleLanePointerDown(event) {
 }
 
 function handleBlockPointerDown(event) {
+  if (event.button !== 0) {
+    return;
+  }
   event.preventDefault();
   const block = event.currentTarget;
   const index = Number(block.dataset.index);
@@ -407,6 +421,51 @@ function handleBlockPointerDown(event) {
 
   document.addEventListener("pointermove", onMove);
   document.addEventListener("pointerup", onUp);
+}
+
+function handleBoardPanPointerDown(event) {
+  if (event.button !== 1) {
+    return;
+  }
+
+  event.preventDefault();
+  boardPanState = {
+    pointerId: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    scrollLeft: scheduleBoard.scrollLeft,
+    scrollTop: scheduleBoard.scrollTop,
+  };
+  scheduleBoard.classList.add("panning");
+  scheduleBoard.setPointerCapture(event.pointerId);
+  scheduleBoard.addEventListener("pointermove", handleBoardPanPointerMove);
+  scheduleBoard.addEventListener("pointerup", endBoardPan);
+  scheduleBoard.addEventListener("pointercancel", endBoardPan);
+}
+
+function handleBoardPanPointerMove(event) {
+  if (!boardPanState || event.pointerId !== boardPanState.pointerId) {
+    return;
+  }
+
+  event.preventDefault();
+  scheduleBoard.scrollLeft = boardPanState.scrollLeft - (event.clientX - boardPanState.startX);
+  scheduleBoard.scrollTop = boardPanState.scrollTop - (event.clientY - boardPanState.startY);
+}
+
+function endBoardPan(event) {
+  if (!boardPanState || event.pointerId !== boardPanState.pointerId) {
+    return;
+  }
+
+  if (scheduleBoard.hasPointerCapture(event.pointerId)) {
+    scheduleBoard.releasePointerCapture(event.pointerId);
+  }
+  boardPanState = null;
+  scheduleBoard.classList.remove("panning");
+  scheduleBoard.removeEventListener("pointermove", handleBoardPanPointerMove);
+  scheduleBoard.removeEventListener("pointerup", endBoardPan);
+  scheduleBoard.removeEventListener("pointercancel", endBoardPan);
 }
 
 function updateSelection(selection, start, end) {

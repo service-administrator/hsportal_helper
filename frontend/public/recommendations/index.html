@@ -23,7 +23,8 @@
         </nav>
       </header>
 
-      <section class="results-hero">
+      <div class="step-layout results-content-layout">
+        <section class="results-hero">
         <div>
           <p class="eyebrow">Step 3</p>
           <h1>추천 비교과 프로그램</h1>
@@ -31,19 +32,21 @@
             공강 시간에 참여할 수 있는 비교과 프로그램 목록입니다. 항목을 클릭하면 상세 정보가 표시됩니다.
           </p>
         </div>
+        <aside class="result-summary-panel">
+          <div class="result-summary-chips" aria-label="추천 결과 요약">
+            <span class="summary-chip available">가능 <strong id="availableCount">0</strong></span>
+            <span class="summary-chip needs-review">확인 <strong id="needsReviewCount">0</strong></span>
+            <span class="summary-chip unavailable">불가 <strong id="unavailableCount">0</strong></span>
+          </div>
+        </aside>
       </section>
 
-      <section class="results-layout">
+        <section class="results-layout">
         <section class="ranking-panel" aria-label="추천 프로그램 순위">
           <div class="ranking-head">
             <div class="ranking-title">
               <strong>추천 목록</strong>
               <span id="shownCount">전체 0개</span>
-            </div>
-            <div class="result-summary-chips" aria-label="추천 결과 요약">
-              <span class="summary-chip available">가능 <strong id="availableCount">0</strong></span>
-              <span class="summary-chip needs-review">확인 <strong id="needsReviewCount">0</strong></span>
-              <span class="summary-chip unavailable">불가 <strong id="unavailableCount">0</strong></span>
             </div>
             <div class="ranking-controls">
               <input id="searchInput" type="search" placeholder="프로그램 검색" />
@@ -57,7 +60,8 @@
           </div>
           <div class="ranking-list" id="rankingList"></div>
         </section>
-      </section>
+        </section>
+      </div>
     </main>
 
     <div class="modal-backdrop" id="programModal" hidden>

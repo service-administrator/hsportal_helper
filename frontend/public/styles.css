@@ -218,6 +218,7 @@ p {
 .timetable-workspace,
 .json-drawer,
 .edit-summary,
+.result-summary-panel,
 .ranking-panel,
 .app-modal {
   border: 1px solid var(--line);
@@ -691,31 +692,45 @@ textarea:focus {
   border-color: var(--blue);
 }
 
-.edit-intro {
+.step-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
   gap: 14px;
-  align-items: end;
-  margin-bottom: 12px;
+  height: calc(100vh - 106px);
+  min-height: 0;
+}
+
+.edit-intro,
+.results-hero {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  margin: 0;
+}
+
+.edit-intro {
+  grid-template-columns: 1fr;
 }
 
 .edit-intro h1,
 .results-hero h1 {
-  font-size: clamp(28px, 3.4vw, 40px);
-  line-height: 1.1;
+  font-size: clamp(23px, 2.2vw, 26px);
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .edit-intro p,
 .results-hero p {
-  max-width: 760px;
   margin-top: 8px;
   color: var(--text-2);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .edit-summary {
   display: grid;
+  align-self: start;
   gap: 10px;
   padding: 14px;
 }
@@ -736,14 +751,17 @@ textarea:focus {
   color: var(--text);
 }
 
-.timetable-workspace {
-  overflow: hidden;
+.result-summary-panel {
+  padding: 14px;
 }
 
-@media (min-width: 901px) {
-  .timetable-workspace {
-    height: calc(100vh - 302px);
-  }
+.timetable-workspace {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .tool-strip {
@@ -771,9 +789,19 @@ textarea:focus {
 }
 
 .schedule-board {
-  height: calc(100% - 65px);
+  flex: 1 1 auto;
+  min-height: 0;
   overflow: auto;
   padding: 12px;
+}
+
+.schedule-board.panning {
+  cursor: grabbing;
+}
+
+.schedule-board.panning * {
+  cursor: grabbing !important;
+  user-select: none;
 }
 
 .board-grid {
@@ -871,7 +899,6 @@ textarea:focus {
   cursor: grabbing;
 }
 
-.course-block strong,
 .course-block span,
 .course-block small {
   overflow: hidden;
@@ -880,7 +907,12 @@ textarea:focus {
 }
 
 .course-block strong {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   font-size: 13px;
+  line-height: 1.22;
 }
 
 .course-block span,
@@ -972,7 +1004,6 @@ textarea:focus {
 }
 
 .results-hero {
-  margin-bottom: 12px;
   padding: 0;
 }
 
@@ -980,17 +1011,17 @@ textarea:focus {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
+  min-width: 0;
   min-height: 0;
-}
-
-@media (min-width: 901px) {
-  .results-layout {
-    height: auto;
-  }
+  height: 100%;
 }
 
 .ranking-panel {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+  min-height: 0;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -1026,6 +1057,10 @@ textarea:focus {
   flex-wrap: wrap;
 }
 
+.result-summary-panel .result-summary-chips {
+  align-items: stretch;
+}
+
 .summary-chip {
   display: inline-flex;
   align-items: center;
@@ -1037,6 +1072,13 @@ textarea:focus {
   color: var(--text-2);
   font-size: 12px;
   font-weight: 900;
+  white-space: nowrap;
+}
+
+.result-summary-panel .summary-chip {
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 12px;
 }
 
 .summary-chip.available {
@@ -1087,9 +1129,9 @@ textarea:focus {
 
 .ranking-list {
   display: grid;
+  flex: 1 1 auto;
   gap: 8px;
-  max-height: min(470px, calc(100vh - 330px));
-  min-height: 240px;
+  min-height: 0;
   overflow: auto;
   padding: 10px;
 }
@@ -1394,19 +1436,12 @@ textarea:focus {
 @media (max-width: 1120px) {
   .home-grid,
   .edit-intro,
-  .results-hero,
-  .results-layout {
+  .results-hero {
     grid-template-columns: 1fr;
   }
 
-  .home-grid,
-  .results-layout {
+  .home-grid {
     height: auto;
-  }
-
-  .ranking-list {
-    height: auto;
-    max-height: 560px;
   }
 }
 
@@ -1480,6 +1515,11 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .step-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
   .form-grid,
   .form-grid.two {
     display: grid;
@@ -1492,6 +1532,16 @@ textarea:focus {
 
   .schedule-board {
     height: calc(72vh - 65px);
+    overflow: auto;
+  }
+
+  .results-layout,
+  .ranking-panel {
+    height: auto;
+  }
+
+  .ranking-list {
+    min-height: 240px;
   }
 
   .json-drawer {
