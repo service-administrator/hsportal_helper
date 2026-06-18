@@ -40,7 +40,7 @@ Rules:
 - Return JSON only.
 - day_of_week must be one of MON, TUE, WED, THU, FRI, SAT, SUN.
 - start_time and end_time must use 24-hour HH:MM format.
-- Each course block spans either 1.5 hourly time rows or 2 hourly time rows.
+- Each course block spans either 1.5, 2, or 3 hourly time rows.
 - Use this rule only to validate the final duration of a detected block, not to invent, split, extend, or shift block boundaries.
 - The timetable is a grid.
 - Use the visible horizontal and vertical grid lines to determine each class block.
