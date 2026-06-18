@@ -16,8 +16,8 @@ def test_prepare_image_data_url_normalizes_png_to_webp() -> None:
     payload = prepare_image_data_url(_make_png_bytes(), content_type="image/png")
 
     assert payload.mime_type == "image/webp"
-    assert payload.width == 1
-    assert payload.height == 1
+    assert payload.width == 1500
+    assert payload.height == 1500
     assert payload.data_url.startswith("data:image/webp;base64,")
 
 
@@ -25,8 +25,16 @@ def test_normalize_image_for_vlm_limits_max_edge() -> None:
     normalized = normalize_image_for_vlm(_make_png_bytes(size=(3000, 1500)))
 
     assert normalized.mime_type == "image/webp"
-    assert normalized.width == 2000
-    assert normalized.height == 1000
+    assert normalized.width == 2500
+    assert normalized.height == 1250
+
+
+def test_normalize_image_for_vlm_raises_low_resolution_edge() -> None:
+    normalized = normalize_image_for_vlm(_make_png_bytes(size=(600, 300)))
+
+    assert normalized.mime_type == "image/webp"
+    assert normalized.width == 1500
+    assert normalized.height == 750
 
 
 def test_course_slot_normalizes_weekday_and_time() -> None:

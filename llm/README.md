@@ -1,41 +1,45 @@
 # LLM
 
-## 담당자
+`llm`은 외부 Vision 모델과 통신하는 내부 서비스 계층입니다. API 라우터를 직접 제공하지 않고, `backend.api.timetable`에서 import해 사용합니다.
 
-- 박민재 팀원
+## 책임 범위
 
-## 디렉터리 역할
+- Qwen OpenAI-compatible 클라이언트 생성
+- 업로드 이미지 검증과 Vision 요청용 data URL 생성
+- JSON 응답을 요구하는 LLM task 정의
+- 모델 응답 텍스트 추출, JSON 파싱, Pydantic 검증
+- 시간표 이미지에서 수업명, 요일, 시작/종료 시간 추출
+- LLM 설정 오류, 요청 오류, 응답 파싱/검증 오류를 명확한 예외로 분리
 
-`llm` 디렉터리는 시간표 이미지 인식과 LLM API 연결을 담당하는 영역입니다. 업로드된 시간표 이미지에서 요일, 시간, 강의명 등의 정보를 추출하고, 서비스에서 활용할 수 있는 JSON 형태로 정리합니다.
+## 구성
 
-## 주요 작업 범위
+```text
+llm/
+├─ config.py
+├─ exceptions.py
+├─ media.py
+├─ qwen_client.py
+├─ schemas.py
+├─ service.py
+└─ tasks/
+   ├─ base.py
+   └─ timetable.py
+```
 
-- LLM 모델 API 연결
-- 시간표 이미지 입력 및 분석 요청 구성
-- 시간표에서 수업명, 요일, 시작 시간, 종료 시간 추출
-- 모델 응답을 백엔드에서 사용 가능한 JSON 형식으로 변환
-- 시간표 인식 결과 검증 및 예외 처리
-- 비교과 프로그램 포스터 이미지에서 일정, 장소, 신청 기간 등 추출
+## 파일별 역할
 
-## 연동 대상
+| 파일 | 역할 |
+| --- | --- |
+| `config.py` | `.env`에서 Qwen endpoint, 모델명, thinking 옵션, 이미지 크기 제한 읽기 |
+| `qwen_client.py` | `openai.OpenAI` 클라이언트 생성과 모델명 조회 |
+| `media.py` | 이미지 바이트 검증, MIME 확인, WebP 정규화 후 base64 data URL 생성 |
+| `schemas.py` | 시간표 추출 결과 스키마와 요일/시간 정규화 규칙 |
+| `service.py` | LLM task 실행, provider 오류 정리, 응답 JSON 파싱/검증 |
+| `exceptions.py` | LLM 계층 전용 예외 타입 |
+| `tasks/base.py` | 재사용 가능한 JSON task와 Vision image dataclass |
+| `tasks/timetable.py` | 시간표 추출 system instruction, prompt, Qwen extra body 구성 |
 
-- `backend`: 분석된 시간표 JSON 또는 포스터 JSON을 전달합니다.
-- `frontend`: 직접 연동하지 않고, 백엔드를 통해 사용자 요청을 처리하는 구조를 기준으로 합니다.
-
-## 현재 구성
-
-- `llm/config.py`: Qwen API 키, base URL, 모델명, 이미지 크기 제한을 환경 변수에서 읽습니다.
-- `llm/qwen_client.py`: `openai` 라이브러리로 Qwen OpenAI-compatible API 클라이언트를 생성합니다.
-- `llm/media.py`: 이미지 파일을 검증하고 `util/image_processing.py`로 WebP 정규화한 뒤 Vision 요청용 base64 data URL로 변환합니다.
-- `llm/service.py`: JSON 응답을 기대하는 내부 LLM task를 실행하고 Pydantic 모델로 검증합니다.
-- `llm/schemas.py`: 시간표 추출 결과 스키마와 요일/시간 정규화 규칙을 정의합니다.
-- `llm/tasks/timetable.py`: 시간표 이미지에서 수업 정보를 추출하는 내부 task를 제공합니다.
-
-## 사용 모델
-
-기본 모델은 `qwen3-vl-flash`입니다. Alibaba Cloud Model Studio / DashScope의 OpenAI-compatible endpoint를 `openai` Python 라이브러리로 호출하는 구조입니다.
-
-환경 변수는 루트의 `.env` 파일에서 관리합니다.
+## 환경 변수
 
 ```text
 QWEN_API_KEY=replace-with-your-api-key
@@ -44,24 +48,68 @@ QWEN_MODEL=qwen3-vl-flash
 QWEN_ENABLE_THINKING=false
 # QWEN_THINKING_BUDGET=1024
 LLM_MAX_IMAGE_BYTES=10485760
+APP_ENV=dev
 ```
 
-환경 파일은 루트의 `.env.example`을 복사해 만듭니다.
+- `QWEN_API_KEY`가 없으면 `LLMConfigurationError`가 발생합니다.
+- `APP_ENV=dev`에서는 LLM API 응답 전체를 로그로 남겨 디버깅을 돕습니다.
+- `QWEN_ENABLE_THINKING`과 `QWEN_THINKING_BUDGET`은 Qwen extra body에 전달됩니다.
+- `LLM_MAX_IMAGE_BYTES`는 원본 업로드 바이트 크기 제한입니다.
 
-```bash
-copy .env.example .env
+## 시간표 추출 흐름
+
+1. `backend.api.timetable`이 업로드 이미지 bytes와 content type을 전달합니다.
+2. `media.prepare_image_data_url()`이 이미지가 비어 있지 않은지, 크기 제한을 넘지 않는지, MIME이 실제 파일과 일치하는지 확인합니다.
+3. `util.image_processing.normalize_image_for_vlm()`이 EXIF 회전 보정, RGB 변환, 크기 조정, WebP 변환을 수행합니다.
+4. `tasks.timetable.build_timetable_extraction_task()`가 prompt와 image data URL을 가진 `LLMJSONTask`를 만듭니다.
+5. `LLMService.run_json_task()`가 Qwen OpenAI-compatible Chat Completions API를 호출합니다.
+6. 응답 본문에서 텍스트를 추출하고 JSON object를 파싱합니다.
+7. `TimetableExtractionResult`로 검증해 `courses`와 `warnings`를 반환합니다.
+
+## 시간표 스키마
+
+```json
+{
+  "courses": [
+    {
+      "course_name": "자료구조",
+      "day_of_week": "MON",
+      "start_time": "09:00",
+      "end_time": "10:30"
+    }
+  ],
+  "warnings": []
+}
 ```
 
-## 현재 구현 범위
+### 정규화 규칙
 
-현재 `llm` 디렉터리는 실제 이미지 분석 API 라우터를 제공하지 않습니다. 추천 API나 백엔드 내부 로직에서 import해서 사용하는 내부 모듈로만 관리합니다.
+- 요일은 `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`으로 정규화합니다.
+- `월`, `월요일`, `MONDAY` 같은 alias를 허용합니다.
+- 시간은 `9:00`, `10시 30분` 같은 입력을 `HH:MM`으로 정규화합니다.
+- 종료 시간이 시작 시간보다 늦지 않으면 검증 오류가 발생합니다.
+- 응답에 정의되지 않은 추가 필드는 무시합니다.
 
-- `get_qwen_client()`: `QWEN_API_KEY`, `QWEN_BASE_URL`을 사용해 OpenAI-compatible 클라이언트를 생성합니다.
-- `get_qwen_model_name()`: 현재 사용할 모델명을 반환합니다.
-- `extract_timetable_from_image_bytes()`: 이미지 bytes를 받아 시간표 JSON 추출 결과를 반환합니다.
+## 이미지 처리 기준
 
-시간표 추출 task는 `response_format={"type": "json_object"}`를 사용하고, Qwen extra body에 `QWEN_ENABLE_THINKING`, `QWEN_THINKING_BUDGET`, `vl_high_resolution_images=True` 값을 전달합니다. 모델 응답은 JSON 파싱 후 `TimetableExtractionResult` Pydantic 모델로 검증합니다.
+실제 이미지 전처리는 `util.image_processing`에서 담당하고, `llm.media`는 LLM 요청 payload로 포장합니다.
 
-이미지 입력은 JPEG, PNG, WEBP만 허용합니다. 업로드 크기는 `LLM_MAX_IMAGE_BYTES`로 제한하고, 실제 Vision 요청 전에는 WebP로 정규화합니다.
+- 입력 허용: JPEG, PNG, WEBP
+- 출력 형식: WebP
+- 가장 긴 변 목표 범위: 1500px 이상, 2500px 이하
+- WebP 품질: 92
+- Vision 요청 payload: `data:image/webp;base64,...`
 
-추후 비교과 프로그램 포스터 이미지 분석이나 크롤링 텍스트 정리 기능은 `llm/tasks/`에 task를 추가하고 `LLMService`를 재사용하는 방식으로 확장합니다.
+## 오류 처리
+
+| 예외 | 발생 상황 | API 변환 |
+| --- | --- | --- |
+| `ImagePayloadError` | 이미지 누락, 크기 초과, MIME 불일치, 지원하지 않는 포맷 | `400` |
+| `LLMConfigurationError` | API 키 또는 모델 설정 누락 | `503` |
+| `LLMRequestError` | provider API 요청 실패 | `502` |
+| `LLMResponseParseError` | 응답에서 JSON object를 파싱할 수 없음 | `502` |
+| `LLMResponseValidationError` | JSON이 기대 스키마와 맞지 않음 | `502` |
+
+## 확장 방법
+
+새로운 LLM 작업은 `llm/tasks/`에 task builder를 추가하고 `LLMService.run_json_task()`를 재사용하는 방식으로 확장합니다. 응답 모델은 Pydantic `BaseModel`로 정의하고, 외부 API 라우터에서는 `llm` 내부 예외를 HTTP 오류로 변환합니다.

@@ -4,7 +4,7 @@
     "schema_version": "hsportal_programs_v2",
     "base_url": "https://hsportal.hansung.ac.kr",
     "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
-    "crawled_at": "2026-06-18T23:31:58+09:00",
+    "crawled_at": "2026-06-19T02:17:24+09:00",
     "filter": {
       "status": "wait",
       "label": "접수(대기)중",
@@ -117,7 +117,7 @@
           "size_text": "198.20KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13915",
@@ -126,10 +126,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-10",
+        "badge": "D-9",
         "accepting": true
       },
-      "points": 10,
+      "points": 9,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-15T09:00:00+09:00",
@@ -162,7 +162,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 249
+        "hits": 252
       },
       "flags": {
         "is_talent_certified": true,
@@ -223,7 +223,7 @@
           "size_text": "1.03MB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13906",
@@ -268,7 +268,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 424
+        "hits": 427
       },
       "flags": {
         "is_talent_certified": false,
@@ -323,7 +323,7 @@
           "size_text": "72.19KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13922",
@@ -363,7 +363,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 433
+        "hits": 439
       },
       "flags": {
         "is_talent_certified": false,
@@ -459,7 +459,7 @@
           "size_text": "467.79KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13790",
@@ -519,7 +519,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 942
+        "hits": 946
       },
       "flags": {
         "is_talent_certified": false,
@@ -574,7 +574,7 @@
           "size_text": "463.88KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13917",
@@ -661,7 +661,7 @@
           "size_text": "1.67MB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13921",
@@ -670,10 +670,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-10",
+        "badge": "D-9",
         "accepting": true
       },
-      "points": 10,
+      "points": 9,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-15T09:00:00+09:00",
@@ -706,7 +706,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 573
+        "hits": 579
       },
       "flags": {
         "is_talent_certified": false,
@@ -752,7 +752,7 @@
           "size_text": "440.75KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13926",
@@ -782,7 +782,7 @@
         "department": "교육혁신처 교수학습센터"
       },
       "participants": {
-        "current": 9,
+        "current": 10,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -792,7 +792,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 152
+        "hits": 155
       },
       "flags": {
         "is_talent_certified": false,
@@ -847,7 +847,7 @@
           "size_text": "43.71KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13914",
@@ -887,7 +887,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1405
+        "hits": 1411
       },
       "flags": {
         "is_talent_certified": false,
@@ -936,7 +936,7 @@
           "size_text": "330.51KB"
         }
       ],
-      "last_seen_at": "2026-06-18T23:31:58+09:00"
+      "last_seen_at": "2026-06-19T02:17:24+09:00"
     },
     {
       "id": "13930",

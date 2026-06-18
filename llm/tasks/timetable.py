@@ -6,7 +6,11 @@ from llm.media import ImagePayload, prepare_image_data_url
 from llm.schemas import TimetableExtractionResult
 from llm.service import LLMService
 from llm.tasks.base import LLMJSONTask, VisionImage
-from util.image_processing import NORMALIZED_IMAGE_MAX_EDGE, inspect_image
+from util.image_processing import (
+    NORMALIZED_IMAGE_MAX_EDGE,
+    NORMALIZED_IMAGE_MIN_EDGE,
+    inspect_image,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -36,11 +40,27 @@ Rules:
 - Return JSON only.
 - day_of_week must be one of MON, TUE, WED, THU, FRI, SAT, SUN.
 - start_time and end_time must use 24-hour HH:MM format.
-- Split classes by each visible day/time block.
+- Each course block spans either 1.5 hourly time rows or 2 hourly time rows.
+- Use this rule only to validate the final duration of a detected block, not to invent, split, extend, or shift block boundaries.
+- The timetable is a grid.
+- Use the visible horizontal and vertical grid lines to determine each class block.
+- The index columns represent the horizontal day-of-week axis.
+- The index rows represent the vertical time axis.
+- Split classes into separate objects only by visible course block boundaries, not by each hourly time row.
+- Use the day-of-week columns to determine the day, and use the time rows only to calculate the top and bottom times of each visible course block.
+- start_time is determined by the top boundary of the class block.
+- end_time is determined by the bottom boundary of the class block.
+- Determine the top and bottom boundaries from the visible outer boundary of the course cell, not from the vertical position of the course text.
+- Course text may appear only once inside a block and does not indicate the full height of the block.
+- Empty-looking hourly rows do not necessarily indicate free time if a visible course block extends through them.
+- If a block boundary lies exactly on an hour row, use HH:00.
+- If a block starts or ends halfway between two hour rows, use HH:30.
 - If one class appears multiple times in a week, create one object per day/time block.
-- If the start and end of a block fall exactly in the middle of the time axis, it represents a 30-minute block.
-- If the boundaries of a block are ambiguous, it indicates a consecutive class session.
-- Do not guess invisible classes.
+- If different course blocks are vertically adjacent in the same day column and there is no visible empty gap between them, treat them as back-to-back consecutive class sessions.
+- Do not insert a 30-minute gap between adjacent course blocks unless a visible empty space exists.
+- If two different course blocks touch vertically, the first block's end_time must equal the next block's start_time.
+- Still extract each distinct course as a separate object.
+- Distinguish clearly between the course name and the classroom to extract only the course name.
 - Do not include location, instructor, confidence, or any fields not shown in the JSON shape.
 """.strip()
 
@@ -89,7 +109,8 @@ def _log_image_debug(image_bytes: bytes, image_payload: ImagePayload) -> None:
     original_image = inspect_image(image_bytes)
     logger.info(
         "Timetable VLM image normalized: "
-        "original=%s %sx%s %s bytes, normalized=%s %sx%s %s bytes, max_edge=%s.",
+        "original=%s %sx%s %s bytes, normalized=%s %sx%s %s bytes, "
+        "min_edge=%s max_edge=%s.",
         original_image.mime_type,
         original_image.width,
         original_image.height,
@@ -98,5 +119,6 @@ def _log_image_debug(image_bytes: bytes, image_payload: ImagePayload) -> None:
         image_payload.width,
         image_payload.height,
         image_payload.size_bytes,
+        NORMALIZED_IMAGE_MIN_EDGE,
         NORMALIZED_IMAGE_MAX_EDGE,
     )
