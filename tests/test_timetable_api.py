@@ -32,7 +32,6 @@ def test_extract_timetable_returns_vlm_json_and_logs_debug_in_dev(monkeypatch) -
                     "day_of_week": "MON",
                     "start_time": "09:00",
                     "end_time": "10:30",
-                    "confidence": 0.98,
                 }
             ],
             warnings=[],
@@ -58,9 +57,6 @@ def test_extract_timetable_returns_vlm_json_and_logs_debug_in_dev(monkeypatch) -
                 "day_of_week": "MON",
                 "start_time": "09:00",
                 "end_time": "10:30",
-                "location": None,
-                "instructor": None,
-                "confidence": 0.98,
             }
         ],
         "warnings": [],

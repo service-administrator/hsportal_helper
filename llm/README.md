@@ -41,6 +41,8 @@
 QWEN_API_KEY=replace-with-your-api-key
 QWEN_BASE_URL=https://dashscope-intl.aliyuncs.com/compatible-mode/v1
 QWEN_MODEL=qwen3-vl-flash
+QWEN_ENABLE_THINKING=false
+# QWEN_THINKING_BUDGET=1024
 LLM_MAX_IMAGE_BYTES=10485760
 ```
 
@@ -58,7 +60,7 @@ copy .env.example .env
 - `get_qwen_model_name()`: 현재 사용할 모델명을 반환합니다.
 - `extract_timetable_from_image_bytes()`: 이미지 bytes를 받아 시간표 JSON 추출 결과를 반환합니다.
 
-시간표 추출 task는 `response_format={"type": "json_object"}`를 사용하고, Qwen extra body에 `enable_thinking=False`, `vl_high_resolution_images=True`를 전달합니다. 모델 응답은 JSON 파싱 후 `TimetableExtractionResult` Pydantic 모델로 검증합니다.
+시간표 추출 task는 `response_format={"type": "json_object"}`를 사용하고, Qwen extra body에 `QWEN_ENABLE_THINKING`, `QWEN_THINKING_BUDGET`, `vl_high_resolution_images=True` 값을 전달합니다. 모델 응답은 JSON 파싱 후 `TimetableExtractionResult` Pydantic 모델로 검증합니다.
 
 이미지 입력은 JPEG, PNG, WEBP만 허용합니다. 업로드 크기는 `LLM_MAX_IMAGE_BYTES`로 제한하고, 실제 Vision 요청 전에는 WebP로 정규화합니다.
 

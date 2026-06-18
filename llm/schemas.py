@@ -45,9 +45,6 @@ class CourseSlot(BaseModel):
     day_of_week: Weekday
     start_time: str = Field(pattern=r"^\d{2}:\d{2}$")
     end_time: str = Field(pattern=r"^\d{2}:\d{2}$")
-    location: str | None = None
-    instructor: str | None = None
-    confidence: float = Field(default=1.0, ge=0.0, le=1.0)
 
     @field_validator("day_of_week", mode="before")
     @classmethod

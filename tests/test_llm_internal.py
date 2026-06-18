@@ -1,12 +1,14 @@
 import logging
 from io import BytesIO
+from types import SimpleNamespace
 
 from PIL import Image
 
+from llm.config import get_llm_settings
 from llm.media import prepare_image_data_url
 from llm.schemas import CourseSlot, TimetableExtractionResult
-from llm.service import _api_error_detail, _parse_json_payload
-from llm.tasks.timetable import extract_timetable_from_image_bytes
+from llm.service import LLMService, _api_error_detail, _parse_json_payload
+from llm.tasks.timetable import build_timetable_extraction_task, extract_timetable_from_image_bytes
 from util.image_processing import normalize_image_for_vlm
 
 
@@ -76,9 +78,63 @@ def test_extract_timetable_logs_image_debug_when_enabled(caplog) -> None:
     assert "normalized=image/webp" in caplog.text
 
 
+def test_timetable_task_uses_reasoning_env_options(monkeypatch) -> None:
+    monkeypatch.setenv("QWEN_ENABLE_THINKING", "true")
+    monkeypatch.setenv("QWEN_THINKING_BUDGET", "512")
+    get_llm_settings.cache_clear()
+
+    task = build_timetable_extraction_task("data:image/webp;base64,abc")
+
+    assert task.extra_body == {
+        "enable_thinking": True,
+        "vl_high_resolution_images": True,
+        "thinking_budget": 512,
+    }
+    get_llm_settings.cache_clear()
+
+
+def test_llm_service_logs_full_api_response_in_dev(monkeypatch, caplog) -> None:
+    monkeypatch.setenv("APP_ENV", "dev")
+    get_llm_settings.cache_clear()
+    caplog.set_level(logging.INFO, logger="llm.service")
+
+    service = LLMService(client=_FakeOpenAIClient(), model="qwen-test")
+    result = service.run_json_task(build_timetable_extraction_task("data:image/webp;base64,abc"))
+
+    assert result == TimetableExtractionResult(courses=[], warnings=[])
+    assert "LLM API response" in caplog.text
+    assert "reasoning_content" in caplog.text
+    assert "finish_reason" in caplog.text
+    assert "prompt_tokens" in caplog.text
+    assert '\\"courses\\": []' in caplog.text
+    get_llm_settings.cache_clear()
+
+
 class _FakeLLMService:
     def run_json_task(self, task):
         return TimetableExtractionResult(courses=[], warnings=[])
+
+
+class _FakeChatCompletions:
+    def create(self, **kwargs):
+        return SimpleNamespace(
+            id="chatcmpl-test",
+            model="qwen-test",
+            choices=[
+                SimpleNamespace(
+                    finish_reason="stop",
+                    message=SimpleNamespace(
+                        content='{"courses": [], "warnings": []}',
+                        reasoning_content="looked at the timetable grid",
+                    ),
+                )
+            ],
+            usage=SimpleNamespace(prompt_tokens=10, completion_tokens=5, total_tokens=15),
+        )
+
+
+class _FakeOpenAIClient:
+    chat = SimpleNamespace(completions=_FakeChatCompletions())
 
 
 class _FakeAPIError(Exception):

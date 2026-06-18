@@ -40,8 +40,6 @@ const courseNameInput = document.querySelector("#courseNameInput");
 const dayInput = document.querySelector("#dayInput");
 const startInput = document.querySelector("#startInput");
 const endInput = document.querySelector("#endInput");
-const locationInput = document.querySelector("#locationInput");
-const instructorInput = document.querySelector("#instructorInput");
 
 let timetable = loadTimetable();
 let editingIndex = null;
@@ -64,9 +62,6 @@ addCourseButton.addEventListener("click", () => {
     day_of_week: slot.day,
     start_time: timeFromMinutes(slot.start),
     end_time: timeFromMinutes(slot.end),
-    location: null,
-    instructor: null,
-    confidence: 1,
   });
   openDialog(index, { isNew: true });
 });
@@ -138,9 +133,6 @@ courseForm.addEventListener("submit", (event) => {
     day_of_week: dayInput.value,
     start_time: startInput.value,
     end_time: endInput.value,
-    location: locationInput.value.trim() || null,
-    instructor: instructorInput.value.trim() || null,
-    confidence: 1,
   });
 
   if (hasCourseConflict(nextCourse, editingIndex)) {
@@ -302,7 +294,6 @@ function renderCourseBlock(course, index) {
     >
       <strong>${escapeHtml(course.course_name || "새 수업")}</strong>
       <span>${escapeHtml(course.start_time)}-${escapeHtml(course.end_time)}</span>
-      ${course.location ? `<small>${escapeHtml(course.location)}</small>` : ""}
     </article>
   `;
 }
@@ -338,9 +329,6 @@ function handleLanePointerDown(event) {
       day_of_week: lane.dataset.day,
       start_time: timeFromMinutes(startMinute),
       end_time: timeFromMinutes(endMinute),
-      location: null,
-      instructor: null,
-      confidence: 1,
     }, { rejectConflict: true });
     if (index === null) {
       setEditorStatus("해당 시간에는 이미 수업이 있습니다. 빈 시간대를 선택하세요.", "error");
@@ -448,8 +436,6 @@ function openDialog(index, options = {}) {
   dayInput.value = course.day_of_week || "MON";
   startInput.value = course.start_time || "09:00";
   endInput.value = course.end_time || "10:00";
-  locationInput.value = course.location || "";
-  instructorInput.value = course.instructor || "";
   courseDialog.hidden = false;
   courseNameInput.focus();
 }
@@ -480,9 +466,6 @@ function normalizeCourse(course) {
     day_of_week: DAYS.some(([day]) => day === course.day_of_week) ? course.day_of_week : "MON",
     start_time: start,
     end_time: end > start ? end : timeFromMinutes(minutesFromTime(start) + 60),
-    location: course.location || null,
-    instructor: course.instructor || null,
-    confidence: Number.isFinite(course.confidence) ? course.confidence : 1,
   };
 }
 
