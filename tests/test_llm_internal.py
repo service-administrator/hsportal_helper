@@ -5,7 +5,7 @@ from PIL import Image
 
 from llm.media import prepare_image_data_url
 from llm.schemas import CourseSlot, TimetableExtractionResult
-from llm.service import _parse_json_payload
+from llm.service import _api_error_detail, _parse_json_payload
 from llm.tasks.timetable import extract_timetable_from_image_bytes
 from util.image_processing import normalize_image_for_vlm
 
@@ -51,6 +51,15 @@ def test_parse_json_payload_accepts_markdown_fenced_json() -> None:
     assert result.warnings == ["글자가 흐립니다."]
 
 
+def test_api_error_detail_extracts_provider_error_body() -> None:
+    error = _FakeAPIError()
+
+    assert _api_error_detail(error) == (
+        "status_code=401 code=invalid_api_key request_id=req-123 "
+        "message=Invalid API-key provided."
+    )
+
+
 def test_extract_timetable_logs_image_debug_when_enabled(caplog) -> None:
     caplog.set_level(logging.INFO, logger="llm.tasks.timetable")
 
@@ -70,6 +79,17 @@ def test_extract_timetable_logs_image_debug_when_enabled(caplog) -> None:
 class _FakeLLMService:
     def run_json_task(self, task):
         return TimetableExtractionResult(courses=[], warnings=[])
+
+
+class _FakeAPIError(Exception):
+    status_code = 401
+    request_id = None
+    body = {
+        "message": "Invalid API-key provided.",
+        "id": "req-123",
+        "type": "invalid_request_error",
+        "code": "invalid_api_key",
+    }
 
 
 def _make_png_bytes(size: tuple[int, int] = (1, 1)) -> bytes:

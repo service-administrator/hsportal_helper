@@ -1,3 +1,4 @@
+import logging
 from io import BytesIO
 
 from fastapi import FastAPI
@@ -7,6 +8,7 @@ from PIL import Image
 from backend.api import timetable
 from backend.api.timetable import router
 from backend.config import get_backend_settings
+from llm.exceptions import LLMRequestError
 from llm.schemas import TimetableExtractionResult
 
 
@@ -108,6 +110,41 @@ def test_extract_timetable_rejects_invalid_image() -> None:
     )
 
     assert response.status_code == 400
+
+
+def test_extract_timetable_logs_llm_processing_error(monkeypatch, caplog) -> None:
+    def fake_extract(
+        image_bytes: bytes,
+        *,
+        content_type: str | None = None,
+        log_image_debug: bool = False,
+    ):
+        raise LLMRequestError(
+            "LLM API request failed for task 'timetable_extraction': "
+            "status_code=401 code=invalid_api_key message=Invalid API-key provided."
+        )
+
+    monkeypatch.setattr(
+        timetable,
+        "extract_timetable_from_image_bytes",
+        fake_extract,
+    )
+    caplog.set_level(logging.ERROR, logger="backend.api.timetable")
+    client = TestClient(_make_app())
+
+    response = client.post(
+        "/api/timetable/extract",
+        files={"file": ("timetable.png", _make_png_bytes(), "image/png")},
+    )
+
+    assert response.status_code == 502
+    assert response.json() == {
+        "detail": "LLM API request failed for task 'timetable_extraction': "
+        "status_code=401 code=invalid_api_key message=Invalid API-key provided."
+    }
+    assert "Timetable extraction failed during LLM processing" in caplog.text
+    assert "timetable.png" in caplog.text
+    assert "Traceback" not in caplog.text
 
 
 def _make_app() -> FastAPI:
