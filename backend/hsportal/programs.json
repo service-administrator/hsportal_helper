@@ -4,7 +4,7 @@
     "schema_version": "hsportal_programs_v2",
     "base_url": "https://hsportal.hansung.ac.kr",
     "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
-    "crawled_at": "2026-06-17T23:21:06+09:00",
+    "crawled_at": "2026-06-18T11:46:42+09:00",
     "filter": {
       "status": "wait",
       "label": "접수(대기)중",
@@ -74,7 +74,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 63
+        "hits": 65
       },
       "flags": {
         "is_talent_certified": false,
@@ -117,7 +117,7 @@
           "size_text": "198.20KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13915",
@@ -126,10 +126,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-11",
+        "badge": "D-10",
         "accepting": true
       },
-      "points": 11,
+      "points": 10,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-15T09:00:00+09:00",
@@ -152,7 +152,7 @@
         "department": "학생진로취업처 학생생활상담센터"
       },
       "participants": {
-        "current": 7,
+        "current": 9,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -162,7 +162,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 198
+        "hits": 212
       },
       "flags": {
         "is_talent_certified": true,
@@ -223,7 +223,7 @@
           "size_text": "1.03MB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13906",
@@ -268,7 +268,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 402
+        "hits": 414
       },
       "flags": {
         "is_talent_certified": false,
@@ -323,7 +323,7 @@
           "size_text": "72.19KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13922",
@@ -363,7 +363,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 368
+        "hits": 398
       },
       "flags": {
         "is_talent_certified": false,
@@ -459,7 +459,7 @@
           "size_text": "467.79KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13790",
@@ -468,10 +468,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-4",
+        "badge": "D-3",
         "accepting": true
       },
-      "points": 4,
+      "points": 3,
       "type": "개인",
       "application_period": {
         "start_at": "2026-05-18T09:00:00+09:00",
@@ -519,7 +519,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 895
+        "hits": 911
       },
       "flags": {
         "is_talent_certified": false,
@@ -574,7 +574,7 @@
           "size_text": "463.88KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13917",
@@ -614,7 +614,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 344
+        "hits": 356
       },
       "flags": {
         "is_talent_certified": false,
@@ -661,7 +661,7 @@
           "size_text": "1.67MB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13921",
@@ -670,10 +670,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-11",
+        "badge": "D-10",
         "accepting": true
       },
-      "points": 11,
+      "points": 10,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-15T09:00:00+09:00",
@@ -706,7 +706,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 500
+        "hits": 525
       },
       "flags": {
         "is_talent_certified": false,
@@ -752,7 +752,7 @@
           "size_text": "440.75KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13926",
@@ -761,10 +761,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-8",
+        "badge": "D-7",
         "accepting": true
       },
-      "points": 8,
+      "points": 7,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T09:00:00+09:00",
@@ -782,7 +782,7 @@
         "department": "교육혁신처 교수학습센터"
       },
       "participants": {
-        "current": 8,
+        "current": 9,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -792,7 +792,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 126
+        "hits": 136
       },
       "flags": {
         "is_talent_certified": false,
@@ -847,7 +847,7 @@
           "size_text": "43.71KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13914",
@@ -877,7 +877,7 @@
         "department": "상상력교양대학 기초교양학부"
       },
       "participants": {
-        "current": 39,
+        "current": 37,
         "capacity": 50,
         "max_apply": null,
         "is_unlimited": false
@@ -887,7 +887,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1310
+        "hits": 1345
       },
       "flags": {
         "is_talent_certified": false,
@@ -936,7 +936,7 @@
           "size_text": "330.51KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13930",
@@ -976,7 +976,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 134
+        "hits": 161
       },
       "flags": {
         "is_talent_certified": false,
@@ -1012,7 +1012,7 @@
         "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 진행 시간: 2시간 예정 ○ 참여 대상 : 한성대학교 재학생 중 공연 관람자 ○ 개설 목적 : 타 전공 재학생들에게 26-1학기 재학기간 동안의 공연준비 과정을 거친 한국무용전공 재학생들의 한국무용공연 관람을 통해 우리나라 고유의 전통문화와 춤을 즐길 수 있는 예술향유의 기회를 제공하고자 함. ○ 비교과포인트 지급 : 10pt 지급(신청 후 관람자 명단 작성)"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13929",
@@ -1052,7 +1052,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 121
+        "hits": 142
       },
       "flags": {
         "is_talent_certified": false,
@@ -1088,7 +1088,7 @@
         "description_text": "○ 프로그램명 : 2026 무용학과 한국무용전공 쇼케이스 ○ 일시 및 장소 : 2026. 6. 20. 오후 4시 한성대학교 낙산관 대강당 ○ 참여 대상 : 한국무용전공트랙 재학생 중 희망자 ○ 개설 목적 : 26-1학기 재학 기간 동안 한국무용전공 재학생들이 전공수업을 통해 향상된 전공실기역량을 무대에서 선보이는 과정에서 무용관련 전문지식을 취득하고 자신의 진로를 탐색하게 하고자 함. ○ 프로그램 구성: 전공레파토리, 특강레파토리, 졸업예비작품이 포함된 총 9개의 작품으로 구성, 총 2시간 진행 예상. ○ 비교과포인트 지급 : 15pt"
       },
       "attachments": [],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13927",
@@ -1118,7 +1118,7 @@
         "department": "글로컬협력처 국제학생입학지원센터"
       },
       "participants": {
-        "current": 19,
+        "current": 24,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -1128,7 +1128,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 97
+        "hits": 127
       },
       "flags": {
         "is_talent_certified": false,
@@ -1171,7 +1171,7 @@
           "size_text": "212.04KB"
         }
       ],
-      "last_seen_at": "2026-06-17T23:21:06+09:00"
+      "last_seen_at": "2026-06-18T11:46:42+09:00"
     },
     {
       "id": "13870",
