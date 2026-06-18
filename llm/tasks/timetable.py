@@ -1,5 +1,7 @@
 import logging
+from typing import Any
 
+from llm.config import get_llm_settings
 from llm.media import ImagePayload, prepare_image_data_url
 from llm.schemas import TimetableExtractionResult
 from llm.service import LLMService
@@ -12,7 +14,7 @@ TIMETABLE_SYSTEM_INSTRUCTION = """
 You are an OCR and timetable parsing assistant for a Korean university service.
 Extract only information that is visible in the timetable image.
 Return only one valid JSON object. Do not include markdown, comments, or prose.
-If a field is unreadable, use null for optional fields and add a Korean warning.
+If a class name or time is unreadable, skip that class and add a Korean warning.
 """.strip()
 
 TIMETABLE_PROMPT = """
@@ -21,26 +23,25 @@ Analyze the attached timetable image and return JSON in exactly this shape:
 {
   "courses": [
     {
-      "course_name": "강의명",
+      "course_name": "자료구조",
       "day_of_week": "MON",
       "start_time": "09:00",
-      "end_time": "10:30",
-      "location": "강의실 또는 null",
-      "instructor": "교수명 또는 null",
-      "confidence": 0.0
+      "end_time": "10:30"
     }
   ],
   "warnings": []
 }
 
 Rules:
-- JSON만 반환하세요.
+- Return JSON only.
 - day_of_week must be one of MON, TUE, WED, THU, FRI, SAT, SUN.
 - start_time and end_time must use 24-hour HH:MM format.
 - Split classes by each visible day/time block.
 - If one class appears multiple times in a week, create one object per day/time block.
-- Do not guess invisible classes, locations, or instructors.
-- confidence must be between 0 and 1.
+- If the start and end of a block fall exactly in the middle of the time axis, it represents a 30-minute block.
+- If the boundaries of a block are ambiguous, it indicates a consecutive class session.
+- Do not guess invisible classes.
+- Do not include location, instructor, confidence, or any fields not shown in the JSON shape.
 """.strip()
 
 
@@ -53,8 +54,19 @@ def build_timetable_extraction_task(image_data_url: str) -> LLMJSONTask[Timetabl
         images=(VisionImage(data_url=image_data_url),),
         max_tokens=3000,
         response_format={"type": "json_object"},
-        extra_body={"enable_thinking": False, "vl_high_resolution_images": True},
+        extra_body=_build_timetable_extra_body(),
     )
+
+
+def _build_timetable_extra_body() -> dict[str, Any]:
+    settings = get_llm_settings()
+    extra_body: dict[str, Any] = {
+        "enable_thinking": settings.qwen_enable_thinking,
+        "vl_high_resolution_images": True,
+    }
+    if settings.qwen_thinking_budget is not None:
+        extra_body["thinking_budget"] = settings.qwen_thinking_budget
+    return extra_body
 
 
 def extract_timetable_from_image_bytes(

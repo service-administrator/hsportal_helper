@@ -25,6 +25,11 @@ const submitButton = document.querySelector("#submitButton");
 const heartbeatStatus = document.querySelector("#heartbeatStatus");
 const crawlStatus = document.querySelector("#crawlStatus");
 
+let selectedUploadFile = null;
+let selectedOriginalFile = null;
+let selectedPreviewUrl = null;
+let selectedCrop = null;
+
 checkSystemStatus();
 
 startButton.addEventListener("click", () => openModal(uploadModal));
@@ -47,8 +52,8 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-imageInput.addEventListener("change", () => {
-  setSelectedFile(imageInput.files?.[0]);
+imageInput.addEventListener("change", async () => {
+  await handleSelectedFile(imageInput.files?.[0]);
 });
 
 dropZone.addEventListener("dragover", (event) => {
@@ -60,7 +65,7 @@ dropZone.addEventListener("dragleave", () => {
   dropZone.classList.remove("dragging");
 });
 
-dropZone.addEventListener("drop", (event) => {
+dropZone.addEventListener("drop", async (event) => {
   event.preventDefault();
   dropZone.classList.remove("dragging");
 
@@ -72,13 +77,13 @@ dropZone.addEventListener("drop", (event) => {
   const transfer = new DataTransfer();
   transfer.items.add(file);
   imageInput.files = transfer.files;
-  setSelectedFile(file);
+  await handleSelectedFile(file);
 });
 
 uploadForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const file = imageInput.files?.[0];
+  const file = selectedUploadFile;
   if (!file) {
     setUploadStatus("시간표 이미지를 먼저 선택하세요.", "error");
     return;
@@ -104,13 +109,24 @@ uploadForm.addEventListener("submit", async (event) => {
       throw new Error(data.detail ?? `HTTP ${response.status}`);
     }
 
-    saveTimetable(data, {
+    const sourceFile = {
       name: file.name,
       size: file.size,
       type: file.type,
       analyzedAt: new Date().toISOString(),
       source: "image",
-    });
+    };
+
+    if (selectedOriginalFile && selectedOriginalFile !== file) {
+      sourceFile.originalName = selectedOriginalFile.name;
+      sourceFile.originalSize = selectedOriginalFile.size;
+      sourceFile.originalType = selectedOriginalFile.type;
+    }
+    if (selectedCrop) {
+      sourceFile.crop = selectedCrop;
+    }
+
+    saveTimetable(data, sourceFile);
     window.location.href = "/timetable/";
   } catch (error) {
     setUploadStatus(error instanceof Error ? error.message : String(error), "error");
@@ -164,13 +180,15 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.hidden = true;
-  if (uploadModal.hidden && jsonModal.hidden) {
+  const hasOpenModal = document.querySelector(".modal-backdrop:not([hidden]), .dialog-backdrop:not([hidden])");
+  if (!hasOpenModal) {
     document.body.classList.remove("modal-open");
   }
 }
 
-function setSelectedFile(file) {
+async function handleSelectedFile(file) {
   if (!file) {
+    clearSelectedUploadFile();
     fileName.textContent = "PNG, JPG, WEBP 파일을 선택하세요.";
     selectedImage.hidden = true;
     previewImage.removeAttribute("src");
@@ -178,14 +196,61 @@ function setSelectedFile(file) {
   }
 
   if (!["image/png", "image/jpeg", "image/webp"].includes(file.type)) {
+    clearSelectedUploadFile();
     setUploadStatus("PNG, JPG, WEBP 형식만 업로드할 수 있습니다.", "error");
     return;
   }
 
-  fileName.textContent = `${file.name} · ${formatBytes(file.size)}`;
-  previewImage.src = URL.createObjectURL(file);
+  setUploadStatus("시간표 영역을 선택하세요.", "");
+
+  const cropResult =
+    typeof window.openImageCropper === "function"
+      ? await window.openImageCropper(file)
+      : {
+          file,
+          previewUrl: URL.createObjectURL(file),
+          crop: null,
+        };
+
+  if (!cropResult) {
+    imageInput.value = "";
+    clearSelectedUploadFile();
+    fileName.textContent = "PNG, JPG, WEBP 파일을 선택하세요.";
+    selectedImage.hidden = true;
+    previewImage.removeAttribute("src");
+    setUploadStatus("이미지 선택이 취소되었습니다.", "");
+    return;
+  }
+
+  setSelectedUploadFile(cropResult, file);
+}
+
+function setSelectedUploadFile(result, originalFile) {
+  clearSelectedUploadFile();
+
+  selectedUploadFile = result.file;
+  selectedOriginalFile = originalFile;
+  selectedPreviewUrl = result.previewUrl;
+  selectedCrop = result.crop;
+
+  fileName.textContent = `${result.file.name} - ${formatBytes(result.file.size)}`;
+  previewImage.src = result.previewUrl;
   selectedImage.hidden = false;
-  setUploadStatus("이미지가 선택되었습니다.", "ok");
+  setUploadStatus(
+    result.crop ? "크롭된 시간표 이미지가 준비되었습니다." : "원본 이미지가 준비되었습니다.",
+    "ok",
+  );
+}
+
+function clearSelectedUploadFile() {
+  if (selectedPreviewUrl) {
+    URL.revokeObjectURL(selectedPreviewUrl);
+  }
+
+  selectedUploadFile = null;
+  selectedOriginalFile = null;
+  selectedPreviewUrl = null;
+  selectedCrop = null;
 }
 
 async function checkSystemStatus() {

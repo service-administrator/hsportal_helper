@@ -16,7 +16,7 @@ const DAYS = [
 const BOARD_START = 8 * 60;
 const BOARD_END = 22 * 60;
 const SNAP_MINUTES = 30;
-const HOUR_HEIGHT = 34;
+const HOUR_HEIGHT = 60;
 const MINUTE_HEIGHT = HOUR_HEIGHT / 60;
 
 const scheduleBoard = document.querySelector("#scheduleBoard");
@@ -40,18 +40,24 @@ const courseNameInput = document.querySelector("#courseNameInput");
 const dayInput = document.querySelector("#dayInput");
 const startInput = document.querySelector("#startInput");
 const endInput = document.querySelector("#endInput");
-const locationInput = document.querySelector("#locationInput");
-const instructorInput = document.querySelector("#instructorInput");
 
 let timetable = loadTimetable();
 let editingIndex = null;
 let creatingCourse = false;
+let boardPanState = null;
 
 initDayOptions();
 renderSourceFile();
 renderBoard();
 renderJson();
 setInitialStatus();
+
+scheduleBoard.addEventListener("pointerdown", handleBoardPanPointerDown);
+scheduleBoard.addEventListener("auxclick", (event) => {
+  if (event.button === 1) {
+    event.preventDefault();
+  }
+});
 
 addCourseButton.addEventListener("click", () => {
   const slot = findFirstFreeSlot(60);
@@ -64,9 +70,6 @@ addCourseButton.addEventListener("click", () => {
     day_of_week: slot.day,
     start_time: timeFromMinutes(slot.start),
     end_time: timeFromMinutes(slot.end),
-    location: null,
-    instructor: null,
-    confidence: 1,
   });
   openDialog(index, { isNew: true });
 });
@@ -138,9 +141,6 @@ courseForm.addEventListener("submit", (event) => {
     day_of_week: dayInput.value,
     start_time: startInput.value,
     end_time: endInput.value,
-    location: locationInput.value.trim() || null,
-    instructor: instructorInput.value.trim() || null,
-    confidence: 1,
   });
 
   if (hasCourseConflict(nextCourse, editingIndex)) {
@@ -302,12 +302,14 @@ function renderCourseBlock(course, index) {
     >
       <strong>${escapeHtml(course.course_name || "새 수업")}</strong>
       <span>${escapeHtml(course.start_time)}-${escapeHtml(course.end_time)}</span>
-      ${course.location ? `<small>${escapeHtml(course.location)}</small>` : ""}
     </article>
   `;
 }
 
 function handleLanePointerDown(event) {
+  if (event.button !== 0) {
+    return;
+  }
   if (event.target.closest(".course-block")) {
     return;
   }
@@ -338,9 +340,6 @@ function handleLanePointerDown(event) {
       day_of_week: lane.dataset.day,
       start_time: timeFromMinutes(startMinute),
       end_time: timeFromMinutes(endMinute),
-      location: null,
-      instructor: null,
-      confidence: 1,
     }, { rejectConflict: true });
     if (index === null) {
       setEditorStatus("해당 시간에는 이미 수업이 있습니다. 빈 시간대를 선택하세요.", "error");
@@ -354,6 +353,9 @@ function handleLanePointerDown(event) {
 }
 
 function handleBlockPointerDown(event) {
+  if (event.button !== 0) {
+    return;
+  }
   event.preventDefault();
   const block = event.currentTarget;
   const index = Number(block.dataset.index);
@@ -421,6 +423,51 @@ function handleBlockPointerDown(event) {
   document.addEventListener("pointerup", onUp);
 }
 
+function handleBoardPanPointerDown(event) {
+  if (event.button !== 1) {
+    return;
+  }
+
+  event.preventDefault();
+  boardPanState = {
+    pointerId: event.pointerId,
+    startX: event.clientX,
+    startY: event.clientY,
+    scrollLeft: scheduleBoard.scrollLeft,
+    scrollTop: scheduleBoard.scrollTop,
+  };
+  scheduleBoard.classList.add("panning");
+  scheduleBoard.setPointerCapture(event.pointerId);
+  scheduleBoard.addEventListener("pointermove", handleBoardPanPointerMove);
+  scheduleBoard.addEventListener("pointerup", endBoardPan);
+  scheduleBoard.addEventListener("pointercancel", endBoardPan);
+}
+
+function handleBoardPanPointerMove(event) {
+  if (!boardPanState || event.pointerId !== boardPanState.pointerId) {
+    return;
+  }
+
+  event.preventDefault();
+  scheduleBoard.scrollLeft = boardPanState.scrollLeft - (event.clientX - boardPanState.startX);
+  scheduleBoard.scrollTop = boardPanState.scrollTop - (event.clientY - boardPanState.startY);
+}
+
+function endBoardPan(event) {
+  if (!boardPanState || event.pointerId !== boardPanState.pointerId) {
+    return;
+  }
+
+  if (scheduleBoard.hasPointerCapture(event.pointerId)) {
+    scheduleBoard.releasePointerCapture(event.pointerId);
+  }
+  boardPanState = null;
+  scheduleBoard.classList.remove("panning");
+  scheduleBoard.removeEventListener("pointermove", handleBoardPanPointerMove);
+  scheduleBoard.removeEventListener("pointerup", endBoardPan);
+  scheduleBoard.removeEventListener("pointercancel", endBoardPan);
+}
+
 function updateSelection(selection, start, end) {
   const clippedStart = clamp(start, BOARD_START, BOARD_END - SNAP_MINUTES);
   const clippedEnd = clamp(end, clippedStart + SNAP_MINUTES, BOARD_END);
@@ -448,8 +495,6 @@ function openDialog(index, options = {}) {
   dayInput.value = course.day_of_week || "MON";
   startInput.value = course.start_time || "09:00";
   endInput.value = course.end_time || "10:00";
-  locationInput.value = course.location || "";
-  instructorInput.value = course.instructor || "";
   courseDialog.hidden = false;
   courseNameInput.focus();
 }
@@ -480,9 +525,6 @@ function normalizeCourse(course) {
     day_of_week: DAYS.some(([day]) => day === course.day_of_week) ? course.day_of_week : "MON",
     start_time: start,
     end_time: end > start ? end : timeFromMinutes(minutesFromTime(start) + 60),
-    location: course.location || null,
-    instructor: course.instructor || null,
-    confidence: Number.isFinite(course.confidence) ? course.confidence : 1,
   };
 }
 

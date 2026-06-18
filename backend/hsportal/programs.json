@@ -4,7 +4,7 @@
     "schema_version": "hsportal_programs_v2",
     "base_url": "https://hsportal.hansung.ac.kr",
     "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
-    "crawled_at": "2026-06-18T15:06:24+09:00",
+    "crawled_at": "2026-06-18T23:31:58+09:00",
     "filter": {
       "status": "wait",
       "label": "접수(대기)중",
@@ -74,7 +74,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 65
+        "hits": 67
       },
       "flags": {
         "is_talent_certified": false,
@@ -117,7 +117,7 @@
           "size_text": "198.20KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13915",
@@ -162,7 +162,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 226
+        "hits": 249
       },
       "flags": {
         "is_talent_certified": true,
@@ -223,7 +223,7 @@
           "size_text": "1.03MB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13906",
@@ -268,7 +268,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 420
+        "hits": 424
       },
       "flags": {
         "is_talent_certified": false,
@@ -323,7 +323,7 @@
           "size_text": "72.19KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13922",
@@ -353,17 +353,17 @@
         "department": "글로컬협력처 글로벌원스톱센터"
       },
       "participants": {
-        "current": 0,
+        "current": 4,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
       },
       "media": {
-        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781760191",
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781767657",
         "content_images": []
       },
       "metrics": {
-        "hits": 415
+        "hits": 433
       },
       "flags": {
         "is_talent_certified": false,
@@ -459,7 +459,7 @@
           "size_text": "467.79KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13790",
@@ -519,7 +519,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 920
+        "hits": 942
       },
       "flags": {
         "is_talent_certified": false,
@@ -574,7 +574,7 @@
           "size_text": "463.88KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13917",
@@ -604,7 +604,7 @@
         "department": "상상력교양대학 기초교양학부"
       },
       "participants": {
-        "current": 25,
+        "current": 27,
         "capacity": 40,
         "max_apply": null,
         "is_unlimited": false
@@ -614,7 +614,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 365
+        "hits": 379
       },
       "flags": {
         "is_talent_certified": false,
@@ -661,7 +661,7 @@
           "size_text": "1.67MB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13921",
@@ -706,7 +706,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 540
+        "hits": 573
       },
       "flags": {
         "is_talent_certified": false,
@@ -752,7 +752,7 @@
           "size_text": "440.75KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13926",
@@ -792,7 +792,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 142
+        "hits": 152
       },
       "flags": {
         "is_talent_certified": false,
@@ -847,7 +847,7 @@
           "size_text": "43.71KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13914",
@@ -856,10 +856,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-3",
+        "badge": "D-2",
         "accepting": true
       },
-      "points": 3,
+      "points": 2,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-08T09:00:00+09:00",
@@ -877,7 +877,7 @@
         "department": "상상력교양대학 기초교양학부"
       },
       "participants": {
-        "current": 37,
+        "current": 38,
         "capacity": 50,
         "max_apply": null,
         "is_unlimited": false
@@ -887,7 +887,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1371
+        "hits": 1405
       },
       "flags": {
         "is_talent_certified": false,
@@ -936,7 +936,7 @@
           "size_text": "330.51KB"
         }
       ],
-      "last_seen_at": "2026-06-18T15:06:24+09:00"
+      "last_seen_at": "2026-06-18T23:31:58+09:00"
     },
     {
       "id": "13930",

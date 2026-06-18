@@ -27,6 +27,7 @@ class LLMService:
         settings = get_llm_settings()
         self._client = client or get_qwen_client()
         self._model = model or settings.qwen_model
+        self._log_api_response = settings.app_env.strip().lower() == "dev"
         if not self._model:
             raise LLMConfigurationError("QWEN_MODEL is not configured.")
 
@@ -52,6 +53,13 @@ class LLMService:
             raise LLMRequestError(
                 f"LLM API request failed for task '{task.name}': {error_detail}"
             ) from exc
+        if self._log_api_response:
+            logger.info(
+                "LLM API response. task=%s model=%s response=%s",
+                task.name,
+                self._model,
+                _serialize_response(response),
+            )
 
         content = response.choices[0].message.content if response.choices else None
         try:
@@ -163,6 +171,44 @@ def _preview(value: Any) -> str:
     if len(text) <= LOG_PREVIEW_LIMIT:
         return text
     return f"{text[:LOG_PREVIEW_LIMIT]}...(truncated)"
+
+
+def _serialize_response(response: Any) -> str:
+    if hasattr(response, "model_dump_json"):
+        try:
+            return response.model_dump_json(indent=2)
+        except TypeError:
+            return response.model_dump_json()
+        except Exception:
+            pass
+
+    if hasattr(response, "model_dump"):
+        try:
+            value = response.model_dump(mode="json")
+        except TypeError:
+            value = response.model_dump()
+        except Exception:
+            value = _to_jsonable(response)
+    else:
+        value = _to_jsonable(response)
+
+    return json.dumps(value, ensure_ascii=False, indent=2, default=str)
+
+
+def _to_jsonable(value: Any) -> Any:
+    if value is None or isinstance(value, str | int | float | bool):
+        return value
+    if isinstance(value, dict):
+        return {str(key): _to_jsonable(item) for key, item in value.items()}
+    if isinstance(value, list | tuple):
+        return [_to_jsonable(item) for item in value]
+    if hasattr(value, "__dict__"):
+        return {
+            key: _to_jsonable(item)
+            for key, item in vars(value).items()
+            if not key.startswith("_")
+        }
+    return str(value)
 
 
 def _api_error_detail(exc: APIError) -> str:
