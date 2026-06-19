@@ -4,7 +4,7 @@
     "schema_version": "hsportal_programs_v2",
     "base_url": "https://hsportal.hansung.ac.kr",
     "list_url": "https://hsportal.hansung.ac.kr/ko/program/all/list/all/1?status=wait&sort=date",
-    "crawled_at": "2026-06-19T02:17:24+09:00",
+    "crawled_at": "2026-06-19T14:06:38+09:00",
     "filter": {
       "status": "wait",
       "label": "접수(대기)중",
@@ -15,7 +15,7 @@
       ]
     },
     "counts": {
-      "listed": 30,
+      "listed": 29,
       "saved": 28,
       "pages": 3
     },
@@ -74,7 +74,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 67
+        "hits": 70
       },
       "flags": {
         "is_talent_certified": false,
@@ -117,7 +117,7 @@
           "size_text": "198.20KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13915",
@@ -152,7 +152,7 @@
         "department": "학생진로취업처 학생생활상담센터"
       },
       "participants": {
-        "current": 10,
+        "current": 11,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -162,7 +162,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 252
+        "hits": 270
       },
       "flags": {
         "is_talent_certified": true,
@@ -223,7 +223,7 @@
           "size_text": "1.03MB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13906",
@@ -268,7 +268,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 427
+        "hits": 434
       },
       "flags": {
         "is_talent_certified": false,
@@ -323,7 +323,7 @@
           "size_text": "72.19KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13922",
@@ -332,10 +332,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-4",
+        "badge": "D-3",
         "accepting": true
       },
-      "points": 4,
+      "points": 3,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T09:30:00+09:00",
@@ -353,17 +353,17 @@
         "department": "글로컬협력처 글로벌원스톱센터"
       },
       "participants": {
-        "current": 4,
+        "current": 5,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
       },
       "media": {
-        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781767657",
+        "cover_image_url": "https://hsportal.hansung.ac.kr/attachment/view/85297/cover.jpg?ts=1781832552",
         "content_images": []
       },
       "metrics": {
-        "hits": 439
+        "hits": 456
       },
       "flags": {
         "is_talent_certified": false,
@@ -459,7 +459,7 @@
           "size_text": "467.79KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13790",
@@ -468,10 +468,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-3",
+        "badge": "D-2",
         "accepting": true
       },
-      "points": 3,
+      "points": 2,
       "type": "개인",
       "application_period": {
         "start_at": "2026-05-18T09:00:00+09:00",
@@ -519,7 +519,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 946
+        "hits": 960
       },
       "flags": {
         "is_talent_certified": false,
@@ -574,7 +574,7 @@
           "size_text": "463.88KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13917",
@@ -614,7 +614,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 379
+        "hits": 391
       },
       "flags": {
         "is_talent_certified": false,
@@ -661,7 +661,7 @@
           "size_text": "1.67MB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13921",
@@ -706,7 +706,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 579
+        "hits": 597
       },
       "flags": {
         "is_talent_certified": false,
@@ -752,7 +752,7 @@
           "size_text": "440.75KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13926",
@@ -761,10 +761,10 @@
       "status": {
         "code": "open",
         "label": "접수중",
-        "badge": "D-7",
+        "badge": "D-6",
         "accepting": true
       },
-      "points": 7,
+      "points": 6,
       "type": "개인",
       "application_period": {
         "start_at": "2026-06-12T09:00:00+09:00",
@@ -782,7 +782,7 @@
         "department": "교육혁신처 교수학습센터"
       },
       "participants": {
-        "current": 10,
+        "current": 12,
         "capacity": null,
         "max_apply": null,
         "is_unlimited": true
@@ -792,7 +792,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 155
+        "hits": 168
       },
       "flags": {
         "is_talent_certified": false,
@@ -847,7 +847,7 @@
           "size_text": "43.71KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13914",
@@ -887,7 +887,7 @@
         "content_images": []
       },
       "metrics": {
-        "hits": 1411
+        "hits": 1446
       },
       "flags": {
         "is_talent_certified": false,
@@ -936,7 +936,7 @@
           "size_text": "330.51KB"
         }
       ],
-      "last_seen_at": "2026-06-19T02:17:24+09:00"
+      "last_seen_at": "2026-06-19T14:06:38+09:00"
     },
     {
       "id": "13930",

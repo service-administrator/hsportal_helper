@@ -18,7 +18,7 @@ def get_hsportal_info() -> dict[str, Any]:
 
 
 @router.get("/crawl-status")
-def get_crawl_status(request: Request) -> dict[str, str]:
+def get_crawl_status(request: Request) -> dict[str, Any]:
     return getattr(
         request.app.state,
         "hsportal_crawl_status",

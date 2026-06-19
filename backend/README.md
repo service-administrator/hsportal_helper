@@ -54,7 +54,7 @@ backend/
 
 ## HS Portal 데이터 관리
 
-HS Portal 크롤러는 `main.py`의 lifespan에서 백그라운드 task로 실행됩니다. 서버 시작을 오래 막지 않도록 `asyncio.to_thread()`로 동기 크롤러를 분리합니다.
+HS Portal 크롤러는 `main.py`의 lifespan에서 백그라운드 주기 task로 실행됩니다. 서버 시작을 오래 막지 않도록 `asyncio.to_thread()`로 동기 크롤러를 분리하며, 시작 직후 1회 실행한 뒤 `HSPORTAL_CRAWL_INTERVAL_HOURS` 설정값에 따라 반복 실행합니다.
 
 ### 수집 정책
 
