@@ -3,7 +3,7 @@
 .venv/
 recommendation_algorithm_explanation.html
 frontend/public/test/
-tests/
+/tests/
 __pycache__/
 *.py[cod]
 .pytest_cache/
