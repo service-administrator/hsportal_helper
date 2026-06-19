@@ -16,9 +16,7 @@
 - 시간표 이미지 업로드, 미리보기, 영역 크롭, VLM 분석
 - 추출된 시간표를 드래그 앤 드롭으로 수정하는 편집 화면
 - 추천 API 호출 후 프로그램 목록, 검색, 필터, 상세 모달 제공
-- 개발 환경 전용 JSON 직접 입력 및 `/test/` API 확인 화면
 - Qwen OpenAI-compatible Vision API 연동
-- pytest 기반 API, 추천 알고리즘, LLM 내부 처리 검증
 
 ## 프로젝트 구조
 
@@ -35,7 +33,7 @@
 │  └─ recommendation.py
 ├─ frontend/
 │  └─ public/
-│     └─ 메인, 시간표 편집, 추천 결과, 테스트용 정적 HTML/CSS/JS
+│     └─ 메인, 시간표 편집, 추천 결과 정적 HTML/CSS/JS
 ├─ llm/
 │  ├─ tasks/
 │  │  └─ 시간표 추출 task 정의
@@ -46,10 +44,8 @@
 │  └─ service.py
 ├─ util/
 │  └─ 로깅 설정과 이미지 전처리 공통 유틸리티
-├─ tests/
-│  └─ API, 추천 로직, LLM 내부 처리 테스트
-└─ recommendation_algorithm_explanation.html
-   └─ 추천 알고리즘 설명용 정적 문서
+└─ .env.example
+   └─ 실행 환경 변수 예시
 ```
 
 ## 디렉터리별 역할 분담
@@ -60,7 +56,14 @@
 | `frontend` | 사용자 화면, 업로드/크롭/편집/추천 결과 UI, 브라우저 상태 저장 | `backend` API |
 | `llm` | Qwen Vision API 호출, 이미지 payload 구성, JSON 응답 파싱/검증 | `backend.api.timetable`, `util` |
 | `util` | 앱 전역 로깅, 이미지 포맷 검사와 WebP 정규화 | `main.py`, `llm.media` |
-| `tests` | API와 내부 로직 회귀 테스트 | `backend`, `llm`, `util` |
+
+## 로컬 전용 파일
+
+다음 파일과 디렉터리는 개발 중 보조 자료로만 사용하며 `.gitignore`에 포함되어 저장소에 커밋하지 않습니다.
+
+- `frontend/public/test/`: API 수동 확인용 정적 화면
+- `tests/`: 로컬 회귀 테스트 파일
+- `recommendation_algorithm_explanation.html`: 추천 알고리즘 설명용 정적 문서
 
 ## 실행 흐름
 
@@ -189,7 +192,7 @@ copy .env.example .env
 python -m uvicorn main:app --reload
 ```
 
-브라우저에서 `http://127.0.0.1:8000`으로 접속합니다. 개발 확인용 화면은 `http://127.0.0.1:8000/test/`입니다.
+브라우저에서 `http://127.0.0.1:8000`으로 접속합니다.
 
 ## 데이터 저장
 
@@ -227,4 +230,4 @@ python -m ruff check .
 python -m pytest
 ```
 
-테스트는 실제 Qwen API를 호출하지 않도록 fake service와 monkeypatch를 사용합니다. 외부 API 키 없이도 대부분의 회귀 테스트를 실행할 수 있습니다.
+`tests/`는 로컬 전용 디렉터리입니다. 해당 디렉터리가 준비된 개발 환경에서는 실제 Qwen API를 호출하지 않도록 fake service와 monkeypatch를 사용해 대부분의 회귀 테스트를 실행할 수 있습니다.

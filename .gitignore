@@ -2,6 +2,8 @@
 .env.huggingface
 .venv/
 recommendation_algorithm_explanation.html
+frontend/public/test/
+tests/
 __pycache__/
 *.py[cod]
 .pytest_cache/
