@@ -22,17 +22,13 @@
 
 ## 시연 및 예시
 
-[![시연 영상 썸네일](docs/assets/demo-thumbnail.png)](docs/assets/시연영상.mp4)
-
-이미지를 클릭하면 시연 영상을 볼 수 있습니다.
+[시연 영상 보기](docs/assets/시연영상.mp4)
 
 ### 예시 시간표 이미지
 
-| 예시 1 | 예시 2 |
-| --- | --- |
-| ![시간표 예시 1](docs/assets/시간표_박민재.png) | ![시간표 예시 2](docs/assets/시간표_스크린샷.PNG) |
-| 예시 3 | 예시 4 |
-| ![시간표 예시 3](docs/assets/시간표_조민규.webp) | ![시간표 예시 4](docs/assets/시간표_채민준.webp) |
+| 예시 1 | 예시 2 | 예시 3 | 예시 4 |
+| --- | --- | --- | --- |
+| ![시간표 예시 1](docs/assets/시간표_박민재.png) | ![시간표 예시 2](docs/assets/시간표_스크린샷.PNG) | ![시간표 예시 3](docs/assets/시간표_조민규.webp) | ![시간표 예시 4](docs/assets/시간표_채민준.webp) |
 
 ## 프로젝트 구조
 
