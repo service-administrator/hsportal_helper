@@ -2,6 +2,8 @@
 
 [한성대학교 비교과 프로그램 사이트](https://hsportal.hansung.ac.kr/)의 비교과 프로그램 정보를 수집하고, 학생의 수업 시간표와 비교해 참여 가능성이 높은 프로그램을 추출하는 FastAPI 기반 웹 서비스입니다. 사용자는 시간표 이미지를 업로드하고, 서비스는 VLM으로 수업 정보를 JSON으로 추출한 뒤 편집 가능한 시간표 화면과 추천 결과 화면을 제공합니다.
 
+테스트 배포 페이지: [한성대학교 비교과 프로그램 도우미](https://hsportal-helper.onrender.com/)
+
 ## 핵심 목적
 
 - 시간표 이미지에서 수업명, 요일, 시작/종료 시간을 구조화합니다.
@@ -91,6 +93,7 @@
 
 - [API 명세](docs/api.md)
 - [추천 기준](docs/recommendation.md)
+- [Qwen VLM API 설정](docs/qwen-api.md)
 - [AI 프롬프트 사용 정리](docs/prompts.md)
 
 ## 설치
