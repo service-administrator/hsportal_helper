@@ -36,6 +36,10 @@ def select_text(node: Tag | BeautifulSoup, selector: str) -> str:
     return clean_text(selected.get_text(" ", strip=True)) if selected else ""
 
 
+def parse_html(html: str) -> BeautifulSoup:
+    return BeautifulSoup(html, "html.parser")
+
+
 def absolute_url(value: str | None) -> str | None:
     if not value:
         return None
@@ -80,7 +84,7 @@ def parse_page_total(soup: BeautifulSoup) -> int:
 
 
 def parse_list_page(html: str) -> dict[str, Any]:
-    soup = BeautifulSoup(html, "lxml")
+    soup = parse_html(html)
     return {
         "total_count": parse_total_count(soup),
         "page_total": parse_page_total(soup),
@@ -201,7 +205,7 @@ def parse_participants(text: str) -> dict[str, Any]:
 
 
 def parse_detail_page(html: str, fallback: dict[str, Any] | None = None) -> dict[str, Any]:
-    soup = BeautifulSoup(html, "lxml")
+    soup = parse_html(html)
     view = soup.select_one("[data-role='itemview']")
     fallback = fallback or {}
     program_id = str(view.get("data-pidx")) if view else str(fallback.get("id", ""))
