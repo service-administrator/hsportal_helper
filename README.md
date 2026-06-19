@@ -76,7 +76,7 @@
 └─ .env.example
 ```
 
-## 디렉터리별 역할 분담
+## 디렉터리별 기능
 
 | 디렉터리 | 주요 책임 | 직접 연동 대상 |
 | --- | --- | --- |
@@ -85,14 +85,6 @@
 | `llm` | Qwen Vision API 호출, 이미지 payload 구성, JSON 응답 파싱/검증 | `backend.api.timetable`, `util` |
 | `util` | 앱 전역 로깅, 이미지 포맷 검사와 WebP 정규화 | `main.py`, `llm.media` |
 | `docs` | API 명세, 추천 기준, AI 프롬프트 사용 정리 문서 | README, 제출 문서 |
-
-## 로컬 전용 파일
-
-다음 파일과 디렉터리는 개발 중 보조 자료로만 사용하며 `.gitignore`에 포함되어 저장소에 커밋하지 않습니다.
-
-- `frontend/public/test/`: API 수동 확인용 정적 화면
-- `tests/`: 로컬 회귀 테스트 파일
-- `recommendation_algorithm_explanation.html`: 추천 알고리즘 설명용 정적 문서
 
 ## 실행 흐름
 
