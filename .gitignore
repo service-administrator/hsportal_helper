@@ -8,3 +8,5 @@ __pycache__/
 .ruff_cache/
 uploads/
 backend/hsportal/programs.json
+*.pptx
+PPTX/

@@ -2,6 +2,7 @@ import asyncio
 import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager, suppress
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from time import perf_counter
 
@@ -21,19 +22,39 @@ FRONTEND_PUBLIC_DIR = BASE_DIR / "frontend" / "public"
 logger = logging.getLogger(__name__)
 
 
+def local_now_iso() -> str:
+    return datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
+
+
+def local_future_iso(seconds: float) -> str:
+    return (
+        datetime.now(timezone.utc).astimezone() + timedelta(seconds=seconds)
+    ).isoformat(timespec="seconds")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    settings = get_backend_settings()
     app.state.hsportal_crawl_status = {
         "status": "scheduled",
         "message": "HS Portal program data crawl is scheduled.",
+        "interval_hours": settings.hsportal_crawl_interval_hours,
     }
-    app.state.hsportal_crawler = HsportalCrawler()
+    app.state.hsportal_crawler = None
+    app.state.hsportal_crawl_stop_event = asyncio.Event()
     app.state.hsportal_crawl_task = asyncio.create_task(
-        prepare_hsportal_program_data(app, app.state.hsportal_crawler)
+        run_hsportal_crawl_loop(app, settings.hsportal_crawl_interval_hours)
     )
-    logger.info("HS Portal program data preparation scheduled in background.")
+    logger.info(
+        "HS Portal program data crawl loop scheduled in background. interval_hours=%s",
+        settings.hsportal_crawl_interval_hours,
+    )
 
     yield
+
+    stop_event: asyncio.Event | None = getattr(app.state, "hsportal_crawl_stop_event", None)
+    if stop_event:
+        stop_event.set()
 
     crawler: HsportalCrawler | None = getattr(app.state, "hsportal_crawler", None)
     if crawler:
@@ -51,10 +72,57 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
             logger.info("Cancelled pending HS Portal program data preparation task.")
 
 
-async def prepare_hsportal_program_data(app: FastAPI, crawler: HsportalCrawler) -> None:
+async def run_hsportal_crawl_loop(app: FastAPI, interval_hours: float) -> None:
+    interval_seconds = interval_hours * 60 * 60
+    stop_event: asyncio.Event = app.state.hsportal_crawl_stop_event
+    logger.info("[HS Portal] Scheduled crawl loop started.")
+
+    try:
+        while not stop_event.is_set():
+            crawler = HsportalCrawler()
+            app.state.hsportal_crawler = crawler
+            await prepare_hsportal_program_data(
+                app,
+                crawler,
+                interval_hours=interval_hours,
+            )
+
+            if stop_event.is_set() or crawler.stop_event.is_set():
+                break
+
+            next_run_at = local_future_iso(interval_seconds)
+            app.state.hsportal_crawl_status = {
+                **app.state.hsportal_crawl_status,
+                "next_run_at": next_run_at,
+                "interval_hours": interval_hours,
+            }
+            logger.info(
+                "[HS Portal] Next scheduled crawl will run at %s. interval_hours=%s",
+                next_run_at,
+                interval_hours,
+            )
+
+            try:
+                await asyncio.wait_for(stop_event.wait(), timeout=interval_seconds)
+            except asyncio.TimeoutError:
+                continue
+    finally:
+        app.state.hsportal_crawler = None
+        logger.info("[HS Portal] Scheduled crawl loop stopped.")
+
+
+async def prepare_hsportal_program_data(
+    app: FastAPI,
+    crawler: HsportalCrawler,
+    *,
+    interval_hours: float | None = None,
+) -> None:
+    started_at = local_now_iso()
     app.state.hsportal_crawl_status = {
         "status": "running",
         "message": "HS Portal program data crawl is running in background.",
+        "last_started_at": started_at,
+        "interval_hours": interval_hours,
     }
     try:
         logger.info("Preparing HS Portal program data in background.")
@@ -63,12 +131,18 @@ async def prepare_hsportal_program_data(app: FastAPI, crawler: HsportalCrawler) 
         app.state.hsportal_crawl_status = {
             "status": "cancelled",
             "message": "HS Portal program data crawl was cancelled.",
+            "last_started_at": started_at,
+            "last_finished_at": local_now_iso(),
+            "interval_hours": interval_hours,
         }
         raise
     except CrawlCancelled:
         app.state.hsportal_crawl_status = {
             "status": "cancelled",
             "message": "HS Portal program data crawl was cancelled.",
+            "last_started_at": started_at,
+            "last_finished_at": local_now_iso(),
+            "interval_hours": interval_hours,
         }
         logger.info("HS Portal program data crawl was cancelled.")
     except Exception:
@@ -76,18 +150,27 @@ async def prepare_hsportal_program_data(app: FastAPI, crawler: HsportalCrawler) 
             app.state.hsportal_crawl_status = {
                 "status": "cancelled",
                 "message": "HS Portal program data crawl was cancelled.",
+                "last_started_at": started_at,
+                "last_finished_at": local_now_iso(),
+                "interval_hours": interval_hours,
             }
             logger.info("HS Portal program data crawl stopped during shutdown.")
             return
         app.state.hsportal_crawl_status = {
             "status": "failed",
             "message": "Failed to prepare HS Portal program data.",
+            "last_started_at": started_at,
+            "last_finished_at": local_now_iso(),
+            "interval_hours": interval_hours,
         }
         logger.exception("Failed to prepare HS Portal program data.")
     else:
         app.state.hsportal_crawl_status = {
             "status": "ready",
             "message": "HS Portal program data is ready.",
+            "last_started_at": started_at,
+            "last_finished_at": local_now_iso(),
+            "interval_hours": interval_hours,
         }
         logger.info("HS Portal program data is ready.")
     finally:

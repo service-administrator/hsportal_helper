@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -7,6 +8,7 @@ class BackendSettings(BaseSettings):
     app_name: str = "hsportal-helper"
     app_env: str = "dev"
     log_level: str = "INFO"
+    hsportal_crawl_interval_hours: float = Field(default=1.0, gt=0)
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

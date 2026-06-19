@@ -12,7 +12,7 @@
 ## 현재 기능
 
 - FastAPI 단일 서버에서 API와 정적 프론트엔드를 함께 제공
-- 서버 시작 시 HS Portal 비교과 데이터 백그라운드 수집/갱신
+- 서버 시작 직후와 설정된 주기마다 HS Portal 비교과 데이터 백그라운드 수집/갱신
 - 시간표 이미지 업로드, 미리보기, 영역 크롭, VLM 분석
 - 추출된 시간표를 드래그 앤 드롭으로 수정하는 편집 화면
 - 추천 API 호출 후 프로그램 목록, 검색, 필터, 상세 모달 제공
@@ -65,14 +65,15 @@
 ## 실행 흐름
 
 1. `main.py`가 FastAPI 앱을 만들고 `/api` 라우터와 `frontend/public` 정적 파일을 등록합니다.
-2. 앱 lifespan 시작 시 `HsportalCrawler`가 백그라운드 task로 예약됩니다.
+2. 앱 lifespan 시작 시 HS Portal 크롤러 주기 실행 task가 백그라운드로 예약됩니다.
 3. 저장된 `backend/hsportal/programs.json`이 없거나 수집 정책이 바뀌면 전체 수집을 수행합니다.
 4. 저장 데이터가 있으면 목록 첫 페이지의 최신 프로그램 ID를 cursor와 비교해 필요한 경우에만 증분 수집합니다.
-5. 사용자가 시간표 이미지를 업로드하면 `/api/timetable/extract`가 이미지를 검증하고 WebP로 정규화합니다.
-6. `llm` 계층이 Qwen Vision API에 시간표 추출 task를 요청하고 `TimetableExtractionResult`로 검증합니다.
-7. 프론트엔드는 추출된 시간표를 `sessionStorage`에 저장하고 `/timetable/` 편집 화면으로 이동합니다.
-8. 편집이 끝나면 `/api/recommendations`가 수업 시간과 비교과 프로그램 일정을 비교합니다.
-9. 결과는 점수순으로 정렬되고 `/recommendations/` 화면에서 검색, 필터, 상세 확인이 가능합니다.
+5. 수집 1회가 끝나면 `HSPORTAL_CRAWL_INTERVAL_HOURS` 값만큼 대기한 뒤 같은 갱신 작업을 반복합니다.
+6. 사용자가 시간표 이미지를 업로드하면 `/api/timetable/extract`가 이미지를 검증하고 WebP로 정규화합니다.
+7. `llm` 계층이 Qwen Vision API에 시간표 추출 task를 요청하고 `TimetableExtractionResult`로 검증합니다.
+8. 프론트엔드는 추출된 시간표를 `sessionStorage`에 저장하고 `/timetable/` 편집 화면으로 이동합니다.
+9. 편집이 끝나면 `/api/recommendations`가 수업 시간과 비교과 프로그램 일정을 비교합니다.
+10. 결과는 점수순으로 정렬되고 `/recommendations/` 화면에서 검색, 필터, 상세 확인이 가능합니다.
 
 ## 주요 API
 
@@ -174,6 +175,7 @@ copy .env.example .env
 | `APP_NAME` | 서비스 이름 |
 | `APP_ENV` | `dev` 또는 `prod`; dev에서는 이미지/LLM 디버그 로그가 더 자세함 |
 | `LOG_LEVEL` | 콘솔 로그 레벨 |
+| `HSPORTAL_CRAWL_INTERVAL_HOURS` | HS Portal 비교과 데이터 갱신 주기. 시간 단위이며 기본값은 `1` |
 | `QWEN_API_KEY` | Alibaba Cloud Model Studio / DashScope API 키 |
 | `QWEN_BASE_URL` | OpenAI-compatible endpoint |
 | `QWEN_MODEL` | 사용할 Vision 모델명 |
@@ -191,7 +193,7 @@ python -m uvicorn main:app --reload
 
 ## 데이터 저장
 
-HS Portal 크롤링 결과는 실행 중 `backend/hsportal/programs.json`에 저장됩니다. 이 파일은 `.gitignore`에 포함되어 있으며, 저장소에 커밋하지 않습니다. 서버가 처음 실행되거나 수집 정책이 변경되면 다시 생성됩니다.
+HS Portal 크롤링 결과는 실행 중 `backend/hsportal/programs.json`에 저장됩니다. 이 파일은 `.gitignore`에 포함되어 있으며, 저장소에 커밋하지 않습니다. 서버가 처음 실행되거나 수집 정책이 변경되면 다시 생성되고, 이후에는 `HSPORTAL_CRAWL_INTERVAL_HOURS` 주기마다 cursor를 확인해 필요한 데이터만 갱신합니다.
 
 저장 JSON의 핵심 구조는 다음과 같습니다.
 
